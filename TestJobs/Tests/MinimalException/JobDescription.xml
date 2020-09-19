@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Minimal Exception</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS MinimalException]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>Exception</Reference>
+    <Parameters>Minimal Exception</Parameters>
+  </JobSnapshotTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>MinimalException</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:Exception</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>MinimalException:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: MinimalException %Event% von %Source% in %Sender%|%Exception%|Fehlermeldung</Parameters>
+        </SubWorker>
+        <!--SubWorker>
+          <PhysicalPath>JobManager.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[DAPI Fehler|%Timestamp%: Check_DAPI_Berlin_Job %Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
+          </Parameters>
+        </SubWorker-->
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

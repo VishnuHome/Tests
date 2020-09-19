@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEvent Cascade</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TopTrue & (MiddleTrue &(BottomFlipFlop & @BOOL.True))]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:5|S:10</Parameters>
+    </Trigger>
+  </Triggers>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|AnyLogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <!--JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger-->
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TopTrue</LogicalName>
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <Parameters>2000</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>MiddleTrue</LogicalName>
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <Parameters>2000</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>BottomFlipFlop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+      <Logger>
+        <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+        <Parameters>False</Parameters>
+      </Logger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Check TreeEvent Cascade:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Ereignisanzeige</Parameters>
+          <!--Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:1|S:5</Parameters>
+          </Trigger-->
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>JobManager.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[Server Fehler|%Timestamp%: %MachineName% Check Tree Event Cascade#%Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

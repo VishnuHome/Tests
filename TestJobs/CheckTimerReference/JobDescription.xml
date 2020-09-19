@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Timer Reference</LogicalName>
+  <LogicalExpression>
+    <![CDATA[CheckTimerReference_1_Job & CheckTimerReference_2_Job]]>
+  </LogicalExpression>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:10</Parameters>
+    </Trigger>
+  </Triggers>
+  <!--Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers-->
+  <!--JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger-->
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckTimerReference_1_Job</LogicalName>
+      <PhysicalPath>CheckTimerReference_1_Job.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckTimerReference_2_Job</LogicalName>
+      <PhysicalPath>CheckTimerReference_2_Job.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

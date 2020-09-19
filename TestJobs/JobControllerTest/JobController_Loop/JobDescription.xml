@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Root</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Gruppe_1 & Gruppe_2 | Knoten_X]]>
+  </LogicalExpression>
+  <!--IsControlled>true</IsControlled-->
+  <!--InitNodes>true</InitNodes-->
+  <TriggeredRunDelay>2000</TriggeredRunDelay>
+  <JobTrigger>
+    <!--PhysicalPath>TimerTrigger.dll</PhysicalPath>
+    <Parameters>MS:1000|MS:15000</Parameters-->
+    <Reference>True</Reference>
+    <Parameters>Knoten_2.2</Parameters>
+  </JobTrigger>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>Gruppe_1</LogicalName>
+      <PhysicalPath>Gruppe_1.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Gruppe_2</LogicalName>
+      <PhysicalPath>Gruppe_2.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Knoten_X</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False||Knoten_X-Result</Parameters>
+      <Trigger>
+        <Reference>True</Reference>
+        <Parameters>Knoten_2.2</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

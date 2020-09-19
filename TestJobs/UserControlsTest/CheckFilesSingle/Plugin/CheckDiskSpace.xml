@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CheckDiskSpace</name>
+    </assembly>
+    <members>
+        <member name="T:CheckDiskSpace.CheckDiskSpace">
+             <summary>
+             Prüft, ob bestimmte Server auf Ping reagieren.
+             </summary>
+             <remarks>
+             File: CheckDiskSpace.cs
+             Autor: Erik Nagel
+            
+             05.04.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="E:CheckDiskSpace.CheckDiskSpace.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungs-Fortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.CheckDiskSpace.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:CheckDiskSpace.CheckDiskSpace.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der (normalerweise externe) Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Share oder Laufwerksbuchstabe | minimaler-Plattenplatz(in MByte) [|Timeout [Retries]]</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="T:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject">
+             <summary>
+             Klasse zur Demonstration der Auflösung von komplexen
+             Return-Objects in einem dynamisch geladenen UserNodeControl.
+             </summary>
+             <remarks>
+             File: ComplexServerReturnObject.cs
+             Autor: Erik Nagel
+            
+             21.12.2014 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Server">
+            <summary>
+            Name des Servers, der angepingt werden soll.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.DriveLetter">
+            <summary>
+            Laufwerksbuchstabe.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.CriticalFreeMBytesAvailable">
+            <summary>
+            Noch verfügbarer Plattenplatz in MBytes, ab dem gewarnt wird.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.TotalNumberOfMBytes">
+            <summary>
+            Gesamter Plattenplatz in MBytes.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.FreeMBytesAvailable">
+            <summary>
+            Verfügbarer Plattenplatz in MBytes.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.SQLServerAccess">
+            <summary>
+            True wenn der Plattenplatz mit Hilfe einer SQL-Server-Instanz ermittelt wurde.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Timeout">
+            <summary>
+            Timeout für einen einzelnen Ping.
+            </summary>
+        </member>
+        <member name="P:CheckDiskSpace.ComplexCheckDiskSpaceReturnObject.Retries">
+            <summary>
+            Anzahl Ping-Versuche, bevor ein Fehler erzeugt wird.
+            </summary>
+        </member>
+    </members>
+</doc>

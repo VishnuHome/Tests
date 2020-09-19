@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Show Ref Ref</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TrueChecker & #ShowRefCheckTreeEventTriggerSnapshot]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Show Ref Ref</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueChecker</LogicalName>
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <Parameters>2000</Parameters>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:5|S:10</Parameters>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#ShowRefCheckTreeEventTriggerSnapshot</LogicalName>
+      <PhysicalPath>ShowRefCheckTreeEventTriggerSnapshot\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <Parameters>ShowRefCheckTreeEventTriggerSnapshot\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

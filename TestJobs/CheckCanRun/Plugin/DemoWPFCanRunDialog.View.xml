@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DemoWPFCanRunDialog.View</name>
+    </assembly>
+    <members>
+        <member name="T:Behaviors.WindowBehaviours">
+             <summary>
+             Bindet das Close-X des Windows an ein Command.
+             </summary>
+             <remarks>
+             File: WindowBehaviours.cs
+             Autor: Erik Nagel
+            
+             18.04.2015 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="F:Behaviors.WindowBehaviours.WindowClosedCommandProperty">
+            <summary>
+            Attached Property für das Closed-Event eines Windows.
+            </summary>
+        </member>
+        <member name="M:Behaviors.WindowBehaviours.SetWindowClosedCommand(System.Windows.UIElement,System.Windows.Input.ICommand)">
+            <summary>
+            WPF-Setter für das WindowClosedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <param name="value">Das Command.</param>
+        </member>
+        <member name="M:Behaviors.WindowBehaviours.GetWindowClosedCommand(System.Windows.UIElement)">
+            <summary>
+            WPF-Getter für das WindowClosedCommand.
+            </summary>
+            <param name="obj">Das besitzende Control.</param>
+            <returns>Das Command.</returns>
+        </member>
+        <member name="M:Behaviors.WindowBehaviours.WindowClosedEventHandler(System.Object,System.EventArgs)">
+            <summary>
+            Event-Handler für das Expanded-Event des Expanders.
+            </summary>
+            <param name="sender">Das Command.</param>
+            <param name="e">Argumente.</param>
+        </member>
+        <member name="T:DemoWPFCanRunDialog.View.MainWindow">
+            <summary>
+            Interaktionslogik für MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:DemoWPFCanRunDialog.View.MainWindow.#ctor">
+            <summary>
+            Konstruktor des Haupt-Fensters.
+            </summary>
+        </member>
+        <member name="M:DemoWPFCanRunDialog.View.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:DemoWPFCanRunDialog.View.ValueConverter.NullableBoolToBrush">
+             <summary>
+             ValueConverter, wandelt einen nullable bool in Farben:
+             null: gelb, true: grün, false: rot.
+             </summary>
+             <remarks>
+             File: NullableBoolToBrush.cs
+             Autor: Erik Nagel
+            
+             05.01.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:DemoWPFCanRunDialog.View.ValueConverter.NullableBoolToBrush.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt einen nullable bool in Farben (SolidColorBrush):
+            null: gelb, true: grün, false: rot.
+            </summary>
+            <param name="value">Nullable-Bool</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>SolidColorBrush (gelb, grün, rot)</returns>
+        </member>
+        <member name="M:DemoWPFCanRunDialog.View.ValueConverter.NullableBoolToBrush.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Wandelt die Farben gelb, grün, rot (SolidColorBrush)
+            in null, true, false.
+            </summary>
+            <param name="value">SolidColorBrush (gelb, grün, rot)</param>
+            <param name="targetType">Brush-Typ</param>
+            <param name="parameter">Konvertierparameter</param>
+            <param name="culture">Kultur</param>
+            <returns>Nullable-Bool</returns>
+        </member>
+    </members>
+</doc>

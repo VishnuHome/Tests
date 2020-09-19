@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Wrong False Exception</LogicalName>
+  <LogicalExpression>
+    <![CDATA[geplanteException & FalseChecker]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>geplanteException</LogicalName>
+      <PhysicalPath>ExceptionChecker.dll</PhysicalPath>
+      <Parameters>4000</Parameters>
+      <ThreadLocked>true</ThreadLocked>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|S:5</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>FalseChecker</LogicalName>
+      <PhysicalPath>FalseChecker.dll</PhysicalPath>
+      <Parameters>4000</Parameters>
+      <ThreadLocked>true</ThreadLocked>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:13|S:5</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Wrong False Exception:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: Wrong False Exception %Event% von %Source% in %Sender%|%Exception%|geplante Exception</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Wrong False Exception:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: Diese Meldung darf gar nicht auftreten!|Echter Fehler</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

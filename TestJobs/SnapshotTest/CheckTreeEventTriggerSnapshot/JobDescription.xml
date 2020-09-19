@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEventTrigger Snapshot</LogicalName>
+  <LogicalExpression>
+    <!--![CDATA[Datum & @Bool.true & flipflop]]-->
+    <![CDATA[IS flipflop]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <!--JobSnapshotTrigger>
+    <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+    <Parameters>S:10</Parameters>
+  </JobSnapshotTrigger-->
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Check TreeEventTrigger Snapshot</Parameters>
+  </JobSnapshotTrigger>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:5|S:11</Parameters>
+    </Trigger>
+  </Triggers>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <!--Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <Trigger>
+        <Reference>LogicalResultChanged|Exception</Reference>
+        <Parameters>Check TreeEventTrigger Snapshot</Parameters>
+      </Trigger>
+    </Checker-->
+    <Checker>
+      <LogicalName>flipflop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True:Exception:False:Null</Parameters>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|H:1</Parameters>
+      </Trigger-->
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <!--Worker>
+      <LogicalExpression>Check TreeEventTrigger Snapshot:AnyLogicalResultChanged|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>AnyLogicalResultChanged oder Exception in flipflop</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker-->
+    <!--Worker>
+      <LogicalExpression>flipflop:False|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>False oder Exception in flipflop</Parameters>
+          <Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger>
+        </SubWorker>
+      </SubWorkers>
+    </Worker-->
+  </Workers>
+</JobDescription>

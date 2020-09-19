@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>SubJob</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS TreeEventTriggerFlipFlopAbhaengig]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <StartCollapsed>false</StartCollapsed>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTreeEventTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

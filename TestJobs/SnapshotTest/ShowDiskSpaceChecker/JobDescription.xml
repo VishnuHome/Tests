@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>ShowRefDiskSpaceChecker</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TrueChecker & #DiskSpaceCheckerSnapshot]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>ShowRefDiskSpaceChecker</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueChecker</LogicalName>
+      <!--PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath-->
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <Parameters>2000</Parameters>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:5|S:10</Parameters>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#DiskSpaceCheckerSnapshot</LogicalName>
+      <PhysicalPath>..\CommonSnapshots\DiskSpaceChecker\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <Parameters>..\CommonSnapshots\DiskSpaceChecker\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

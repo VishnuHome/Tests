@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckAnyTreeEvent</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS SubJob1 | @true]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>CheckAnyTreeEvent</Parameters>
+  </JobSnapshotTrigger>
+  <JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>AnyLogicalResultChanged|Exception</Parameters>
+  </JobLogger>
+  <SubJobs>
+    <SubJob>
+      <LogicalName>SubJob1</LogicalName>
+      <LogicalExpression><![CDATA[IS Checker | Datum]]></LogicalExpression>
+      <Checkers type="Array">
+	      <Checker>
+	        <LogicalName>Checker</LogicalName>
+	        <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+	        <Parameters>Checker-Result</Parameters>
+	        <!--PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+	        <Parameters>False:True|10|Checker-Result</Parameters-->
+			    <!--Trigger>
+			      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+			      <Parameters>MS:5000</Parameters>
+			    </Trigger-->
+	      </Checker>
+        <Checker>
+  		    <LogicalName>Datum</LogicalName>
+		      <PhysicalPath>CheckDate.dll</PhysicalPath>
+		      <Trigger>
+		        <Reference>True|AnyLogicalResultChanged|Exception</Reference>
+		        <Parameters>CheckAnyTreeEvent</Parameters>
+		      </Trigger>
+			    <!--Trigger>
+			      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+			      <Parameters>MS:300</Parameters>
+			    </Trigger-->
+    		</Checker>
+      </Checkers>
+    </SubJob>
+  </SubJobs>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>CheckAnyTreeEvent:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|CheckAnyTreeEvent-Ereignisanzeige</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>SubJob1:AnyLogicalResultChanged</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|SubJob1-Ereignisanzeige</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

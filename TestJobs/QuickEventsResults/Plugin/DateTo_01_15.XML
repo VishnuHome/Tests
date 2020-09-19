@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DateTo_01_15</name>
+    </assembly>
+    <members>
+        <member name="T:DateTo_01_15.DateTo_01_15">
+             <summary>
+             Konvertiert ein übergebenes Datum in den 01. oder 15.
+             des Datumsmonats, je nach dem ob der Tag des Datums kleiner oder
+             größer-gleich 15 ist.
+             </summary>
+             <remarks>
+             File: DateTo_01_15.cas
+             Autor: Erik Nagel
+            
+             24.06.2013 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="M:DateTo_01_15.DateTo_01_15.ModifyValue(System.Object)">
+            <summary>
+            Konvertiert ein übergebenes Datum in den 01. oder 15.
+            des Datumsmonats, je nach dem ob der Tag des Datums kleiner oder
+            größer-gleich 15 ist.
+            </summary>
+            <param name="toConvert">Datum als DateTime.</param>
+            <returns>DateTime mit Tag 01 oder 15.</returns>
+        </member>
+    </members>
+</doc>

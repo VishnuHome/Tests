@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Worker Error to Ok</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS DialogChecker]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>DialogChecker</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>DialogChecker-Result</Parameters>
+        <!--Trigger>
+          <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+          <Parameters>S:25</Parameters>
+        </Trigger-->
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Check Worker Error to Ok:False|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:10</Parameters>
+          </Trigger>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>ShowJobConnectorTest</LogicalName>
+  <LogicalExpression>
+    <![CDATA[:#ShowJobConnectorTest]]>
+  </LogicalExpression>
+  <!--JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>JobConnectorTest</Parameters>
+  </JobSnapshotTrigger-->
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#ShowJobConnectorTest</LogicalName>
+      <PhysicalPath>MinimalJobConnector\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <!--Parameters>..\SnapshotTest\CommonSnapshots\MinimalJobConnector\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters-->
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

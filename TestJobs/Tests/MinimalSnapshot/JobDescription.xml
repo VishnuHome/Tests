@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>MinimalSubJob</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression>TrueChecker AND SubJob</LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueChecker</LogicalName>
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <Parameters>2000</Parameters>
+    </Checker>
+  </Checkers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>SubJob</LogicalName>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

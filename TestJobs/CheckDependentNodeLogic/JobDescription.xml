@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckDependentNodeLogic</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Checker >< Checker >< Checker >< Checker]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Checker</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result</Parameters>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>CheckDependentNodeLogic:True</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[%Timestamp%: Der Worker hat fälschlicherweise ausgelöst
+weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

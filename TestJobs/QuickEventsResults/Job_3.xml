@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Job_3</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Tag > @26 || Tag > @11 & Tag < @15 => Checker_3 > Datum)
+              & (Tag >= @15 & Tag <= @26 || Tag <= @11 => Checker_3 >= Datum_01_15)]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>true</StartCollapsed>
+  <!--JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger-->
+ <Checkers type="array">
+    <Checker>
+      <LogicalName>Checker_3</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker_3-Result</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+      <ThreadLocked>false</ThreadLocked>
+    </Checker>
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <ValueModifiers>
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </ValueModifier>
+    <ValueModifier>
+      <LogicalName>Datum_01_15</LogicalName>
+      <Reference>Datum</Reference>
+      <PhysicalPath>Plugin\DateTo_01_15.dll</PhysicalPath>
+      <Type>DateTime</Type>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </ValueModifier>
+  </ValueModifiers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Job_3:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: Job_3 %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[Test Fehler|%Timestamp%: Job_3 %Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
+          </Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Job_3:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <Parameters>%Timestamp%: Der Test-Job 'Job_3' ist auf 'false' gesprungen!|Test Fehler</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[Test Fehler|%Timestamp%: Der Test-Job 'Job_3' ist auf 'false' gesprungen!|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
+          </Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckAllTreeEventTrigger</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS CheckTreeEvents]]>
+  </LogicalExpression>
+  <SubJobs type="array">
+    <!--SubJob>
+      <LogicalName>CheckServers</LogicalName>
+      <PhysicalPath>..\CheckServers.zip</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+    </SubJob-->
+    <SubJob>
+      <LogicalName>CheckTreeEvents</LogicalName>
+      <PhysicalPath>..\CheckTreeEventTriggerWorkers</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

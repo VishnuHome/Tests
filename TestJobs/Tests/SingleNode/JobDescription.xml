@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Single Node Job</LogicalName>
+  <LogicalExpression>
+    <![CDATA[:SingleNode]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>SingleNode</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result</Parameters>
+    </Checker>
+    <!--Checker>
+      <LogicalName>SingleNode</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:10</Parameters>
+    </Checker-->    
+  </Checkers>
+</JobDescription>

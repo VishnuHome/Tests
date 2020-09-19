@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckTrueFalseNullExceptionDialog</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Checker1 & Checker2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+	<Checkers type="array">
+		<Checker>
+			<LogicalName>Checker1</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>Checker1-Result</Parameters>
+		</Checker>
+		<Checker>
+			<LogicalName>Checker2</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>Checker2-Result</Parameters>
+		</Checker>
+	</Checkers>
+</JobDescription>
