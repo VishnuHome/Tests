@@ -12,15 +12,15 @@
     </Trigger>
   </Triggers>
   <Loggers type="array">
-    <Logger>
+    <!--Logger>
       <LogicalName>FirstNamedLogger</LogicalName>
       <PhysicalPath>TextFileLogger.dll</PhysicalPath>
       <Parameters>LogicalResultChanged</Parameters>
-    </Logger>
+    </Logger-->
   </Loggers>
-  <JobLogger>
+  <!--JobLogger>
     <Reference>FirstNamedLogger</Reference>
-  </JobLogger>
+  </JobLogger-->
   <SubJobs type="array">
     <SubJob>
       <LogicalName>SubJob1</LogicalName>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
-  <LogicalName>SubJob1</LogicalName>
+  <LogicalName>SubJob2</LogicalName>
   <LogicalExpression>
-    <![CDATA[IS Checker1]]>
+    <![CDATA[Checker2 OR Checker3]]>
   </LogicalExpression>
   <BreakWithResult>false</BreakWithResult>
   <StartCollapsed>false</StartCollapsed>
@@ -11,9 +11,17 @@
   </JobLogger-->
   <Checkers type="array">
     <Checker>
-      <LogicalName>Checker1</LogicalName>
+      <LogicalName>Checker2</LogicalName>
       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
-      <Parameters>Null:True:False:Exception|10|Checker1-Result</Parameters>
+      <Parameters>Null:True:False:Exception|10|Checker2-Result</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>Checker3</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker3-Result</Parameters>
       <Trigger>
         <Reference>FirstNamedTimerTrigger</Reference>
       </Trigger>
@@ -21,11 +29,11 @@
   </Checkers>
   <Workers type="array">
     <Worker>
-      <LogicalExpression>SubJob1:Exception</LogicalExpression>
+      <LogicalExpression>SubJob2:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
           <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: SubJob1 %Event% von %Source% in %Sender%|%Exception%|SubJob1 Fehler</Parameters>
+          <Parameters>%Timestamp%: SubJob2mod %Event% von %Source% in %Sender%|%Exception%|SubJob2 Fehler</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
