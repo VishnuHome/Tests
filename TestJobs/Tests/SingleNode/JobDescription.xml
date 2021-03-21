@@ -5,15 +5,23 @@
     <![CDATA[:SingleNode]]>
   </LogicalExpression>
   <Checkers type="array">
-    <Checker>
+    <!--Checker>
       <LogicalName>SingleNode</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
       <Parameters>Checker-Result</Parameters>
-    </Checker>
-    <!--Checker>
+      <!-Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:5</Parameters>
+      </Trigger->
+    </Checker-->
+    <Checker>
       <LogicalName>SingleNode</LogicalName>
-      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-      <Parameters>S:10</Parameters>
-    </Checker-->    
+       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+       <Parameters>Null:True:False|0|SingleNode-Result</Parameters>
+       <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:5</Parameters>
+      </Trigger>
+    </Checker>    
   </Checkers>
 </JobDescription>
