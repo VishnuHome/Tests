@@ -18,10 +18,10 @@
   <Snapshots type="array">
     <Snapshot>
       <LogicalName>CheckDiskSpace</LogicalName>
-      <PhysicalPath>CheckDiskSpace\JobSnapshot.xml</PhysicalPath>
+      <PhysicalPath>CheckDiskSpaceTrueFalseFlip\JobSnapshot.xml</PhysicalPath>
       <Trigger>
         <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
-        <Parameters>CheckDiskSpace\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+        <Parameters>CheckDiskSpaceTrueFalseFlip\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
       </Trigger>
     </Snapshot>
   </Snapshots>
