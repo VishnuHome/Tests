@@ -102,13 +102,6 @@
             Übernimmt den aktuellen, spezifischen DataContext für Vishnu als IVishnuViewModel.
             </summary>
         </member>
-        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.Refresh(System.Windows.DependencyObject)">
-            <summary>
-            Sorgt im Kontext des aufrufenden Moduls durch das übergebene DependencyObject "obj"
-            für ein neues Rendern des Controls.
-            </summary>
-            <param name="obj">Das aufrufende DependencyObject selbst.</param>
-        </member>
         <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.InitializeComponent">
             <summary>
             InitializeComponent
