@@ -2,7 +2,7 @@
 <JobDescription>
   <LogicalName>Check Escalator</LogicalName>
   <LogicalExpression>
-    <![CDATA[IS DialogChecker]]>
+    <![CDATA[:DialogChecker]]>
   </LogicalExpression>
   <Checkers type="array">
 		<Checker>
@@ -24,13 +24,16 @@
           <Parameters Transport="File">
             <SubWorkers type="array">
               <SubWorker RunCounter="1">
+                <PhysicalPath>#quiet#</PhysicalPath>
+                <Parameters>Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Info</Parameters>
+              </SubWorker>
+              <SubWorker RunCounter="2">
                 <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 1 (Run 1)
-%Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Info</Parameters>
+                <Parameters>Stufe 1 (Run 2) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Info</Parameters>
               </SubWorker>
               <SubWorker RunCounter="3">
                 <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-                <Parameters>Stufe 2 (Run 3) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
+                <Parameters>Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
               </SubWorker>
             </SubWorkers>
           </Parameters>
@@ -60,7 +63,7 @@
           </Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-            <Parameters>S:10</Parameters>
+            <Parameters>S:15</Parameters>
           </Trigger>
         </SubWorker>
       </SubWorkers>
