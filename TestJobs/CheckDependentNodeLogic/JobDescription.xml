@@ -54,7 +54,7 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
           </Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-            <Parameters>S:30</Parameters>
+            <Parameters>MS:1</Parameters>
           </Trigger>
         </SubWorker>
       </SubWorkers>

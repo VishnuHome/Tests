@@ -27,12 +27,6 @@
           <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
           <Parameters>%Timestamp%: MinimalException %Event% von %Source% in %Sender%|%Exception%|Fehlermeldung</Parameters>
         </SubWorker>
-        <!--SubWorker>
-          <PhysicalPath>JobManager.exe</PhysicalPath>
-          <Parameters>
-            <![CDATA[DAPI Fehler|%Timestamp%: Check_DAPI_Berlin_Job %Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
-          </Parameters>
-        </SubWorker-->
       </SubWorkers>
     </Worker>
   </Workers>

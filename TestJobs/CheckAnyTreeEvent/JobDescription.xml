@@ -27,6 +27,10 @@
 			      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
 			      <Parameters>MS:5000</Parameters>
 			    </Trigger-->
+				  <Logger>
+				    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+				    <Parameters>LogicalResultChanged|Exception</Parameters>
+				  </Logger>
 	      </Checker>
         <Checker>
   		    <LogicalName>Datum</LogicalName>

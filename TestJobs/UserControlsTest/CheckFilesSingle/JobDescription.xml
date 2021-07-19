@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckFilesSingle</LogicalName>
-  <!--LogicalExpression>Test_Checker AND Test_Checker2</LogicalExpression-->
-  <LogicalExpression>IS Test_Checker</LogicalExpression>
+  <LogicalExpression>Test_Checker AND Test_Checker2</LogicalExpression>
   <SingleNodeUserControlPath>Plugin\SingleNodeUserControl_CheckFiles.dll</SingleNodeUserControlPath>
-  <StartCollapsed>true</StartCollapsed>
+  <StartCollapsed>false</StartCollapsed>
   <JobSnapshotTrigger>
     <Reference>AnyLogicalResultChanged|Exception</Reference>
     <Parameters>CheckFilesSingle</Parameters>
@@ -15,22 +14,23 @@
       <PhysicalPath>FileChecker.dll</PhysicalPath>
       <UserControlPath>Plugin\SingleNodeUserControl_CheckFiles.dll</UserControlPath>
       <Parameters>
-        <![CDATA[TRACE|d:\NetEti\private4\WPF\Eti\PluginProjects\FileChecker\FileCheckerDemo\TestFiles\.*\..+|<|S:15|Prüft, dass Tix-Files nicht älter als 15 Sekunden werden.]]>
+      	<![CDATA[COUNT|%JobDirectory%\TestFiles\.*\..+|<|4|Prüft, ob mehr als drei Testfiles vorhanden sind.]]>
       </Parameters>
-      <!--Parameters>COUNT|d:\NetEti\private4\WPF\Eti\PluginProjects\FileChecker\FileCheckerDemo\TestFiles\.*\..+|<|4|Prüft, ob mehr als drei Testfiles vorhanden sind.</Parameters-->
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
         <Parameters>S:5</Parameters>
       </Trigger>
     </Checker>
-    <!--Checker>
+    <Checker>
       <LogicalName>Test_Checker2</LogicalName>
       <PhysicalPath>FileChecker.dll</PhysicalPath>
-      <Parameters>TRACE|d:\NetEti\private4\WPF\Eti\PluginProjects\Projects\FileChecker\FileCheckerDemo\TestFiles\.*\.pdx|<|S:20|Prüft, dass Testfiles nicht älter als 20 Sekunden werden.</Parameters>
+      <Parameters>
+      	<![CDATA[TRACE|%JobDirectory%\TestFiles\.*\..+|<|S:20|Prüft, dass Testfiles nicht älter als 20 Sekunden werden.]]>
+      </Parameters>
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
         <Parameters>S:10</Parameters>
       </Trigger>
-    </Checker-->
+    </Checker>
   </Checkers>
 </JobDescription>
