@@ -2,7 +2,7 @@
 <JobDescription>
   <LogicalName>Check TreeEventTrigger</LogicalName>
   <LogicalExpression>
-    <![CDATA[TreeEventTriggerFlipFlopAbhaengig & flipflop]]>
+    <![CDATA[flipflop & TreeEventTriggerFlipFlopAbhaengig]]>
   </LogicalExpression>
   <BreakWithResult>false</BreakWithResult>
   <ThreadLocked>false</ThreadLocked>
