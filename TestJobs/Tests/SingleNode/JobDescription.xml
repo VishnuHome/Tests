@@ -17,7 +17,7 @@
     <Checker>
       <LogicalName>SingleNode</LogicalName>
        <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
-       <Parameters>Null:True:False:Exception|0|SingleNode-Result</Parameters>
+       <Parameters>Null:False:Exception:True|0|SingleNode-Result</Parameters>
        <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
         <Parameters>S:5</Parameters>

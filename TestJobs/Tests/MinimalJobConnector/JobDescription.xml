@@ -35,7 +35,7 @@
           <Parameters>True:False:Exception|5|SingleNode1-Result|2000</Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-            <Parameters>S:4|M:30</Parameters>
+            <Parameters>S:4|S:10</Parameters>
           </Trigger>
         </Checker>
       </Checkers>

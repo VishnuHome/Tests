@@ -2,7 +2,7 @@
 <JobDescription>
   <LogicalName>Check_TreeEventTrigger</LogicalName>
   <LogicalExpression>
-    <![CDATA[flipflop & TreeEventTriggerFlipFlopAbhaengig]]>
+    <![CDATA[flipflop & trueChecker]]>
   </LogicalExpression>
   <BreakWithResult>false</BreakWithResult>
   <ThreadLocked>false</ThreadLocked>
@@ -12,29 +12,15 @@
     <PhysicalPath>TextFileLogger.dll</PhysicalPath>
     <Parameters>AnyLogicalResultChanged|Exception</Parameters>
   </JobLogger-->
-  <JobSnapshotTrigger>
-    <Reference>|Exception|S:30</Reference>
-    <Parameters>Check_TreeEventTrigger</Parameters>
-  </JobSnapshotTrigger>
   <Checkers type="array">
     <Checker>
       <LogicalName>flipflop</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
       <Parameters>FlipFlop-Result</Parameters>
     </Checker>
-    <!--Checker>
-      <LogicalName>flipflop</LogicalName>
-      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
-      <Parameters>Null:True:False:Exception</Parameters>
-      <Trigger>
-        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-        <Parameters>S:10</Parameters>
-      </Trigger>
-    </Checker-->
     <Checker>
-      <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
-      <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
-      <!--Parameters>IsMirror</Parameters-->
+      <LogicalName>trueChecker</LogicalName>
+      <PhysicalPath>TrueChecker.dll</PhysicalPath>
       <Trigger>
         <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
         <Reference>LogicalResultChanged|Exception</Reference>
@@ -43,11 +29,11 @@
     </Checker>
     <!--Checker>
       <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
-      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
-      <Parameters>Null:True:False:Exception</Parameters>
+      <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+      <Parameters>IsMirror</Parameters>
       <Trigger>
         <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
-        <Reference>LogicalResultChanged|Exception|S:15</Reference>
+        <Reference>LogicalResultChanged|Exception</Reference>
         <Parameters>flipflop</Parameters>
       </Trigger>
     </Checker-->

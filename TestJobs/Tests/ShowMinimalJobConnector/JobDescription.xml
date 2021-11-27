@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
-  <LogicalName>ShowJobConnectorTest</LogicalName>
+  <LogicalName>ShowMinimalJobConnector</LogicalName>
   <LogicalExpression>
-    <![CDATA[:#ShowJobConnectorTest]]>
+    <![CDATA[:#MinimalJobConnector]]>
   </LogicalExpression>
   <!--JobSnapshotTrigger>
     <Reference>AnyLogicalResultChanged|Exception</Reference>
@@ -10,7 +10,7 @@
   </JobSnapshotTrigger-->
   <Snapshots type="array">
     <Snapshot>
-      <LogicalName>#ShowJobConnectorTest</LogicalName>
+      <LogicalName>#MinimalJobConnector</LogicalName>
       <PhysicalPath>MinimalJobConnector\JobSnapshot.xml</PhysicalPath>
       <StartCollapsed>true</StartCollapsed>
       <Trigger>
