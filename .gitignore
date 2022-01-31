@@ -13,7 +13,7 @@
 _Archiv/
 _Develop/
 _Mock/
-Snapshots
+**/Snapshots/
 ..bfg-report/
 
 Job_und_Snapshot_Pfade.txt
