@@ -32,10 +32,10 @@
           <LogicalName>SingleNode1</LogicalName>
           <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
           <!--Parameters>Exception:True:Null:False|5|SingleNode1-Result</Parameters-->
-          <Parameters>True:False:Exception|5|SingleNode1-Result|2000</Parameters>
+          <Parameters>True:False:Exception|5|SingleNode1-Result|500</Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-            <Parameters>S:4|S:10</Parameters>
+            <Parameters>S:4|S:5</Parameters>
           </Trigger>
         </Checker>
       </Checkers>
