@@ -57,7 +57,7 @@
       <SubWorkers type="array">
         <SubWorker>
           <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %MachineName% CheckServers %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Ereignis Information</Parameters>
+          <Parameters>%Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Ereignis Information</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
