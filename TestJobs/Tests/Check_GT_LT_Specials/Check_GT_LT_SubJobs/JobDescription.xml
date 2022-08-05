@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+	<LogicalName>Check_GT_LT_SubJobs</LogicalName>
+	<LogicalExpression>
+		<![CDATA[SubJob1 > SubJob2]]>
+	</LogicalExpression>
+	<SubJobs>
+		<SubJob>
+			<LogicalName>SubJob1</LogicalName>
+			<LogicalExpression>IS Node1</LogicalExpression>
+			<StartCollapsed>false</StartCollapsed>
+			<Checkers type="array">
+				<Checker>
+					<LogicalName>Node1</LogicalName>
+					<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+					<Parameters>Checker-Result</Parameters>
+				</Checker>
+			</Checkers>
+		</SubJob>
+		<SubJob>
+			<LogicalName>SubJob2</LogicalName>
+			<LogicalExpression>IS Node2</LogicalExpression>
+			<StartCollapsed>false</StartCollapsed>
+			<Checkers type="array">
+				<Checker>
+					<LogicalName>Node2</LogicalName>
+					<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+					<Parameters>Checker-Result</Parameters>
+				</Checker>
+			</Checkers>
+		</SubJob>
+	</SubJobs>
+</JobDescription>

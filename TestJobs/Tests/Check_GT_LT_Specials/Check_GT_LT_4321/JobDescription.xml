@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check_GT_LT_Bool</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Node1 > Node2 > Node3 > Node4]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Node1</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result4</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node2</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result3</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node3</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result2</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node4</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result1</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>
