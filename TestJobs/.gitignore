@@ -13,6 +13,7 @@
 _Archiv/
 _Develop/
 _Mock/
+Snapshots/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

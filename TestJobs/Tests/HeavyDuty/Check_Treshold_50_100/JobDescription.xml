@@ -19,512 +19,512 @@
     <Checker>
       <LogicalName>Node0</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node1</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node2</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node3</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node4</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node5</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node6</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node7</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node8</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node9</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     
     
     <Checker>
       <LogicalName>Node10</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node11</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node12</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node13</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node14</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node15</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node16</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node17</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node18</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node19</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node20</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node21</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node22</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node23</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node24</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node25</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node26</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node27</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node28</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node29</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node30</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node31</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node32</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node33</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node34</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node35</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node36</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node37</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node38</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node39</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node40</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node41</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node42</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node43</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node44</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node45</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node46</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node47</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node48</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node49</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node50</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node51</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node52</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node53</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node54</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node55</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node56</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node57</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node58</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node59</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node60</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node61</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node62</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node63</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node64</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node65</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node66</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node67</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node68</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node69</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node70</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node71</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node72</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node73</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node74</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node75</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node76</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node77</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node78</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node79</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node80</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node81</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node82</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node83</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node84</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node85</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node86</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node87</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node88</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node89</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
 
     <Checker>
       <LogicalName>Node90</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node91</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node92</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node93</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node94</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node95</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node96</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node97</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node98</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node99</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
 
     

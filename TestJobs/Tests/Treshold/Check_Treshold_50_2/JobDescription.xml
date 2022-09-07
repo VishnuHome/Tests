@@ -8,12 +8,12 @@
     <Checker>
       <LogicalName>Node0</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>true</Parameters>
     </Checker>
     <Checker>
       <LogicalName>Node1</LogicalName>
       <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-      <Parameters>Node-Result</Parameters>
+      <Parameters>false</Parameters>
     </Checker>
   </Checkers>
 </JobDescription>
