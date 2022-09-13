@@ -55,10 +55,12 @@
             Konstruktor.
             </summary>
         </member>
-        <member name="P:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.UserResultViewModel">
+        <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
             <summary>
-            Übernimmt den aktuellen, spezifischen DataContext für Vishnu als IVishnuViewModel.
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
             </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
         </member>
         <member name="M:SingleNodeUserControl_CheckServer.SingleNodeUserControl_CheckServer.Refresh(System.Windows.DependencyObject)">
             <summary>

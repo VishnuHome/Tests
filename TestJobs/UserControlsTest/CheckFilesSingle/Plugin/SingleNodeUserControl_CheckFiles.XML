@@ -48,10 +48,12 @@
             Konstruktor - hängt einen EventHandler in ContentRendered.
             </summary>
         </member>
-        <member name="P:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.UserResultViewModel">
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
             <summary>
-            Das ViewModell für das Result von FileChecker.
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
             </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
         </member>
         <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.InitializeComponent">
             <summary>

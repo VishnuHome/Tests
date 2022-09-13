@@ -97,10 +97,19 @@
             Konstruktor.
             </summary>
         </member>
-        <member name="P:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.UserResultViewModel">
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
             <summary>
-            Übernimmt den aktuellen, spezifischen DataContext für Vishnu als IVishnuViewModel.
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
             </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
         </member>
         <member name="M:SingleNodeUserControl_CheckDiskSpace.SingleNodeUserControl_CheckDiskSpace.InitializeComponent">
             <summary>
