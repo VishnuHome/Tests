@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Weather History</LogicalName>
+  <LogicalExpression>WeatherHistory AND Mondphase</LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>WeatherHistory</LogicalName>
+      <UserControlPath>Plugin\WeatherCheckerControl.dll</UserControlPath>
+      <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+      <Parameters>
+        <![CDATA[quiet|WeatherChecker.dll|erstellt Wettervorhersagen]]>
+      </Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>M:55</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>M:5</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <ValueModifiers>
+    <ValueModifier>
+      <LogicalName>Mondphase</LogicalName>
+      <UserControlPath>Plugin\SingleNodeUserControl_CheckMoonPhase.dll</UserControlPath>
+      <Reference>Datum</Reference>
+      <PhysicalPath>Plugin\DateToMoonage.dll</PhysicalPath>
+      <Type>Object</Type>
+    </ValueModifier>
+  </ValueModifiers>
+
+</JobDescription>
