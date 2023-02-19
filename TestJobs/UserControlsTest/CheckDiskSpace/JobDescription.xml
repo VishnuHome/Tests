@@ -13,7 +13,7 @@
     <Logger>
       <LogicalName>FirstNamedLogger</LogicalName>
       <PhysicalPath>TextFileLogger.dll</PhysicalPath>
-      <Parameters>Exception|LogicalResultChanged,%TempDirectory%\FNL.log</Parameters>
+			<Parameters>Exception|LogicalResultChanged,%TempDirectory%\FNL.log</Parameters>
     </Logger>
   </Loggers>
   <JobLogger>
