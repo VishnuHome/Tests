@@ -63,14 +63,9 @@
             </Checker>
             <Checker>
               <LogicalName>F</LogicalName>
-              <PhysicalPath>FalseChecker.dll</PhysicalPath>
-              <Parameters>2000</Parameters>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>False</Parameters>
             </Checker>
-            <!--Checker>
-              <LogicalName>F</LogicalName>
-              <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
-              <Parameters>F-Result</Parameters>
-            </Checker-->
           </Checkers>
           <ValueModifiers>
             <ValueModifier>
@@ -119,8 +114,8 @@
       <Checkers>
         <Checker>
           <LogicalName>F</LogicalName>
-          <PhysicalPath>FalseChecker.dll</PhysicalPath>
-          <Parameters>2000</Parameters>
+		      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+		      <Parameters>False</Parameters>
         </Checker>
       </Checkers>
       <SubJobs>
@@ -140,8 +135,8 @@
             </Checker>
             <Checker>
               <LogicalName>Y</LogicalName>
-              <PhysicalPath>FalseChecker.dll</PhysicalPath>
-              <Parameters>2000</Parameters>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>False</Parameters>
             </Checker>
           </Checkers>
           <Workers type="array">

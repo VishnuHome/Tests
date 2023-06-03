@@ -20,7 +20,8 @@
     </Checker>
     <Checker>
       <LogicalName>trueChecker</LogicalName>
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
       <Trigger>
         <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
         <Reference>LogicalResultChanged|Exception</Reference>

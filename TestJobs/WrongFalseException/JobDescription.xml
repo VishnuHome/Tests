@@ -11,8 +11,8 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>geplanteException</LogicalName>
-      <PhysicalPath>ExceptionChecker.dll</PhysicalPath>
-      <Parameters>4000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Exception</Parameters>
       <ThreadLocked>true</ThreadLocked>
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -21,8 +21,8 @@
     </Checker>
     <Checker>
       <LogicalName>FalseChecker</LogicalName>
-      <PhysicalPath>FalseChecker.dll</PhysicalPath>
-      <Parameters>4000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False</Parameters>
       <ThreadLocked>true</ThreadLocked>
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>

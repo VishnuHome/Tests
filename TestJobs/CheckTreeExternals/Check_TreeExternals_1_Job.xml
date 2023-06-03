@@ -12,8 +12,8 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>Check_TreeExternals_1</LogicalName>
-      <PhysicalPath>FalseChecker.dll</PhysicalPath>
-      <Parameters>2000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False</Parameters>
       <Trigger>
         <Reference>FirstNamedTimerTrigger</Reference>
       </Trigger>

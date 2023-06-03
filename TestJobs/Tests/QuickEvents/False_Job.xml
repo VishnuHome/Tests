@@ -13,9 +13,8 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>FalseJob</LogicalName>
-      <PhysicalPath>FalseChecker.dll</PhysicalPath>
-      <Parameters>4</Parameters>
-      <!--ThreadLocked>true</ThreadLocked-->
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False</Parameters>
       <Trigger>
         <Reference>FirstNamedTimerTrigger</Reference>
       </Trigger>

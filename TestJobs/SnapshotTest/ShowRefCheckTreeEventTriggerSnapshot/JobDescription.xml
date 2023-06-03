@@ -18,13 +18,8 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>TrueChecker</LogicalName>
-      <!--PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath-->
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
-      <Parameters>2000</Parameters>
-      <!--Trigger>
-        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-        <Parameters>S:5|S:10</Parameters>
-      </Trigger-->
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
     </Checker>
   </Checkers>
   <Snapshots type="array">

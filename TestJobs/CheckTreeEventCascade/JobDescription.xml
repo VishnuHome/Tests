@@ -28,13 +28,13 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>TopTrue</LogicalName>
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
-      <Parameters>2000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
     </Checker>
     <Checker>
       <LogicalName>MiddleTrue</LogicalName>
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
-      <Parameters>2000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
     </Checker>
     <Checker>
       <LogicalName>BottomFlipFlop</LogicalName>

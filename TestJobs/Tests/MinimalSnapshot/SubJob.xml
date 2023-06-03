@@ -14,7 +14,8 @@
     </Checker>
     <Checker>
       <LogicalName>SubJobTrueChecker</LogicalName>
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
     </Checker>
   </Checkers>
 </JobDescription>

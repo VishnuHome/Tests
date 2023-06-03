@@ -6,8 +6,8 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>TrueChecker</LogicalName>
-      <PhysicalPath>TrueChecker.dll</PhysicalPath>
-      <Parameters>2000</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
     </Checker>
   </Checkers>
   <Snapshots type="array">

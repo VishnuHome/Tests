@@ -44,7 +44,8 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
               <Checkers type="array">
                 <Checker>
                   <LogicalName>TrueChecker</LogicalName>
-                  <PhysicalPath>TrueChecker.dll</PhysicalPath>
+						      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+						      <Parameters>True</Parameters>
                   <Trigger>
                     <PhysicalPath>TimerTrigger.dll</PhysicalPath>
                     <Parameters>S:5</Parameters>
@@ -86,7 +87,8 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
                   <Checkers type="array">
                     <Checker>
                       <LogicalName>TrueChecker</LogicalName>
-                      <PhysicalPath>TrueChecker.dll</PhysicalPath>
+								      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+								      <Parameters>True</Parameters>
                       <Trigger>
                         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
                         <Parameters>S:5</Parameters>
@@ -132,7 +134,8 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
               <Checkers type="array">
                 <Checker>
                   <LogicalName>TrueChecker</LogicalName>
-                  <PhysicalPath>TrueChecker.dll</PhysicalPath>
+						      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+						      <Parameters>True</Parameters>
                   <Trigger>
                     <PhysicalPath>TimerTrigger.dll</PhysicalPath>
                     <Parameters>S:5</Parameters>
@@ -178,7 +181,8 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
           <Checkers type="array">
             <Checker>
               <LogicalName>TrueChecker</LogicalName>
-              <PhysicalPath>TrueChecker.dll</PhysicalPath>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>True</Parameters>
               <Trigger>
                 <PhysicalPath>TimerTrigger.dll</PhysicalPath>
                 <Parameters>S:5</Parameters>

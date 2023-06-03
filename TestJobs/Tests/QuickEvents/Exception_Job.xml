@@ -13,11 +13,12 @@
   <Checkers type="array">
     <Checker>
       <LogicalName>ExceptionJob</LogicalName>
-      <PhysicalPath>ExceptionChecker.dll</PhysicalPath>
-      <Parameters>4</Parameters>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Exception</Parameters>
       <ThreadLocked>true</ThreadLocked>
       <Trigger>
-        <Reference>FirstNamedTimerTrigger</Reference>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>MS:1000</Parameters>
       </Trigger>
     </Checker>
   </Checkers>
