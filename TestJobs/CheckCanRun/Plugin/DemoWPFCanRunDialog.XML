@@ -4,21 +4,6 @@
         <name>DemoWPFCanRunDialog</name>
     </assembly>
     <members>
-        <member name="T:DemoWPFCanRunDialog.DemoWPFCanRunDialog">
-            <summary>
-            Interaktionslogik für "App.xaml"
-            </summary>
-        </member>
-        <member name="M:DemoWPFCanRunDialog.DemoWPFCanRunDialog.CanRun(System.Object@,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
-            <summary>
-            Startet die Abfrage, ob der Knoten (Checker) gestartet werden kann
-            - wird von einem Knoten im LogicalTaskTree aufgerufen.
-            </summary>
-            <param name="parameters">Spezifische Aufrufparameter oder null.</param>
-            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
-            <param name="source">Auslösendes TreeEvent oder null.</param>
-            <returns>True, wenn der Knoten (Checker) gestartet werden darf.</returns>
-        </member>
         <member name="T:DemoWPFCanRunDialog.AppSettings">
              <summary>
              Holt Applikationseinstellungen aus verschiedenen Quellen:
@@ -42,21 +27,20 @@
             Holt alle Infos und stellt sie als Properties zur Verfügung.
             </summary>
         </member>
-        <member name="T:DemoWPFCanRunDialog.Properties.Resources">
+        <member name="T:DemoWPFCanRunDialog.DemoWPFCanRunDialog">
             <summary>
-              Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
+            Interaktionslogik für "App.xaml"
             </summary>
         </member>
-        <member name="P:DemoWPFCanRunDialog.Properties.Resources.ResourceManager">
+        <member name="M:DemoWPFCanRunDialog.DemoWPFCanRunDialog.CanRun(System.Object@,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
             <summary>
-              Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
+            Startet die Abfrage, ob der Knoten (Checker) gestartet werden kann
+            - wird von einem Knoten im LogicalTaskTree aufgerufen.
             </summary>
-        </member>
-        <member name="P:DemoWPFCanRunDialog.Properties.Resources.Culture">
-            <summary>
-              Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
-            </summary>
+            <param name="parameters">Spezifische Aufrufparameter oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+            <returns>True, wenn der Knoten (Checker) gestartet werden darf.</returns>
         </member>
     </members>
 </doc>

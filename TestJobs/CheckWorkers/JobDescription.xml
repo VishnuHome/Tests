@@ -24,8 +24,8 @@
       <LogicalExpression>CheckWorkers:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: CheckWorkers %Event% von %Source% in %Sender%|%Exception%|CheckWorkers Event</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: CheckWorkers %Event% von %Source% in %Sender%:#%Exception%" -Caption="Exception" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

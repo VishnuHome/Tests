@@ -4,62 +4,6 @@
         <name>SingleNodeUserControl_CheckFiles</name>
     </assembly>
     <members>
-        <member name="T:SingleNodeUserControl_CheckFiles.ObjectToObject">
-             <summary>
-             Funktion: Dummy ValueConverter für Debugging-Zwecke.
-             </summary>
-             <remarks>
-             File: NotEmptyToTrue.cs
-             Autor: Erik Nagel
-            
-             30.05.2013 Erik Nagel: erstellt
-             </remarks>
-        </member>
-        <member name="M:SingleNodeUserControl_CheckFiles.ObjectToObject.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Wandelt ein Object in ein Object.
-            </summary>
-            <param name="value">object</param>
-            <param name="targetType">object</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
-            <returns>True, wenn der String nicht leer ist.</returns>
-        </member>
-        <member name="M:SingleNodeUserControl_CheckFiles.ObjectToObject.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            Wandelt ein Object in ein Object.
-            </summary>
-            <param name="value">object</param>
-            <param name="targetType">object</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
-            <returns>Orientation (Horizontal, Vertical)</returns>
-        </member>
-        <member name="T:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles">
-            <summary>
-            Interaktionslogik für SingleNodeUserControl_CheckServer.xaml
-            </summary>
-            <summary>
-            SingleNodeUserControl_CheckFiles
-            </summary>
-        </member>
-        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.#ctor">
-            <summary>
-            Konstruktor - hängt einen EventHandler in ContentRendered.
-            </summary>
-        </member>
-        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
-            <summary>
-            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
-            </summary>
-            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
-            <returns></returns>
-        </member>
-        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
         <member name="T:UserNodeControls.ResultViewModel">
              <summary>
              Funktion: ViewModel für das Result eines bestimmten Checkers,
@@ -180,38 +124,30 @@
             des zugehörigen Vishnu-Knotens geändert hat.
             </summary>
         </member>
-        <member name="T:SingleNodeUserControl.PercentToBrush">
-             <summary>
-             Funktion: ValueConverter, wandelt einen Prozentwert (int: 0-n) in Farben:
-             0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
-             </summary>
-             <remarks>
-             File: PercentToBrush.cs
-             Autor: Erik Nagel
-            
-             28.12.2014 Erik Nagel: erstellt
-             </remarks>
-        </member>
-        <member name="M:SingleNodeUserControl.PercentToBrush.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="T:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles">
             <summary>
-            Wandelt einen Prozentwert (int: 0-n) in Farben:
-            0 - 99: rot, 100 - 700: rot-orange bis grün fließend, > 700: grün.
+            Interaktionslogik für SingleNodeUserControl_CheckServer.xaml
             </summary>
-            <param name="value">Prozentwert.</param>
-            <param name="targetType">Brush-Typ</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
-            <returns>SolidColorBrush (Farbe zwischen rot und Grün)</returns>
-        </member>
-        <member name="M:SingleNodeUserControl.PercentToBrush.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>
-            Wandelt eine Farbe (SolidColorBrush)
-            in einen Prozentwert (int).
+            SingleNodeUserControl_CheckFiles
             </summary>
-            <param name="value">SolidColorBrush</param>
-            <param name="targetType">Prozentwert (int)</param>
-            <param name="parameter">Konvertierparameter</param>
-            <param name="culture">Kultur</param>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
         </member>
     </members>
 </doc>
