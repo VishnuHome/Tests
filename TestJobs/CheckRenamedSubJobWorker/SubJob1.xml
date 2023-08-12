@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>SubJob1</LogicalName>
   <LogicalExpression>
@@ -24,8 +24,8 @@
       <LogicalExpression>SubJob1:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: SubJob1 %Event% von %Source% in %Sender%|%Exception%|SubJob1 Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: SubJob1 %Event% von %Source% in %Sender%#%Exception%" -Caption="SubJob1 Fehler" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

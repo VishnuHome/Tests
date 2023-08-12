@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>J0</LogicalName>
   <LogicalExpression>
@@ -38,7 +38,7 @@
               <LogicalExpression>J1:True</LogicalExpression>
               <SubWorkers type="array">
                 <SubWorker>
-                  <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
                   <Parameters>
                     <![CDATA[%Timestamp%: J1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig A und B unterschiedlich waren.|Vishnu Fehler]]>
                   </Parameters>
@@ -85,7 +85,7 @@
               <LogicalExpression>J2:False</LogicalExpression>
               <SubWorkers type="array">
                 <SubWorker>
-                  <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
                   <Parameters>
                     <![CDATA[%Timestamp%: J2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig B und D (und !F) gleich waren.|Vishnu Fehler]]>
                   </Parameters>
@@ -144,7 +144,7 @@
               <LogicalExpression>J4:True</LogicalExpression>
               <SubWorkers type="array">
                 <SubWorker>
-                  <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
                   <Parameters>
                     <![CDATA[%Timestamp%: J4 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig X und Y unterschiedlich waren.|Vishnu Fehler]]>
                   </Parameters>
@@ -161,7 +161,7 @@
       <LogicalExpression>J0:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
           <Parameters>
             <![CDATA[%Timestamp%: J0 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig J5 und J6 gleich waren.|Vishnu Fehler]]>
           </Parameters>

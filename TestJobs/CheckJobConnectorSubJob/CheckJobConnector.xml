@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckJobConnector</LogicalName>
   <LogicalExpression>
@@ -42,8 +42,8 @@
       <LogicalExpression>SubJob1:LogicalResultChanged|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Server Event</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Event" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -51,8 +51,8 @@
       <LogicalExpression>CheckJobConnector:LogicalResultChanged|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Server Event</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Event" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

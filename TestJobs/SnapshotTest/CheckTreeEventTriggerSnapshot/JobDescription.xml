@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Check TreeEventTrigger Snapshot</LogicalName>
   <LogicalExpression>
@@ -61,8 +61,8 @@
       <LogicalExpression>Check TreeEventTrigger Snapshot:AnyLogicalResultChanged|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>AnyLogicalResultChanged oder Exception in flipflop</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="AnyLogicalResultChanged oder Exception in flipflop" -Caption="Info"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker-->
@@ -70,8 +70,8 @@
       <LogicalExpression>flipflop:False|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>False oder Exception in flipflop</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="False oder Exception in flipflop" -Caption="Info"</Parameters>
           <Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>

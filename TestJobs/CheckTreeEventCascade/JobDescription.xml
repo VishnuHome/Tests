@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Check TreeEvent Cascade</LogicalName>
   <LogicalExpression>
@@ -54,8 +54,8 @@
       <LogicalExpression>Check TreeEvent Cascade:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|Ereignisanzeige</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Ereignisanzeige" -MessageNewLine=#</Parameters>
           <!--Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -64,9 +64,7 @@
         </SubWorker>
         <SubWorker>
           <PhysicalPath>MicroMailer.exe</PhysicalPath>
-          <Parameters>
-            <![CDATA[Server Fehler|%Timestamp%: %MachineName% Check Tree Event Cascade#%Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
-          </Parameters>
+          <Parameters><![CDATA[-Message="%Timestamp%: %MachineName% Check Tree Event Cascade#%Event% von %Source% in %Sender%#%Exception%" -Caption="Server Fehler" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@any.id" -MailRecipients="e.nagel@any-address.id"]]></Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

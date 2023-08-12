@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Check TreeEventTrigger Workers</LogicalName>
   <LogicalExpression>
@@ -56,8 +56,8 @@
       <LogicalExpression>flipflop:False|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Ereignis Information</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Ereignis Information" -MessageNewLine=#</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>

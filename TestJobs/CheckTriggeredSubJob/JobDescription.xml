@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckTriggeredSubJob</LogicalName>
   <LogicalExpression>
@@ -20,7 +20,7 @@
       <LogicalExpression>CheckTriggeredSubJob:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
           <Parameters>
             <![CDATA[%Timestamp%: CheckTriggeredSubJob|Vishnu Worker]]>
           </Parameters>

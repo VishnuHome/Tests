@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Check_TreeExternals_2_Job</LogicalName>
   <LogicalExpression>
@@ -35,8 +35,8 @@
       <LogicalExpression>Check_TreeExternals_2_Job:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Check_TreeExternals_2_Job %Event% von %Source% in %Sender%|%Exception%|Check_TreeExternals_2 Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_TreeExternals_2_Job %Event% von %Source% in %Sender%#%Exception%" -Caption="Check_TreeExternals_2 Fehler" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -44,8 +44,8 @@
       <LogicalExpression>Check_TreeExternals_1_Job:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp% False in Check_TreeExternals_2!|Check_TreeExternals_2 Information</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp% False in Check_TreeExternals_2!" -Caption="Check_TreeExternals_2 Information"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

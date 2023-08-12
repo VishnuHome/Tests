@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Show_Ref_All</LogicalName>
   <LogicalExpression>
@@ -62,8 +62,8 @@
       <LogicalExpression>Show_Ref_All:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Show_Ref_All %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Show_Ref_All %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -76,8 +76,8 @@
       <LogicalExpression>#ShowRefRefRefCheckTreeEventTriggerSnapshot:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: #ShowRefRefRefCheckTreeEventTriggerSnapshot %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: #ShowRefRefRefCheckTreeEventTriggerSnapshot %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker-->

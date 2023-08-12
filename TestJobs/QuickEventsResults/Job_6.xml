@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Job_6</LogicalName>
   <LogicalExpression>
@@ -54,8 +54,8 @@
       <LogicalExpression>Job_6:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Job_6 %Event% von %Source% in %Sender%|%Exception%|Test Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Job_6 %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -64,9 +64,7 @@
         </SubWorker>
         <SubWorker>
           <PhysicalPath>MicroMailer.exe</PhysicalPath>
-          <Parameters>
-            <![CDATA[Test Fehler|%Timestamp%: Job_6 %Event% von %Source% in %Sender%#%Exception%|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
-          </Parameters>
+          <Parameters><![CDATA[-Message="%Timestamp%: Job_6 %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@any.id" -MailRecipients="e.nagel@any-address.id"]]></Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -79,8 +77,8 @@
       <LogicalExpression>Job_6:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Test-Job 'Job_6' ist auf 'false' gesprungen!|Test Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Test-Job 'Job_6' ist auf 'false' gesprungen!" -Caption="Test Fehler"</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -89,9 +87,7 @@
         </SubWorker>
         <SubWorker>
           <PhysicalPath>MicroMailer.exe</PhysicalPath>
-          <Parameters>
-            <![CDATA[Test Fehler|%Timestamp%: Der Test-Job 'Job_6' ist auf 'false' gesprungen!|any-mailserver|Vishnu@any.id|e.nagel@any-address.id]]>
-          </Parameters>
+          <Parameters><![CDATA[-Message="%Timestamp%: Der Test-Job 'Job_6' ist auf 'false' gesprungen!" -Caption="Test Fehler" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@any.id" -MailRecipients="e.nagel@any-address.id"]]></Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>

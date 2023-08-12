@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckDependentNodeLogic</LogicalName>
   <LogicalExpression>
@@ -20,10 +20,10 @@
       <LogicalExpression>CheckDependentNodeLogic:True</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
           <Parameters>
-            <![CDATA[%Timestamp%: Der Worker hat fälschlicherweise ausgelöst
-weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
+            <![CDATA[-Message="%Timestamp%: Der Worker hat fälschlicherweise ausgelöst
+weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren." -Caption="Vishnu Fehler"]]>
           </Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -41,13 +41,13 @@ weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu F
             <SubWorkers type="array">
               <SubWorker RunCounter="1">
                 <PhysicalPath>#quiet#</PhysicalPath>
-                <Parameters>Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Info</Parameters>
+                <Parameters>-Message="Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Info" -MessageNewLine=#</Parameters>
               </SubWorker>
               <SubWorker RunCounter="2">
-                <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+                <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
                 <Parameters>
-			            <![CDATA[%Timestamp%: Der Escalator hat fälschlicherweise ausgelöst
-weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
+            <![CDATA[-Message="%Timestamp%: Der Worker hat fälschlicherweise ausgelöst
+weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren." -Caption="Vishnu Fehler"]]>
                 </Parameters>
               </SubWorker>
             </SubWorkers>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckWorkers</LogicalName>
   <LogicalExpression>
@@ -33,8 +33,8 @@
       <LogicalExpression>DialogChecker:false</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: DialogChecker %Event% von %Source% in %Sender%|%Exception%|DialogChecker Event</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: DialogChecker %Event% von %Source% in %Sender%#%Exception%" -Caption="DialogChecker Event" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

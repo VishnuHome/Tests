@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>TwoJobsOneCircle</LogicalName>
   <LogicalExpression>
@@ -34,7 +34,7 @@
           <LogicalExpression>SubJob1:True</LogicalExpression>
           <SubWorkers type="array">
             <SubWorker>
-              <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+              <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
               <Parameters>
                 <![CDATA[%Timestamp%: SubJob1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
               </Parameters>
@@ -75,7 +75,7 @@
           <LogicalExpression>SubJob2:True</LogicalExpression>
           <SubWorkers type="array">
             <SubWorker>
-              <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+              <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
               <Parameters>
                 <![CDATA[%Timestamp%: SubJob2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
               </Parameters>
@@ -90,7 +90,7 @@
       <LogicalExpression>TwoJobsOneCircle:True</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
           <Parameters>
             <![CDATA[%Timestamp%: TwoJobsOneCircle - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig SubJob1 und SubJob2 unterschiedlich waren.|Vishnu Fehler]]>
           </Parameters>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Minimal Exception</LogicalName>
   <LogicalExpression>
@@ -24,8 +24,8 @@
       <LogicalExpression>MinimalException:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: MinimalException %Event% von %Source% in %Sender%|%Exception%|Fehlermeldung</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: MinimalException %Event% von %Source% in %Sender%#%Exception%" -Caption="Fehlermeldung" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

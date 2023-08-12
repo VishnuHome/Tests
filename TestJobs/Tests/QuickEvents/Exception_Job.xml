@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Exception_Job</LogicalName>
   <LogicalExpression>
@@ -27,8 +27,8 @@
       <LogicalExpression>Exception_Job:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Exception_Job %Event% von %Source% in %Sender%|%Exception%|Exception_Job Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Exception_Job %Event% von %Source% in %Sender%#%Exception%" -Caption="Exception_Job Fehler" -MessageNewLine=#</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
@@ -41,8 +41,8 @@
       <LogicalExpression>Exception_Job:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Der Exception_Job hat scheinbar False zurückgegeben!|Vishnu Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Exception_Job hat scheinbar False zurückgegeben!" -Caption="Vishnu Fehler"</Parameters>
           <!-- Trigger>
             <LogicalName></LogicalName>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>

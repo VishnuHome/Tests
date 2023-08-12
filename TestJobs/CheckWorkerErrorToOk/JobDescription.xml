@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Check Worker Error to Ok</LogicalName>
   <LogicalExpression>
@@ -20,8 +20,8 @@
       <LogicalExpression>Check Worker Error to Ok:False|Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %MachineName% %Event% von %Source% in %Sender%|Logical: %Logical% %Exception%|Fehler</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
           <Trigger>
             <PhysicalPath>TimerTrigger.dll</PhysicalPath>
             <Parameters>S:10</Parameters>

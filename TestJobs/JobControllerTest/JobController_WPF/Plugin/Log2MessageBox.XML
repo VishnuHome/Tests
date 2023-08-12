@@ -14,6 +14,7 @@
             
              26.05.2014 Erik Nagel: Erstellt.
              03.07.2021 Erik Nagel: Überarbeitet.
+             10.08.2023 Erik Nagel: Auf VishnuMessageBox umgestellt.
              </remarks>
         </member>
         <member name="M:Log2MessageBox.Log2MessageBox.Log(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent,System.Object)">

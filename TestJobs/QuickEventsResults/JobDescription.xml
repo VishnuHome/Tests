@@ -24,7 +24,7 @@
     <Trigger>
       <LogicalName>FirstNamedTimerTrigger</LogicalName>
       <PhysicalPath>TimerTrigger.dll</PhysicalPath>
-      <Parameters>S:1000</Parameters>
+      <Parameters>MS:1000</Parameters>
     </Trigger>
   </Triggers>
   <JobSnapshotTrigger>

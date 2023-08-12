@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>CheckAnyTreeEventResult</LogicalName>
   <LogicalExpression>
@@ -38,8 +38,8 @@
       <LogicalExpression>CheckAnyTreeEvent:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|CheckAnyTreeEvent-Ereignisanzeige</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="CheckAnyTreeEvent-Ereignisanzeige" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -47,8 +47,8 @@
       <LogicalExpression>SubJob1:AnyLogicalResultChanged</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: %Event% von %Source% in %Sender%|%Exception%|SubJob1-Ereignisanzeige</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="SubJob1-Ereignisanzeige" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>

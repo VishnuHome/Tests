@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <JobDescription>
   <LogicalName>Changing TreeExceptions</LogicalName>
   <LogicalExpression>
@@ -40,8 +40,8 @@
       <LogicalExpression>Changing TreeExceptions:Exception</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Changing TreeExceptions %Event% von %Source% in %Sender%|%Exception%|Changing TreeExceptions</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Changing TreeExceptions %Event% von %Source% in %Sender%#%Exception%" -Caption="Changing TreeExceptions" -MessageNewLine=#</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
@@ -49,8 +49,8 @@
       <LogicalExpression>Changing TreeExceptions:False</LogicalExpression>
       <SubWorkers type="array">
         <SubWorker>
-          <PhysicalPath>ConsoleMessageBox.exe</PhysicalPath>
-          <Parameters>%Timestamp%: Changing TreeExceptions: False|Changing TreeExceptions</Parameters>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Changing TreeExceptions: False" -Caption="Changing TreeExceptions"</Parameters>
         </SubWorker>
       </SubWorkers>
     </Worker>
