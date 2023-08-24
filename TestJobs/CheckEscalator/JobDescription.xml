@@ -35,6 +35,10 @@
                 <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
                 <Parameters>-Message="Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=#</Parameters>
               </SubWorker>
+              <SubWorker RunCounter="3">
+			          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+      			    <Parameters><![CDATA[-Message="Stufe 2 (Run 3) %Timestamp%: %MachineName% ACHTUNG %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Fehler" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de"]]></Parameters>
+              </SubWorker>
             </SubWorkers>
           </Parameters>
           <Trigger>
