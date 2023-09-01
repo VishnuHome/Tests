@@ -34,7 +34,7 @@
     <Checker>
       <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
       <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
-      <!--Parameters>IsMirror</Parameters-->
+      <Parameters>IsMirror</Parameters>
       <Trigger>
         <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
         <Reference>LogicalResultChanged|Exception</Reference>
