@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Exception_Job</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS ExceptionJob]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>ExceptionJob</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Exception</Parameters>
+      <ThreadLocked>true</ThreadLocked>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>MS:1000</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Exception_Job:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Exception_Job %Event% von %Source% in %Sender%#%Exception%" -Caption="Exception_Job Fehler" -MessageNewLine=#</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Exception_Job:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Exception_Job hat scheinbar False zurückgegeben!" -Caption="Vishnu Fehler"</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

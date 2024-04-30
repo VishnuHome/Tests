@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check CanRun</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS CanRunChecker]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>CanRunChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False:True|7|Parameter-1 #%GesuchterParameter%# Parameter-2</Parameters>
+      <CanRunDllPath>DemoWPFCanRunDialog.dll</CanRunDllPath>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:5|S:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

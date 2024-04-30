@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check_GT_LT</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Tag < @15 => @15.03.2016 > Datum]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception|S:30</Reference>
+    <Parameters>Check_GT_LT</Parameters>
+  </JobSnapshotTrigger>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>WPFDateDialog.dll</PhysicalPath>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:30</Parameters>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+  <ValueModifiers>
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:30</Parameters>
+      </Trigger-->
+    </ValueModifier>
+  </ValueModifiers>
+</JobDescription>

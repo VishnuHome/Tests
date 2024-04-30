@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>SubJob</LogicalName>
+  <LogicalExpression><![CDATA[SubJobUserChecker | SubJobTrueChecker]]></LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>SubJob</Parameters>
+  </JobSnapshotTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>SubJobUserChecker</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>TrueCheckerSub-Result</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>SubJobTrueChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>

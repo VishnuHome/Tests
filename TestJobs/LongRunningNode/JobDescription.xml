@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Long Running Node</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS LongRunningNode]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>LongRunningNode</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True|13|LongRunningNode-Result|1503</Parameters>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:19</Parameters>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+</JobDescription>

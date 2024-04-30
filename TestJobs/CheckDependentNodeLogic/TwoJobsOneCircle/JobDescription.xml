@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>TwoJobsOneCircle</LogicalName>
+  <LogicalExpression>
+    <![CDATA[SubJob1 >< SubJob2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>SubJob1</LogicalName>
+      <LogicalExpression><![CDATA[A >< B]]></LogicalExpression>
+      <Checkers type="array">
+        <Checker>
+          <LogicalName>A</LogicalName>
+          <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+          <Parameters>A-Result</Parameters>
+        </Checker>
+        <Checker>
+          <LogicalName>B</LogicalName>
+          <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+          <Parameters>IsMirror</Parameters>
+          <Trigger>
+            <LogicalName>B-Trigger</LogicalName>
+            <Reference>LogicalResultChanged|Exception</Reference>
+            <Parameters>A</Parameters>
+          </Trigger>
+        </Checker>
+      </Checkers>
+      <Workers type="array">
+        <Worker>
+          <LogicalExpression>SubJob1:True</LogicalExpression>
+          <SubWorkers type="array">
+            <SubWorker>
+              <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+              <Parameters>
+                <![CDATA[%Timestamp%: SubJob1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
+              </Parameters>
+            </SubWorker>
+          </SubWorkers>
+        </Worker>
+      </Workers>
+    </SubJob>
+    <SubJob>
+      <LogicalName>SubJob2</LogicalName>
+      <LogicalExpression><![CDATA[C >< D]]></LogicalExpression>
+      <Checkers type="array">
+        <Checker>
+          <LogicalName>C</LogicalName>
+          <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+          <Parameters>IsMirror</Parameters>
+          <Trigger>
+            <LogicalName>C-Trigger</LogicalName>
+            <Reference>LogicalResultChanged|Exception</Reference>
+            <Parameters>B</Parameters>
+          </Trigger>
+        </Checker>
+      </Checkers>
+      <ValueModifiers>
+        <ValueModifier>
+          <LogicalName>D</LogicalName>
+          <Reference>A</Reference>
+          <Type>string</Type>
+          <Trigger>
+            <LogicalName>D-Trigger</LogicalName>
+            <Reference>LogicalResultChanged|Exception</Reference>
+            <Parameters>A</Parameters>
+          </Trigger>
+        </ValueModifier>
+      </ValueModifiers>
+      <Workers type="array">
+        <Worker>
+          <LogicalExpression>SubJob2:True</LogicalExpression>
+          <SubWorkers type="array">
+            <SubWorker>
+              <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+              <Parameters>
+                <![CDATA[%Timestamp%: SubJob2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler]]>
+              </Parameters>
+            </SubWorker>
+          </SubWorkers>
+        </Worker>
+      </Workers>
+    </SubJob>
+  </SubJobs>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>TwoJobsOneCircle:True</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[%Timestamp%: TwoJobsOneCircle - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig SubJob1 und SubJob2 unterschiedlich waren.|Vishnu Fehler]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

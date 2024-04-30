@@ -1,0 +1,19 @@
+JobList: J0 (XOR, n-: 3, n+: 1): DefaultNodeControls\JobListUserControl.dll null
+    JobList: J5 (XOR, n-: 4, n+: 2): DefaultNodeControls\JobListUserControl.dll null
+        JobList: J1 (XOR, n-: 3, n+: 1): DefaultNodeControls\JobListUserControl.dll False
+            Checker: A (A): DefaultNodeControls\SingleNodeUserControl.dll True
+            Checker: B (B, Ref:A): DefaultNodeControls\SingleNodeUserControl.dll True
+        JobList: J2 (XOR, n-: 4, n+: 2): DefaultNodeControls\JobListUserControl.dll False
+            NodeConnector: Internal_1 (B, Ref:B): DefaultNodeControls\SingleNodeUserControl.dll True
+            ValueModifier: Internal_2 (D, Ref:A): DefaultNodeControls\SingleNodeUserControl.dll True
+            Checker: F (F): DefaultNodeControls\SingleNodeUserControl.dll False
+        NodeList: Internal_3 (NOT, n-: 1, n+: -1): DefaultNodeControls\NodeListUserControl.dll False
+            JobList: J3 (IS, n-: 2, n+: 0): DefaultNodeControls\JobListUserControl.dll True
+                NodeConnector: Internal_4 (D, Ref:D): DefaultNodeControls\SingleNodeUserControl.dll True
+    JobList: J6 (XOR, n-: 4, n+: 2): DefaultNodeControls\JobListUserControl.dll null
+        NodeList: Internal_5 (NOT, n-: 1, n+: -1): DefaultNodeControls\NodeListUserControl.dll null
+            JobConnector: Internal_6 (J5, Ref:J5): DefaultNodeControls\JobConnectorUserControl.dll null
+        NodeConnector: Internal_7 (F, Ref:F): DefaultNodeControls\SingleNodeUserControl.dll False
+        JobList: J4 (XOR, n-: 3, n+: 1): DefaultNodeControls\JobListUserControl.dll null
+            Checker: X (X, Ref:F): DefaultNodeControls\SingleNodeUserControl.dll null
+            Checker: Y (Y): DefaultNodeControls\SingleNodeUserControl.dll False

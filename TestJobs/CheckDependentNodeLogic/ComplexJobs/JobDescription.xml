@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>J0</LogicalName>
+  <LogicalExpression>
+    <![CDATA[J5 >< J6]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>J5</LogicalName>
+      <LogicalExpression><![CDATA[J1 >< J2 >< !J3]]></LogicalExpression>
+      <SubJobs type="array">
+        <SubJob>
+          <LogicalName>J1</LogicalName>
+          <LogicalExpression><![CDATA[A >< B]]></LogicalExpression>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>A</LogicalName>
+              <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+              <Parameters>A-Result</Parameters>
+            </Checker>
+            <Checker>
+              <LogicalName>B</LogicalName>
+              <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+              <Parameters>IsMirror</Parameters>
+              <Trigger>
+                <LogicalName>B-Trigger</LogicalName>
+                <Reference>LogicalResultChanged|Exception</Reference>
+                <Parameters>A</Parameters>
+              </Trigger>
+            </Checker>
+          </Checkers>
+          <Workers type="array">
+            <Worker>
+              <LogicalExpression>J1:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>
+                    <![CDATA[%Timestamp%: J1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig A und B unterschiedlich waren.|Vishnu Fehler]]>
+                  </Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+          </Workers>
+        </SubJob>
+        <SubJob>
+          <LogicalName>J2</LogicalName>
+          <LogicalExpression><![CDATA[B >< D >< !F]]></LogicalExpression>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>B</LogicalName>
+              <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+              <Parameters>IsMirror</Parameters>
+              <Trigger>
+                <LogicalName>B-Trigger</LogicalName>
+                <Reference>LogicalResultChanged|Exception</Reference>
+                <Parameters>A</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>F</LogicalName>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>False</Parameters>
+            </Checker>
+          </Checkers>
+          <ValueModifiers>
+            <ValueModifier>
+              <LogicalName>D</LogicalName>
+              <IsGlobal>true</IsGlobal>
+              <Reference>A</Reference>
+              <Type>string</Type>
+              <Format><![CDATA["{0} (J2/D)"]]></Format>
+              <Trigger>
+                <LogicalName>D-Trigger</LogicalName>
+                <Reference>LogicalResultChanged|Exception</Reference>
+              </Trigger>
+            </ValueModifier>
+          </ValueModifiers>
+          <Workers type="array">
+            <Worker>
+              <LogicalExpression>J2:False</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>
+                    <![CDATA[%Timestamp%: J2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig B und D (und !F) gleich waren.|Vishnu Fehler]]>
+                  </Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+          </Workers>
+        </SubJob>
+        <SubJob>
+          <LogicalName>J3</LogicalName>
+          <LogicalExpression><![CDATA[IS D]]></LogicalExpression>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>D</LogicalName>
+              <IsGlobal>true</IsGlobal>
+              <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+              <Parameters>D-Result</Parameters>
+            </Checker>
+          </Checkers>
+        </SubJob>
+      </SubJobs>
+    </SubJob>
+    <SubJob>
+      <LogicalName>J6</LogicalName>
+      <LogicalExpression><![CDATA[!J5 >< J4 >< F]]></LogicalExpression>
+      <Checkers>
+        <Checker>
+          <LogicalName>F</LogicalName>
+		      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+		      <Parameters>False</Parameters>
+        </Checker>
+      </Checkers>
+      <SubJobs>
+        <SubJob>
+          <LogicalName>J4</LogicalName>
+          <LogicalExpression><![CDATA[X >< Y]]></LogicalExpression>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>X</LogicalName>
+              <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+              <Parameters>IsMirror</Parameters>
+              <Trigger>
+                <LogicalName>X-Trigger</LogicalName>
+                <Reference>LogicalResultChanged|Exception</Reference>
+                <Parameters>F</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Y</LogicalName>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>False</Parameters>
+            </Checker>
+          </Checkers>
+          <Workers type="array">
+            <Worker>
+              <LogicalExpression>J4:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>
+                    <![CDATA[%Timestamp%: J4 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig X und Y unterschiedlich waren.|Vishnu Fehler]]>
+                  </Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+          </Workers>
+        </SubJob>
+      </SubJobs>
+    </SubJob>
+  </SubJobs>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>J0:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[%Timestamp%: J0 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig J5 und J6 gleich waren.|Vishnu Fehler]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

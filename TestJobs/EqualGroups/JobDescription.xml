@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>EqualGroups</LogicalName>
+  <LogicalExpression>
+    <![CDATA[SubJob1 & SubJob2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>SubJob1</LogicalName>
+      <PhysicalPath>SubJob1.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>SubJob2</LogicalName>
+      <PhysicalPath>SubJob2.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEventTrigger Workers</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Datum & @Bool.true & flipflop]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Check TreeEventTrigger Workers</Parameters>
+  </JobSnapshotTrigger>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:5|S:5</Parameters>
+    </Trigger>
+  </Triggers>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <Trigger>
+        <Reference>LogicalResultChanged|Exception</Reference>
+        <Parameters>Check TreeEventTrigger Workers</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>flipflop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <!--Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|H:1</Parameters>
+      </Trigger-->
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>flipflop:False|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%" -Caption="Ereignis Information" -MessageNewLine=#</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Show All</LogicalName>
+  <LogicalExpression>
+    <![CDATA[CheckServers & CheckDiskSpace & CheckTreeEvents]]>
+  </LogicalExpression>
+  <StartCollapsed>false</StartCollapsed>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckServers</LogicalName>
+      <PhysicalPath>..\CheckServers</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckDiskSpace</LogicalName>
+      <PhysicalPath>..\UserControlsTest\CheckDiskSpace</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>CheckTreeEvents</LogicalName>
+      <PhysicalPath>..\CheckTreeEventTrigger</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

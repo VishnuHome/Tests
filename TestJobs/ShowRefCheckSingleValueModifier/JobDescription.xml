@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>ShowRefCheckSingleValueModifier</LogicalName>
+  <LogicalExpression>
+    <![CDATA[:#ShowRefCheckSingleValueModifier]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>ShowRefCheckSingleValueModifier</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#ShowRefCheckSingleValueModifier</LogicalName>
+      <PhysicalPath>CheckSingleValueModifier</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

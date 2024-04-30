@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+	<LogicalName>Gruppe_2</LogicalName>
+	<LogicalExpression>
+		<![CDATA[Gruppe_2.1 & Knoten_2.2]]>
+	</LogicalExpression>
+	<JobTrigger>
+		<Reference>True</Reference>
+		<Parameters>Gruppe_1</Parameters>
+	</JobTrigger>
+	<Checkers type="array">
+		<Checker>
+			<LogicalName>Knoten_2.2</LogicalName>
+			<PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+			<Parameters>True||Knoten_2.2-Result</Parameters>
+			<Trigger>
+				<Reference>True</Reference>
+				<Parameters>Gruppe_2.1</Parameters>
+			</Trigger>
+			<Logger>
+				<PhysicalPath>Log2MessageBox.dll</PhysicalPath>
+				<Parameters>True</Parameters>
+			</Logger>
+		</Checker>
+	</Checkers>
+	<SubJobs type="array">
+		<SubJob>
+			<LogicalName>Gruppe_2.1</LogicalName>
+			<LogicalExpression>
+				<![CDATA[Knoten_2.1.1 & Knoten_2.1.2]]>
+			</LogicalExpression>
+			<JobLogger>
+				<PhysicalPath>Log2MessageBox.dll</PhysicalPath>
+				<Parameters>True</Parameters>
+			</JobLogger>
+			<Checkers type="array">
+				<Checker>
+					<LogicalName>Knoten_2.1.1</LogicalName>
+					<PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+					<Parameters>True||Knoten_2.1.1-Result</Parameters>
+				</Checker>
+				<Checker>
+					<LogicalName>Knoten_2.1.2</LogicalName>
+					<PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+					<Parameters>True||Knoten_2.1.2-Result</Parameters>
+				</Checker>
+			</Checkers>
+		</SubJob>
+	</SubJobs>
+</JobDescription>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Minimal Exception</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS MinimalException]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>Exception</Reference>
+    <Parameters>Minimal Exception</Parameters>
+  </JobSnapshotTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>MinimalException</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:Exception</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>MinimalException:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: MinimalException %Event% von %Source% in %Sender%#%Exception%" -Caption="Fehlermeldung" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

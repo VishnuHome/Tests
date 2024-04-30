@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check_Treshold</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Node0 TR50 Node1 TR50 Node2]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Node0</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Node-Result</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node1</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Node-Result</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node2</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Node-Result</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>

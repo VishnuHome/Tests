@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Show_Ref_All</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TrueChecker & #ShowRefRefRefCheckTreeEventTriggerSnapshot & (#ShowRefRefCheckTreeEventTriggerSnapshot) & (#ShowRefCheckTreeEventTriggerSnapshot & #CheckTreeEventTriggerSnapshot)]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Show_Ref_All</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
+    </Checker>
+  </Checkers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#ShowRefRefRefCheckTreeEventTriggerSnapshot</LogicalName>
+      <!--PhysicalPath>JobSnapshot.xml</PhysicalPath-->
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+      </Trigger>
+    </Snapshot>
+    <Snapshot>
+      <LogicalName>#ShowRefRefCheckTreeEventTriggerSnapshot</LogicalName>
+      <PhysicalPath>ShowRefRefCheckTreeEventTriggerSnapshot\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <Parameters>ShowRefRefCheckTreeEventTriggerSnapshot\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+      </Trigger>
+    </Snapshot>
+    <Snapshot>
+      <LogicalName>#ShowRefCheckTreeEventTriggerSnapshot</LogicalName>
+      <PhysicalPath>ShowRefCheckTreeEventTriggerSnapshot\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <Parameters>JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+      </Trigger>
+    </Snapshot>
+    <Snapshot>
+      <LogicalName>#CheckTreeEventTriggerSnapshot</LogicalName>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Show_Ref_All:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Show_Ref_All %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <!--Worker>
+      <LogicalExpression>#ShowRefRefRefCheckTreeEventTriggerSnapshot:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: #ShowRefRefRefCheckTreeEventTriggerSnapshot %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker-->
+  </Workers>
+</JobDescription>

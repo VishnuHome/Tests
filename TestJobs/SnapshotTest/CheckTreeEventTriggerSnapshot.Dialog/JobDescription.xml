@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEventTrigger Snapshot</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS flipflop]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Check TreeEventTrigger Snapshot</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>flipflop</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>flipflop-Result</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>

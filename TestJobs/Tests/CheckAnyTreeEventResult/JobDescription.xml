@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckAnyTreeEventResult</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS SubJob1]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyResultChanged|Exception</Reference>
+    <Parameters>CheckAnyTreeEvent</Parameters>
+  </JobSnapshotTrigger>
+  <JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>AnyResultChanged|Exception</Parameters>
+  </JobLogger>
+  <SubJobs>
+    <SubJob>
+      <LogicalName>SubJob1</LogicalName>
+      <LogicalExpression><![CDATA[IS Checker]]></LogicalExpression>
+		  <JobLogger>
+    		<PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    		<Parameters>AnyResultChanged|Exception</Parameters>
+  		</JobLogger>
+      <Checkers type="Array">
+	      <Checker>
+	        <LogicalName>Checker</LogicalName>
+	        <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+	        <Parameters>Checker-Result</Parameters>
+				  <Logger>
+				    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+				    <Parameters>AnyResultChanged|ResultChanged|Exception</Parameters>
+				  </Logger>
+	      </Checker>
+      </Checkers>
+    </SubJob>
+  </SubJobs>
+  <!--Workers type="array">
+    <Worker>
+      <LogicalExpression>CheckAnyTreeEvent:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="CheckAnyTreeEvent-Ereignisanzeige" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>SubJob1:AnyLogicalResultChanged</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="SubJob1-Ereignisanzeige" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers-->
+</JobDescription>
