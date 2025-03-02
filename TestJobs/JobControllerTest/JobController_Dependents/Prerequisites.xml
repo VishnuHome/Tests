@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+	<LogicalName>Prerequisites</LogicalName>
+	<LogicalExpression>
+		<![CDATA[Knoten_1 & Knoten_2]]>
+	</LogicalExpression>
+	<JobLogger>
+		<PhysicalPath>Log2MessageBox.dll</PhysicalPath>
+		<Parameters>True</Parameters>
+	</JobLogger>
+	<Checkers type="array">
+		<Checker>
+			<LogicalName>Knoten_1</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>Knoten_1-Result</Parameters>
+		</Checker>
+		<Checker>
+			<LogicalName>Knoten_2</LogicalName>
+			<PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+			<Parameters>Knoten_2-Result</Parameters>
+		</Checker>
+	</Checkers>
+</JobDescription>
