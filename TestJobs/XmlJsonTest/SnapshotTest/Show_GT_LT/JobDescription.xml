@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Show_GT_LT</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS #Check_GT_LT]]>
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Show_GT_LT</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>Exception|LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <Snapshots type="array">
+    <Snapshot>
+      <LogicalName>#Check_GT_LT</LogicalName>
+      <PhysicalPath>..\Check_GT_LT\JobSnapshot.xml</PhysicalPath>
+      <StartCollapsed>true</StartCollapsed>
+      <Trigger>
+        <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
+        <Parameters>..\Check_GT_LT\JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
+      </Trigger>
+    </Snapshot>
+  </Snapshots>
+</JobDescription>

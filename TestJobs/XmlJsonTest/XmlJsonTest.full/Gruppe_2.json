@@ -1,0 +1,52 @@
+{
+  "JobDescription": {
+    "LogicalName": "Gruppe_2",
+    "LogicalExpression": "Gruppe_2.1 & Knoten_2.2",
+    "JobTrigger": {
+      "Reference": "True",
+      "Parameters": "Gruppe_1"
+    },
+    "Checkers": {
+
+      "Checker": {
+        "LogicalName": "Knoten_2.2",
+        "PhysicalPath": "TrueFalseExceptionChecker.dll",
+        "Parameters": "True||Knoten_2.2-Result",
+        "Trigger": {
+          "Reference": "True",
+          "Parameters": "Gruppe_2.1"
+        },
+        "Logger": {
+          "PhysicalPath": "Log2MessageBox.dll",
+          "Parameters": "True"
+        }
+      }
+    },
+    "SubJobs": {
+
+      "SubJob": {
+        "LogicalName": "Gruppe_2.1",
+        "LogicalExpression": "Knoten_2.1.1 & Knoten_2.1.2",
+        "JobLogger": {
+          "PhysicalPath": "Log2MessageBox.dll",
+          "Parameters": "True"
+        },
+        "Checkers": {
+
+          "Checker": [
+            {
+              "LogicalName": "Knoten_2.1.1",
+              "PhysicalPath": "TrueFalseExceptionChecker.dll",
+              "Parameters": "True||Knoten_2.1.1-Result"
+            },
+            {
+              "LogicalName": "Knoten_2.1.2",
+              "PhysicalPath": "TrueFalseExceptionChecker.dll",
+              "Parameters": "True||Knoten_2.1.2-Result"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

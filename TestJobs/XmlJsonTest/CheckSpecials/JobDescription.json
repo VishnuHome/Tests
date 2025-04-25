@@ -1,0 +1,314 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Specials",
+    "LogicalExpression": "\r\n    IS Check_Shares\r\n  ",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Check_Shares",
+          "LogicalExpression": "\r\n         (Shares_Summary AND LifeIndex) AND Check_All_Shares\r\n      ",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "LifeIndex",
+                "PhysicalPath": "LifeIndexChecker.dll",
+                "Parameters": "holt den aktuellen Lebenshaltungsindex|WithCache=true",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "H:6"
+                }
+              },
+              {
+                "LogicalName": "Shares_Summary",
+                "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                "PhysicalPath": "CheckerHistoryLogger.dll",
+                "ThreadLocked": {
+                  "@LockName": "ConcurrentWebdriver",
+                  "#text": "true"
+                },
+                "Parameters": "quiet|CheckerHistoryLogger.dll|SharesSummary_Checker.dll|erstellt eine Gesamtübersicht für alle Kurse|WithLifeIndex=true",
+                "Trigger": {
+                  "Reference": "AnyResultChanged",
+                  "Parameters": "Check_All_Shares"
+                }
+              }
+            ]
+          },
+          "SubJobs": {
+            "SubJob": [
+              {
+                "LogicalName": "Check_All_Shares",
+                "LogicalExpression": "\r\n            (BASF_Aktienwerte AND Teamviewer_Aktienwerte AND Sartorius_Aktienwerte) AND\r\n            (DWS_Fondswerte AND OekoWorld_Swiss_Fondswerte AND Robeco_Water_Fondswerte) AND\r\n            (Robeco_Water_Zukauf_Fondswerte AND Swiss_Sustainable_Fondswerte AND Swiss_Sustainable_Zukauf_Fondswerte)\r\n          ",
+                "JobTrigger": {
+                  "Reference": "True",
+                  "Parameters": "LifeIndex"
+                },
+                "JobLogger": {
+                  "PhysicalPath": "TextFileLogger.dll",
+                  "Parameters": "AnyResultChanged"
+                },
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "BASF_Aktienwerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "BASF_Checker.dll|holt den aktuellen Kurs für die BASF-Aktie|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Teamviewer_Aktienwerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Teamviewer_Checker.dll|holt den aktuellen Kurs für die Teamviewer-Aktie|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "DWS_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "DWS_Top_Dividende_Checker.dll|holt den aktuellen Kurs für den DWS Top Dividende Fonds|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "OekoWorld_Swiss_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "OekoWorld_Swiss_Checker.dll|holt den aktuellen Kurs für den ÖkoWorld-Swiss Fonds|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Robeco_Water_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Robeco_Water_Checker.dll|holt den aktuellen Kurs für den Robeco Water Fonds|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Robeco_Water_Zukauf_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Robeco_Water_Zukauf_Checker.dll|holt den aktuellen Kurs für den Robeco Water Zukauf|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Sartorius_Aktienwerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Sartorius_Checker.dll|holt den aktuellen Kurs für die Sartorius Aktie|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Swiss_Sustainable_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Swiss_Sustainable_Checker.dll|holt den aktuellen Kurs für den Swiss Sustainable Fonds|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    },
+                    {
+                      "LogicalName": "Swiss_Sustainable_Zukauf_Fondswerte",
+                      "UserControlPath": "Plugin\\SingleNodeUserControl_CheckShares.dll",
+                      "PhysicalPath": "CheckerHistoryLogger.dll",
+                      "ThreadLocked": {
+                        "@LockName": "ConcurrentWebdriver",
+                        "#text": "true"
+                      },
+                      "Parameters": "Swiss_Sustainable_Zukauf_Checker.dll|holt den aktuellen Kurs für den Swiss Sustainable Zukauf|true|WithLifeIndex=true",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "H:1"
+                      }
+                    }
+                  ]
+                },
+                "Workers": {
+                  "Worker": [
+                    {
+                      "LogicalExpression": "BASF_Aktienwerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de; neteti@neteti.de\""
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Teamviewer_Aktienwerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Teamviewer-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Teamviewer-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de\""
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Allianz_Aktienwerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Allianz-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Allianz-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de; neteti@neteti.de\""
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Sartorius_Aktienwerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Sartorious-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Sartorious-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de; neteti@neteti.de\""
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "DWS_Fondswerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die DWS-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "OekoWorld_Fondswerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die ÖkoWorld-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die ÖkoWorld-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de; neteti@neteti.de\""
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Robeco_Water_Fondswerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Robeco Water-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Swiss_Sustainable_Fondswerte:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalExpression": "Shares_Summary:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Anlagen sind insgesamt im Plus!\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+                          },
+                          {
+                            "PhysicalPath": "MicroMailer.exe",
+                            "Parameters": "-Message=\"%Timestamp%: Die Anlagen sind insgesamt im Plus!\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de; neteti@neteti.de\""
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
