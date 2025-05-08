@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckSubMulti</LogicalName>
+  <LogicalExpression>
+    <!--![CDATA[#Sub_1 & #Sub_2 & #Sub_3]]--> <!-- Fehler tritt sporadisch auf -->
+    <!--[CDATA[TC_1 & #Sub_2 & #Sub_3]]--> <!-- Fehler tritt sporadisch auf -->
+    <!--[CDATA[TC_1 & #Sub_2 & TC_2 & #Sub_3 & TC_3]]--> <!-- Fehler tritt sporadisch auf -->
+    <!--[CDATA[TC_1 & TC_2 & #Sub_3 & TC_3]]--> <!-- Fehler tritt nicht auf -->
+    <![CDATA[#Sub_1 & #Sub_2 & #Sub_3 & #Sub_4 & #Sub_5]]> <!-- Fehler tritt häufig auf -->
+  </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>CheckSubMulti</Parameters>
+  </JobSnapshotTrigger>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>#Sub_1</LogicalName>
+      <PhysicalPath>Sub.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>#Sub_2</LogicalName>
+      <PhysicalPath>Sub.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>#Sub_3</LogicalName>
+      <PhysicalPath>Sub.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>#Sub_4</LogicalName>
+      <PhysicalPath>Sub.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+    <SubJob>
+      <LogicalName>#Sub_5</LogicalName>
+      <PhysicalPath>Sub.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

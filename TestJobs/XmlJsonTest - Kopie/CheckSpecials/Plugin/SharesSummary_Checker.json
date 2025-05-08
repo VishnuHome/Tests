@@ -1,0 +1,354 @@
+{
+  "doc": {
+    "assembly": {
+      "name": "SharesSummary_Checker"
+    },
+    "members": {
+      "member": [
+        {
+          "@name": "T:Vishnu_UserModules.SharesSummary_Checker",
+          "summary": "\r\n             Durchsucht die in Vishnu gesammelten und von Vishnu über das aktuelle TreeEvent übergebenen Results nach\r\n             Ergebnissen von ShareCheckern und summiert diese zu einem Gesamtergebnis.\r\n             Die SharesSummary_Checker.dll kann später in einer Vishnu-JobDescription.xml referenziert werden\r\n             und von Vishnu bei der Ausführung des Jobs aus dem Plugin-Unterverzeichnis oder\r\n             einem konfigurierten UserAssemblyDirectory dynamisch geladen werden.\r\n             Vishnu ruft dann je nach weiteren Konfigurationen (Trigger) die öffentliche\r\n             Methode \"Run\" des SharesSummary_Checkers auf.\r\n             ",
+          "remarks": "\r\n             Autor: Erik Nagel\r\n            \r\n             11.07.2022 Erik Nagel: erstellt\r\n             02.03.2025 Erik Nagel: zusätzlich Berücksichtigung des Lebenshaltungsindex.\r\n             "
+        },
+        {
+          "@name": "E:Vishnu_UserModules.SharesSummary_Checker.NodeProgressChanged",
+          "summary": "\r\n            Kann aufgerufen werden, wenn sich der Verarbeitungs-Fortschritt\r\n            des Checkers geändert hat, muss aber zumindest aber einmal zum\r\n            Schluss der Verarbeitung aufgerufen werden.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker.ReturnObject",
+          "summary": "\r\n            Rückgabe-Objekt des Checkers\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker.WithLifeIndex",
+          "summary": "\r\n            Bei True wird der Lebenshaltungsindex berücksichtigt.\r\n            Dafür muss der LifeIndexChecker vorher gelaufen sein.\r\n            Default: False\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)",
+          "summary": "\r\n            Hier wird der Arbeitsprozess ausgeführt (oder beobachtet).\r\n            ",
+          "param": [
+            {
+              "@name": "checkerParameters",
+              "#text": "Ihre Aufrufparameter aus der JobDescription.xml oder null."
+            },
+            {
+              "@name": "treeParameters",
+              "#text": "Für den gesamten Tree gültige Parameter oder null (z.Zt. unbenutzt)."
+            },
+            {
+              "@name": "source",
+              "#text": "Auslösendes TreeEvent (kann null sein)."
+            }
+          ],
+          "returns": "True, False oder null"
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.Dispose",
+          "summary": "\r\n            Öffentliche Methode zum Aufräumen.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.Dispose(System.Boolean)",
+          "summary": "\r\n            Abschlussarbeiten.\r\n            ",
+          "param": {
+            "@name": "disposing",
+            "#text": "False, wenn vom eigenen Destruktor aufgerufen."
+          }
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.Finalize",
+          "summary": "\r\n            Finalizer: wird vom GarbageCollector aufgerufen.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.EvaluateParameters(System.String,System.Object,Vishnu.Interchange.TreeEvent)",
+          "summary": "\r\n            Wertet die übergebenen Parameter aus und speichert sie in _fileCheckerReturnObject.\r\n            ",
+          "param": [
+            {
+              "@name": "checkerParameters",
+              "#text": "WithLifeIndex=(true|false); Default: false.\""
+            },
+            {
+              "@name": "treeParameters",
+              "#text": "Für den gesamten Tree gültige Parameter oder null."
+            },
+            {
+              "@name": "source",
+              "#text": "Auslösendes TreeEvent oder null."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker.Publish(System.String)",
+          "summary": "\r\n            Message broadcasting.\r\n            ",
+          "param": {
+            "@name": "message",
+            "#text": "Die zu verteilende Meldung."
+          }
+        },
+        {
+          "@name": "T:Vishnu_UserModules.SharesSummary_Checker_ReturnObject",
+          "summary": "\r\n             ReturnObject für das Ergebnis des SharesSummary Checkers.\r\n             ",
+          "remarks": "\r\n             Autor: Erik Nagel, NetEti\r\n            \r\n             11.07.2022 Erik Nagel: erstellt\r\n             "
+        },
+        {
+          "@name": "T:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer",
+          "summary": "\r\n            Wrapper-Klasse um List<SubResult> SubResults.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.SubResults",
+          "summary": "\r\n            0 bis n Datensätze bestehend aus einem Detail-Ergebnis (bool?) und Detail-Record (hier: string).\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.#ctor",
+          "summary": "\r\n            Standard Konstruktor.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Deserialisierungs-Konstruktor.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Übertragungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Serialisierungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode.\r\n            ",
+          "returns": "Dieses Object.ToString()"
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.Equals(System.Object)",
+          "summary": "\r\n            Vergleicht Dieses Objekt mit einem übergebenen Objekt nach Inhalt.\r\n            ",
+          "param": {
+            "@name": "obj",
+            "#text": "Der übergebene SubResultListContainer."
+          },
+          "returns": "True, wenn der übergebene SubResultListContainer inhaltlich gleich diesem SubResultListContainer ist."
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultListContainer.GetHashCode",
+          "summary": "\r\n            Erzeugt einen eindeutigen Hashcode für dieses Objekt.\r\n            ",
+          "returns": "Hashcode (int)."
+        },
+        {
+          "@name": "T:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord",
+          "summary": "\r\n            Klasse für einen Record eines Teilergebnisses.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.LongResultString",
+          "summary": "\r\n            Enthält einen Gesamtstring für das SubResult (ToString()).\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.#ctor",
+          "summary": "\r\n            Standard Konstruktor.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Deserialisierungs-Konstruktor.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Übertragungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Serialisierungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode.\r\n            ",
+          "returns": "Dieses Object.ToString()"
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.Equals(System.Object)",
+          "summary": "\r\n            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.\r\n            ",
+          "param": {
+            "@name": "obj",
+            "#text": "Der zu vergleichende SubResultRecord."
+          },
+          "returns": "True, wenn der übergebene SubResultRecord inhaltlich gleich diesem SubResultRecord ist."
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultRecord.GetHashCode",
+          "summary": "\r\n            Erzeugt einen eindeutigen Hashcode für dieses Objekt.\r\n            ",
+          "returns": "Hashcode (int)."
+        },
+        {
+          "@name": "T:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult",
+          "summary": "\r\n            Klasse für ein Teilergebnis.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.ResultRecord",
+          "summary": "\r\n            Der Wert einer Detail-Information der Prüfroutine\r\n            (i.d.R int).\r\n             "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.#ctor",
+          "summary": "\r\n            Standard Konstruktor.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Deserialisierungs-Konstruktor.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Übertragungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Serialisierungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode.\r\n            ",
+          "returns": "Dieses Object.ToString()"
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.Equals(System.Object)",
+          "summary": "\r\n            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.\r\n            ",
+          "param": {
+            "@name": "obj",
+            "#text": "Das zu vergleichende SubResult."
+          },
+          "returns": "True, wenn das übergebene SubResult inhaltlich gleich diesem SubResult ist."
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResult.GetHashCode",
+          "summary": "\r\n            Erzeugt einen eindeutigen Hashcode für dieses Objekt.\r\n            ",
+          "returns": "Hashcode (int)."
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.ShareCheckerReturnObject",
+          "summary": "\r\n            Return-Objekt des aufgerufenen ShareCheckers.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubResultContainer",
+          "summary": "\r\n            Wrapper-Klasse um List<SubResult> SubResults.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.LogicalResult",
+          "summary": "\r\n            Das logische Gesamtergebnis eines Prüfprozesses:\r\n            true, false oder null.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.RecordCount",
+          "summary": "\r\n            Die Anzahl der Treffer, die das Prüfkriterium erfüllen.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.Timestamp",
+          "summary": "\r\n            Aufbereiteter Zeitstempel der letzten Auswertung.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.WithLifeIndex",
+          "summary": "\r\n            Bei True wird der Lebenshaltungsindex berücksichtigt.\r\n            Dafür muss der LifeIndexChecker vorher gelaufen sein.\r\n            Default: False\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.SubCheckerResultsInfoFile",
+          "summary": "\r\n            Name der Datei mit den letzten SubChecker-Werten.\r\n            "
+        },
+        {
+          "@name": "P:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.Comment",
+          "summary": "\r\n            Klartext-Informationen zur Prüfroutine\r\n            (was die Routine prüft).\r\n             "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.#ctor",
+          "summary": "\r\n            Standard Konstruktor.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Deserialisierungs-Konstruktor.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Übertragungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)",
+          "summary": "\r\n            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.\r\n            ",
+          "param": [
+            {
+              "@name": "info",
+              "#text": "Property-Container."
+            },
+            {
+              "@name": "context",
+              "#text": "Serialisierungs-Kontext."
+            }
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode - stellt öffentliche Properties\r\n            als einen (mehrzeiligen) aufbereiteten String zur Verfügung.\r\n            ",
+          "returns": "Alle öffentlichen Properties als ein String aufbereitet."
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.Equals(System.Object)",
+          "summary": "\r\n            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.\r\n            ",
+          "param": {
+            "@name": "obj",
+            "#text": "Das zu vergleichende SharesSummary_Checker_ReturnObject."
+          },
+          "returns": "True, wenn das übergebene SharesSummary_Checker_ReturnObject inhaltlich gleich diesem SharesSummary_Checker_ReturnObject ist."
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SharesSummary_Checker_ReturnObject.GetHashCode",
+          "summary": "\r\n            Erzeugt einen eindeutigen Hashcode für dieses Result.\r\n            ",
+          "returns": "Hashcode (int)."
+        }
+      ]
+    }
+  }
+}

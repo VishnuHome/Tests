@@ -1,0 +1,55 @@
+xml:
+0. <Parameters>-Message="%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+   <Parameters>-Message="%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+1. -Message="%Timestamp%: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+   -Message="%Timestamp%: Die               BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+   -Message="%Timestamp%: Die               BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+   -Message="%Timestamp%: Die               BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+2.  -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=61688 -DebugMode=true -Message="05.05.2025 12.30.34: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+3. -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=61688 -DebugMode=true -Message="05.05.2025 12.30.34: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+
+json:
+0. "-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+1. -Message=\"%Timestamp%: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+2.  -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=63644 -DebugMode=true -Message=\"05.05.2025 12.34.39: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+3. -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=63644 -DebugMode=true -Message=\"05.05.2025 12.34.39: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+
+xml:
+3. -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=61688 -DebugMode=true -Message="05.05.2025 12.30.34: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+json:
+3. -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=63644 -DebugMode=true -Message=\"05.05.2025 12.34.39: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+
+
+
+Xml.ParametersXml:
+"Text, Value=\"-Message=\\\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\\\" -Caption=\\\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\\\" -MessageNewLine=#\""
+<Parameters>-Message="%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+
+
+
+"-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+"-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#"
+
+-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+-Message=\"%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden.\" -Caption=\"Vishnu: Achtung, möglicher Verkaufszeitpunkt!\" -MessageNewLine=#
+
+
+ -Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=35764 -DebugMode=true -Message="05.05.2025 21.45.59: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+-Vishnu.TreeInfo="Tree 1" -Vishnu.NodeInfo="Swiss_Sustainable_Fondswerte" -Position="3840,65;752" -EscalationCounter=1 -Handle=35764 -DebugMode=true -Message="05.05.2025 21.45.59: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#
+
+Was macht dieser Regex:
+this._externalProcess.StartInfo.Arguments
+    = Regex.Replace(this._externalProcess.StartInfo.Arguments,
+      "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)", " ", RegexOptions.IgnoreCase);
+
+// Der reguläre Ausdruck \s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)
+// funktioniert wie folgt:
+// \s+ sucht nach einem oder mehreren Leerzeichen.
+// Das Lookahead (?=([^\"]*\"[^\"]*\")*[^\"]*$) stellt sicher,
+// dass die Anzahl der nachfolgenden Anführungszeichen gerade ist.
+// Dadurch wird sichergestellt, dass die Leerzeichen außerhalb
+// von Anführungszeichen liegen.
+// Angenommen, der ursprüngliche Argumentstring lautet:
+// "  cmd   /c   echo   \"Hello   World\"  "
+// Nach Anwendung des regulären Ausdrucks wird dieser zu:
+// " cmd /c echo \"Hello   World\" "

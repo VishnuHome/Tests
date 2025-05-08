@@ -1,0 +1,45 @@
+{
+  "JobDescription": {
+    "LogicalName": "Sub",
+    "LogicalExpression": ":GXR",
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Sub"
+    },
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:1"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "GXR",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True:Exception:False|5",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    }
+  }
+}

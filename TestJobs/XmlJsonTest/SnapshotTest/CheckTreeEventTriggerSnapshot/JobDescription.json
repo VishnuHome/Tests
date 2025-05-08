@@ -1,0 +1,50 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check TreeEventTrigger Snapshot",
+    "LogicalExpression": "IS flipflop",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Check TreeEventTrigger Snapshot"
+    },
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:5|S:11"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "flipflop",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True:Exception:False:Null",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "@type": "array"
+    }
+  }
+}

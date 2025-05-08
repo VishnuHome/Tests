@@ -1,0 +1,178 @@
+{
+  "doc": {
+    "assembly": {
+      "name": "SingleNodeUserControl_CheckShares"
+    },
+    "members": {
+      "member": [
+        {
+          "@name": "T:UserNodeControls.ResultViewModel",
+          "summary": "\r\n             Funktion: ViewModel für das User-spezifische Result.\r\n             Löst das ReturnObject eines Checkers in Properties auf.\r\n             ",
+          "remarks": "\r\n             File: ResultViewModel\r\n             Autor: Erik Nagel\r\n            \r\n             25.05.2015 Erik Nagel: erstellt\r\n             21.07.2016 Erik Nagel: In foreach-Schleifen wegen thread-safety linq.ToList implementiert.\r\n             "
+        },
+        {
+          "@name": "T:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel",
+          "summary": "\r\n            ViewModel für ein ShareCheckerResult.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.FullName",
+          "summary": "\r\n            Enthält den Langnamen der Aktie.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.ShortName",
+          "summary": "\r\n            Enthält ein Kürzel für die Aktie.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Url",
+          "summary": "\r\n            Enthält die Web-Url der Kursinformationen für die Aktie.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.StartCount",
+          "summary": "\r\n            Enthält die Anzahl Aktien zu Beginn der Anlage.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.StartValue",
+          "summary": "\r\n            Enthält den Aktienkurs zu Beginn der Anlage.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.CurrentCount",
+          "summary": "\r\n            Enthält die Anzahl Aktien zum aktuellen Zeitpunkt.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Compensation",
+          "summary": "\r\n            Enthält einen möglichen Differenzausgleich in Euro.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.RealCompensation",
+          "summary": "\r\n            Enthält einen möglichen Differenzausgleich in Euro\r\n            unter Berücksichtigung des Lebenshaltungsindex.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Timestamp",
+          "summary": "\r\n            Zeitpunkt der letzten Auswertung.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.CurrentValue",
+          "summary": "\r\n            Aktueller Wert der Aktie.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.GainsLosses",
+          "summary": "\r\n            Vergleich des aktuellen Wertes mit dem Ausgangswert.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.RealGainsLosses",
+          "summary": "\r\n            Vergleich des aktuellen Wertes mit dem Ausgangswert unter Berücksichtigung\r\n            der Veränderungen des Lebenshaltungsindex seit dem Beginn der Anlage.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.WithLifeIndex",
+          "summary": "\r\n            Bei True wird der Lebenshaltungsindex berücksichtigt.\r\n            Dafür muss der LifeIndexChecker vorher gelaufen sein.\r\n            Default: False\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.LifeIndex",
+          "summary": "\r\n            Lebenshaltungsindex unter Berücksichtigung des Startjahres der Anlage.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Comment",
+          "summary": "\r\n            Klartext-Informationen zur Prüfroutine\r\n            (was die Routine prüft).\r\n             "
+        },
+        {
+          "@name": "M:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties\r\n            als einen (mehrzeiligen) aufbereiteten String zur Verfügung.\r\n            ",
+          "returns": "Alle öffentlichen Properties als ein String aufbereitet."
+        },
+        {
+          "@name": "T:UserNodeControls.ResultViewModel.SubResultViewModel",
+          "summary": "\r\n            ViewModel für ein Teilergebnis.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.SubResultViewModel.ResultRecord",
+          "summary": "\r\n            Ein Datensatz als string.\r\n            "
+        },
+        {
+          "@name": "M:UserNodeControls.ResultViewModel.SubResultViewModel.ToString",
+          "summary": "\r\n            Überschriebene ToString()-Methode.\r\n            Liefert die Properties als String aufbereitet. \r\n            ",
+          "returns": ""
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.ShareCheckerResult",
+          "summary": "\r\n            Ergebnisse des vom CheckerHistoryLogger aufgerufenen konkreten ShareCheckers.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.LogicalResult",
+          "summary": "\r\n            Das logische Gesamtergebnis eines Prüfprozesses:\r\n            true, false oder null.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.RecordCount",
+          "summary": "\r\n            Die Anzahl der Treffer, die das\r\n            Prüfkriterium erfüllen.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.Timestamp",
+          "summary": "\r\n            Zeitstempel der letzten Auswertung.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.Header",
+          "summary": "\r\n            Überschrift mit Zeitstempel der letzten Auswertung BASF SE NAMENS-AKTIEN WKN BASF11.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.SharesInfoFile",
+          "summary": "\r\n            Textdatei mit zeilenweisen Einträgen von Aktienwerten.\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.WithLifeIndex",
+          "summary": "\r\n            Bei True wird der Lebenshaltungsindex berücksichtigt.\r\n            Dafür muss der LifeIndexChecker vorher gelaufen sein.\r\n            Default: False\r\n            "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.Comment",
+          "summary": "\r\n            Klartext-Informationen zur Prüfroutine\r\n            (was die Routine prüft).\r\n             "
+        },
+        {
+          "@name": "P:UserNodeControls.ResultViewModel.SubResults",
+          "summary": "\r\n            Bis zu drei KeyValue-Paare mit jeweils DetailName (i.d.R \"Anzahl\"),\r\n            und einem KeyValue-Paar bestehend aus DetailValue (i.d.R eine int-Anzahl)\r\n            und einem Detail-Ergebnis (bool?).\r\n            "
+        },
+        {
+          "@name": "M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)",
+          "summary": "\r\n            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.\r\n            ",
+          "param": {
+            "@name": "parentViewModel",
+            "#text": "DataContext des zugehörigen Vishnu-Knotens."
+          }
+        },
+        {
+          "@name": "M:UserNodeControls.ResultViewModel.HandleResultPropertyChanged",
+          "summary": "\r\n            Wird ausgeführt, wenn sich die Result-Property des ViewModels\r\n            des zugehörigen Vishnu-Knotens geändert hat.\r\n            "
+        },
+        {
+          "@name": "T:Vishnu_UserModules.SingleNodeUserControl_CheckShares",
+          "summary": [
+            "\r\n            Interaktionslogik für UserView_CheckServer.xaml\r\n            ",
+            "\r\n            SingleNodeUserControl_CheckShares\r\n            "
+          ]
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.#ctor",
+          "summary": "\r\n            Konstruktor - hängt einen EventHandler in ContentRendered.\r\n            "
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)",
+          "summary": "\r\n            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.\r\n            ",
+          "param": {
+            "@name": "vishnuViewModel",
+            "#text": "Ein spezifisches ResultViewModel."
+          },
+          "returns": ""
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.Dispose(System.Boolean)",
+          "summary": "\r\n            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.\r\n            ",
+          "param": {
+            "@name": "disposing",
+            "#text": "Bei true wurde diese Methode von der öffentlichen Dispose-Methode\r\n            aufgerufen; bei false vom internen Destruktor."
+          }
+        },
+        {
+          "@name": "M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.InitializeComponent",
+          "summary": "\r\n            InitializeComponent\r\n            "
+        }
+      ]
+    }
+  }
+}

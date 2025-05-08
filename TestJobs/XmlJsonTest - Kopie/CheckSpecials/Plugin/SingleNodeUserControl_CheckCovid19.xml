@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckCovid19</name>
+    </assembly>
+    <members>
+        <member name="T:UserNodeControls.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             25.05.2015 Erik Nagel: erstellt
+             21.07.2016 Erik Nagel: In foreach-Schleifen wegen thread-safety linq.ToList implementiert.
+             </remarks>
+        </member>
+        <member name="T:UserNodeControls.ResultViewModel.SubResultViewModel">
+            <summary>
+            ViewModel für ein Teilergebnis.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.LogicalResult">
+            <summary>
+            Das logische Einzelergebnis eines Unterergebnisses.
+            true, false oder null.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.ResultRecord">
+            <summary>
+            Ein Datensatz als string.
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.SubResultViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            Liefert die Properties als String aufbereitet. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LogicalResult">
+            <summary>
+            Das logische Gesamtergebnis eines Prüfprozesses:
+            true, false oder null.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.RecordCount">
+            <summary>
+            Die Anzahl der Treffer, die das
+            Prüfkriterium erfüllen.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LastDUSEvaluationTimestamp">
+            <summary>
+            Zeitstempel der letzten Auswertung der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LastJHUEvaluationTimestamp">
+            <summary>
+            Zeitstempel der letzten Auswertung nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LastRKIEvaluationTimestamp">
+            <summary>
+            Zeitstempel der letzten Auswertung nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DUSHeader">
+            <summary>
+            Überschrift mit Zeitstempel der letzten Auswertung der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.JHUHeader">
+            <summary>
+            Überschrift mit Zeitstempel der letzten Auswertung nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.RKIHeader">
+            <summary>
+            Überschrift mit Zeitstempel der letzten Auswertung nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentDUSCases">
+            <summary>
+            Aktuelle Anzahl an Covid-19 erkrankter Personen der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyDUSCases">
+            <summary>
+            Letzter täglicher Anstieg an Covid-19 erkrankter Personen der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentDUSDeaths">
+            <summary>
+            Aktuelle Anzahl im Zusammenhang mit Covid-19 verstorbener Personen der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyDUSDeaths">
+            <summary>
+            Letzter täglicher Anstieg an Covid-19 verstorbener Personen  der Stadt Düsseldorf.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentJHUCases">
+            <summary>
+            Aktuelle Anzahl an Covid-19 erkrankter Personen nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyJHUCases">
+            <summary>
+            Letzter täglicher Anstieg an Covid-19 erkrankter Personen nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentJHUDeaths">
+            <summary>
+            Aktuelle Anzahl im Zusammenhang mit Covid-19 verstorbener Personen nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyJHUDeaths">
+            <summary>
+            Letzter täglicher Anstieg an Covid-19 verstorbener Personen nach Johns Hopkins University.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentRKICases">
+            <summary>
+            Aktuelle Anzahl an Covid-19 erkrankter Personen nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyRKICases">
+            <summary>
+            Letzter täglicher Anstieg an Covid-19 erkrankter Personen nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CurrentRKIDeaths">
+            <summary>
+            Aktuelle Anzahl im Zusammenhang mit Covid-19 verstorbener Personen nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.DailyRKIDeaths">
+            <summary>
+            Letzter täglicher Anstieg im Zusammenhang mit Covid-19 verstorbener Personen nach Robert Koch Institut.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Covid19InfoFile">
+            <summary>
+            Textdatei mit zeilenweisen Einträgen von Covid-19 Werten für Deutschland.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResults">
+            <summary>
+            Bis zu drei KeyValue-Paare mit jeweils DetailName (i.d.R "Anzahl"),
+            und einem KeyValue-Paar bestehend aus DetailValue (i.d.R eine int-Anzahl)
+            und einem Detail-Ergebnis (bool?).
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.SingleNodeUserControl_CheckCovid19">
+            <summary>
+            Interaktionslogik für UserView_CheckServer.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckCovid19
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckCovid19.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckCovid19.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckCovid19.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckCovid19.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

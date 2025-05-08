@@ -1,0 +1,25 @@
+{
+  "doc": {
+    "assembly": {
+      "name": "BASF_Checker"
+    },
+    "members": {
+      "member": [
+        {
+          "@name": "T:BASF_Checker.BASF_Checker",
+          "summary": "\r\n             Ermittelt aktuelle Werte für eine Aktie über das Auslesen einer Webseite.\r\n             Sub-Projekt eines Aktien-Checkers für Vishnu.\r\n             Die BASF_Checker.dll wird von CheckShares.dll dynamisch geladen.\r\n             ",
+          "remarks": "\r\n             Autor: Erik Nagel\r\n            \r\n             20.10.2021 Erik Nagel: in Sub-Projekt ausgelagert.\r\n             02.03.2025 Erik Nagel: zusätzlich Berücksichtigung des Lebenshaltungsindex.\r\n             "
+        },
+        {
+          "@name": "M:BASF_Checker.BASF_Checker.Work(Vishnu.Interchange.TreeEvent)",
+          "summary": "\r\n            Die innere Arbeitsroutine zur Ermittlung des Returncodes\r\n            und zur Füllung von ShareChecker_ReturnObject.\r\n            ",
+          "param": {
+            "@name": "source",
+            "#text": "Das auslösende TreeEvent aus Vishnu."
+          },
+          "returns": "True, False oder null"
+        }
+      ]
+    }
+  }
+}

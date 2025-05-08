@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowDateDialog",
+    "LogicalExpression": ":CheckDateDialog",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "ShowRefCheckTreeEventTriggerSnapshot"
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "CheckDateDialog",
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        }
+      ]
+    }
+  }
+}

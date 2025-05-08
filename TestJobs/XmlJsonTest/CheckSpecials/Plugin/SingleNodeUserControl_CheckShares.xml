@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckShares</name>
+    </assembly>
+    <members>
+        <member name="T:UserNodeControls.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das User-spezifische Result.
+             Löst das ReturnObject eines Checkers in Properties auf.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             25.05.2015 Erik Nagel: erstellt
+             21.07.2016 Erik Nagel: In foreach-Schleifen wegen thread-safety linq.ToList implementiert.
+             </remarks>
+        </member>
+        <member name="T:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel">
+            <summary>
+            ViewModel für ein ShareCheckerResult.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.FullName">
+            <summary>
+            Enthält den Langnamen der Aktie.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.ShortName">
+            <summary>
+            Enthält ein Kürzel für die Aktie.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Url">
+            <summary>
+            Enthält die Web-Url der Kursinformationen für die Aktie.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.StartCount">
+            <summary>
+            Enthält die Anzahl Aktien zu Beginn der Anlage.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.StartValue">
+            <summary>
+            Enthält den Aktienkurs zu Beginn der Anlage.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.CurrentCount">
+            <summary>
+            Enthält die Anzahl Aktien zum aktuellen Zeitpunkt.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Compensation">
+            <summary>
+            Enthält einen möglichen Differenzausgleich in Euro.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.RealCompensation">
+            <summary>
+            Enthält einen möglichen Differenzausgleich in Euro
+            unter Berücksichtigung des Lebenshaltungsindex.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Timestamp">
+            <summary>
+            Zeitpunkt der letzten Auswertung.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.CurrentValue">
+            <summary>
+            Aktueller Wert der Aktie.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.GainsLosses">
+            <summary>
+            Vergleich des aktuellen Wertes mit dem Ausgangswert.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.RealGainsLosses">
+            <summary>
+            Vergleich des aktuellen Wertes mit dem Ausgangswert unter Berücksichtigung
+            der Veränderungen des Lebenshaltungsindex seit dem Beginn der Anlage.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.WithLifeIndex">
+            <summary>
+            Bei True wird der Lebenshaltungsindex berücksichtigt.
+            Dafür muss der LifeIndexChecker vorher gelaufen sein.
+            Default: False
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.LifeIndex">
+            <summary>
+            Lebenshaltungsindex unter Berücksichtigung des Startjahres der Anlage.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.ShareCheckerResultViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode - stellt alle öffentlichen Properties
+            als einen (mehrzeiligen) aufbereiteten String zur Verfügung.
+            </summary>
+            <returns>Alle öffentlichen Properties als ein String aufbereitet.</returns>
+        </member>
+        <member name="T:UserNodeControls.ResultViewModel.SubResultViewModel">
+            <summary>
+            ViewModel für ein Teilergebnis.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.ResultRecord">
+            <summary>
+            Ein Datensatz als string.
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.SubResultViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            Liefert die Properties als String aufbereitet. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.ShareCheckerResult">
+            <summary>
+            Ergebnisse des vom CheckerHistoryLogger aufgerufenen konkreten ShareCheckers.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LogicalResult">
+            <summary>
+            Das logische Gesamtergebnis eines Prüfprozesses:
+            true, false oder null.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.RecordCount">
+            <summary>
+            Die Anzahl der Treffer, die das
+            Prüfkriterium erfüllen.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Timestamp">
+            <summary>
+            Zeitstempel der letzten Auswertung.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Header">
+            <summary>
+            Überschrift mit Zeitstempel der letzten Auswertung BASF SE NAMENS-AKTIEN WKN BASF11.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SharesInfoFile">
+            <summary>
+            Textdatei mit zeilenweisen Einträgen von Aktienwerten.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.WithLifeIndex">
+            <summary>
+            Bei True wird der Lebenshaltungsindex berücksichtigt.
+            Dafür muss der LifeIndexChecker vorher gelaufen sein.
+            Default: False
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResults">
+            <summary>
+            Bis zu drei KeyValue-Paare mit jeweils DetailName (i.d.R "Anzahl"),
+            und einem KeyValue-Paar bestehend aus DetailValue (i.d.R eine int-Anzahl)
+            und einem Detail-Ergebnis (bool?).
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:Vishnu_UserModules.SingleNodeUserControl_CheckShares">
+            <summary>
+            Interaktionslogik für UserView_CheckServer.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckShares
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.Dispose(System.Boolean)">
+            <summary>
+            Hier wird aufgeräumt: ruft für alle User-Elemente, die Disposable sind, Dispose() auf.
+            </summary>
+            <param name="disposing">Bei true wurde diese Methode von der öffentlichen Dispose-Methode
+            aufgerufen; bei false vom internen Destruktor.</param>
+        </member>
+        <member name="M:Vishnu_UserModules.SingleNodeUserControl_CheckShares.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

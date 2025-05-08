@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Specials</LogicalName>
+  <LogicalExpression>
+    IS Check_Shares
+  </LogicalExpression>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>Check_Shares</LogicalName>
+      <LogicalExpression>
+         (Shares_Summary AND LifeIndex) AND Check_All_Shares
+      </LogicalExpression>
+      <Checkers type="array">
+        <Checker>
+          <LogicalName>LifeIndex</LogicalName>
+          <PhysicalPath>LifeIndexChecker.dll</PhysicalPath>
+          <Parameters>
+            <![CDATA[holt den aktuellen Lebenshaltungsindex|WithCache=true]]>
+          </Parameters>
+          <Trigger>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>H:6</Parameters>
+          </Trigger>
+        </Checker>
+        <Checker>
+          <LogicalName>Shares_Summary</LogicalName>
+          <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+          <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+          <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+          <Parameters>
+            <![CDATA[quiet|CheckerHistoryLogger.dll|SharesSummary_Checker.dll|erstellt eine Gesamtübersicht für alle Kurse|WithLifeIndex=true]]>
+          </Parameters>
+          <Trigger>
+            <Reference>AnyResultChanged</Reference>
+            <Parameters>Check_All_Shares</Parameters>
+          </Trigger>
+        </Checker>
+      </Checkers>
+      <SubJobs type="array">
+        <SubJob>
+          <LogicalName>Check_All_Shares</LogicalName>
+          <LogicalExpression>
+            (BASF_Aktienwerte AND Teamviewer_Aktienwerte AND Sartorius_Aktienwerte) AND
+            (DWS_Fondswerte AND OekoWorld_Swiss_Fondswerte AND Robeco_Water_Fondswerte) AND
+            (Robeco_Water_Zukauf_Fondswerte AND Swiss_Sustainable_Fondswerte AND Swiss_Sustainable_Zukauf_Fondswerte)
+          </LogicalExpression>
+          <JobTrigger>
+            <Reference>True</Reference>
+            <Parameters>LifeIndex</Parameters>
+          </JobTrigger>
+          <JobLogger>
+            <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+            <Parameters>AnyResultChanged</Parameters>
+          </JobLogger>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>BASF_Aktienwerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[BASF_Checker.dll|holt den aktuellen Kurs für die BASF-Aktie|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Teamviewer_Aktienwerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Teamviewer_Checker.dll|holt den aktuellen Kurs für die Teamviewer-Aktie|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>DWS_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[DWS_Top_Dividende_Checker.dll|holt den aktuellen Kurs für den DWS Top Dividende Fonds|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>OekoWorld_Swiss_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[OekoWorld_Swiss_Checker.dll|holt den aktuellen Kurs für den ÖkoWorld-Swiss Fonds|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Robeco_Water_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Robeco_Water_Checker.dll|holt den aktuellen Kurs für den Robeco Water Fonds|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Robeco_Water_Zukauf_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Robeco_Water_Zukauf_Checker.dll|holt den aktuellen Kurs für den Robeco Water Zukauf|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Sartorius_Aktienwerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Sartorius_Checker.dll|holt den aktuellen Kurs für die Sartorius Aktie|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Swiss_Sustainable_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Swiss_Sustainable_Checker.dll|holt den aktuellen Kurs für den Swiss Sustainable Fonds|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+            <Checker>
+              <LogicalName>Swiss_Sustainable_Zukauf_Fondswerte</LogicalName>
+              <UserControlPath>Plugin\SingleNodeUserControl_CheckShares.dll</UserControlPath>
+              <PhysicalPath>CheckerHistoryLogger.dll</PhysicalPath>
+              <ThreadLocked LockName="ConcurrentWebdriver">true</ThreadLocked>
+              <Parameters>
+                <![CDATA[Swiss_Sustainable_Zukauf_Checker.dll|holt den aktuellen Kurs für den Swiss Sustainable Zukauf|true|WithLifeIndex=true]]>
+              </Parameters>
+              <Trigger>
+                <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+                <Parameters>H:1</Parameters>
+              </Trigger>
+            </Checker>
+          </Checkers>
+          <Workers type="array">
+            <Worker>
+              <LogicalExpression>BASF_Aktienwerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die BASF-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Teamviewer_Aktienwerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Teamviewer-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Teamviewer-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Allianz_Aktienwerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Allianz-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Allianz-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Sartorius_Aktienwerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Sartorious-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Sartorious-Aktien könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>DWS_Fondswerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die DWS-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <!--SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die DWS-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de"]]></Parameters>
+                </SubWorker-->
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>OekoWorld_Fondswerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die ÖkoWorld-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die ÖkoWorld-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Robeco_Water_Fondswerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Robeco Water-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <!--SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Robeco Water-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker-->
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Swiss_Sustainable_Fondswerte:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <!--SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Swiss Sustainable-Papiere könnten ohne Verlust verkauft werden." -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker-->
+              </SubWorkers>
+            </Worker>
+            <Worker>
+              <LogicalExpression>Shares_Summary:True</LogicalExpression>
+              <SubWorkers type="array">
+                <SubWorker>
+                  <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+                  <Parameters>-Message="%Timestamp%: Die Anlagen sind insgesamt im Plus!" -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MessageNewLine=#</Parameters>
+                </SubWorker>
+                <SubWorker>
+                  <PhysicalPath>MicroMailer.exe</PhysicalPath>
+                  <Parameters><![CDATA[-Message="%Timestamp%: Die Anlagen sind insgesamt im Plus!" -Caption="Vishnu: Achtung, möglicher Verkaufszeitpunkt!" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de; neteti@neteti.de"]]></Parameters>
+                </SubWorker>
+              </SubWorkers>
+            </Worker>
+          </Workers>
+        </SubJob>
+      </SubJobs>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

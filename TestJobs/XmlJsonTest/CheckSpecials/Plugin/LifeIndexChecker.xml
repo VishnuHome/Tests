@@ -1,0 +1,499 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LifeIndexChecker</name>
+    </assembly>
+    <members>
+        <member name="T:LifeIndexChecker.LifeIndexChecker">
+             <summary>
+             Checker-Projekt für Vishnu.
+             Die LifeIndexChecker.dll kann später in einer Vishnu-JobDescription.xml referenziert
+             werden und von Vishnu bei der Ausführung des Jobs aus dem Plugin-Unterverzeichnis
+             oder einem konfigurierten UserAssemblyDirectory dynamisch geladen werden.
+             Vishnu ruft dann je nach weiteren Konfigurationen (Trigger) die öffentliche
+             Methode "Run" des UserCheckers auf.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             Die life-index Daten kommen von
+             https://www-genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0001.
+             Danke an das Team.
+             
+             26.02.2025 Erik Nagel: erstellt
+             </remarks>
+        </member>
+        <member name="E:LifeIndexChecker.LifeIndexChecker.NodeProgressChanged">
+            <summary>
+            Kann aufgerufen werden, wenn sich der Verarbeitungsfortschritt
+            des Checkers geändert hat, muss aber zumindest aber einmal zum
+            Schluss der Verarbeitung aufgerufen werden.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker.ReturnObject">
+            <summary>
+            Rückgabe-Objekt des Checkers
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.Run(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Hier wird der Arbeitsprozess ausgeführt (oder beobachtet).
+            </summary>
+            <param name="checkerParameters">Ihre Aufrufparameter aus der JobDescription.xml oder null.</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null (z.Zt. unbenutzt).</param>
+            <param name="source">Auslösendes TreeEvent (kann null sein).</param>
+            <returns>True, False oder null</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.Dispose">
+            <summary>
+            Öffentliche Methode zum Aufräumen.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.Dispose(System.Boolean)">
+            <summary>
+            Abschlussarbeiten.
+            </summary>
+            <param name="disposing">False, wenn vom eigenen Destruktor aufgerufen.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.Finalize">
+            <summary>
+            Finalizer: wird vom GarbageCollector aufgerufen.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker.WithCache">
+            <summary>
+            Gibt an, ob eine Ausnahme in einen Rückgabewert aus dem
+            zuletzt gecachten erfolgreichen Aufruf umgewandelt werden soll.
+            Default: false.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker.EvaluateParameters(System.String,System.Object,Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Wertet die übergebenen Parameter aus und speichert sie in _fileCheckerReturnObject.
+            </summary>
+            <param name="checkerParameters">Dateipfad mit Wildcards|&lt; oder &gt;|maximal erlaubte(s) Anzahl oder Alter<br></br>
+            Format von Alter: Einheit + ':' + ganzzahliger Wert; Einheit: S=Sekunden, M=Minuten, H=Stunden, D=Tage."</param>
+            <param name="treeParameters">Für den gesamten Tree gültige Parameter oder null.</param>
+            <param name="source">Auslösendes TreeEvent oder null.</param>
+        </member>
+        <member name="T:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject">
+            <summary>
+            Enthält die Ergebnisse des Api-Calls auf die Webseite mit dem Lebenshaltungsindex
+            "https://www-genesis.destatis.de/genesisWS/rest/2020/data/table".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.Ident">
+            <summary>
+            Interne Serviceklasse ("Service": "data", "Method": "table").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.Status">
+            <summary>
+            Ergebnis-Status des Api-Calls ("Code": 0, "Content": "erfolgreich").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.Parameter">
+            <summary>
+            Die beim Api-Call übergebenen Parameter, wie "username", "password", "name": "61111-0001", etc.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.ObjectData">
+            <summary>
+            Nutzdaten: Strukturinformationen und eine Tabelle mit Zahlen pro Jahr.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.Copyright">
+            <summary>
+            Eine unvermeidliche Konstante mit dem Copyright.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.#ctor">
+            <summary>
+            Standard-Konstruktor.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Objekt.</param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_BfS_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="T:LifeIndexChecker.Ident">
+            <summary>
+            Interne Serviceklasse ("Service": "data", "Method": "table").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Ident.Service">
+            <summary>
+            Der Service, hier "data".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Ident.Method">
+            <summary>
+            Die Methode, hier "table".
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Status">
+            <summary>
+            Ergebnis-Status des Api-Calls ("Code": 0, "Content": "erfolgreich").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Status.Code">
+            <summary>
+            Numerischer Code des Ergebnis-Status (0 = erfolgreich).
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Status.Content">
+            <summary>
+            Textuelle Beschreibung des Ergebnis-Status ("erfolgreich").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Status.Type">
+            <summary>
+            Typ des Ergebnis-Status, z.B. "Information".
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Parameter">
+            <summary>
+            Die beim Api-Call übergebenen Parameter, wie "username", "password", "name": "61111-0001", etc.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Username">
+            <summary>
+            Der Benutzername für den Api-Call.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Password">
+            <summary>
+            Das Passwort für den Api-Call.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Name">
+            <summary>
+            Der Name der Tabelle, z.B. "61111-0001".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Area">
+            <summary>
+            Der Bereich der Tabelle, z.B. "all".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Format">
+            <summary>
+            Das Format der Tabelle, z.B. "json" oder "datencsv".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Job">
+            <summary>
+            Ein Job für die Tabelle, hier "false".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Stand">
+            <summary>
+            Der Stand der Tabelle, z.B. "01.01.1970 01:00".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Parameter.Language">
+            <summary>
+            Die Sprache der Tabelle, z.B. "de".
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.ObjectData">
+            <summary>
+            Nutzdaten: Strukturinformationen und eine Tabelle mit Zahlen pro Jahr.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.ObjectData.Content">
+            <summary>
+            Die Nutzdaten: Tabelle mit Zahlen pro Jahr.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.ObjectData.Structure">
+            <summary>
+            Strukturinformationen über die Nutzdaten.
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Structure">
+            <summary>
+            Strukturinformationen über die Nutzdaten.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Structure.Head">
+            <summary>
+            Kopfdaten der Nutztabelle, u.a. mit "Code": "61111" und
+            "Content": "Verbraucherpreisindex für Deutschland".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Structure.Columns">
+            <summary>
+            Spalteninformationen der Nutztabelle.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Structure.Rows">
+            <summary>
+            Zeileninformationen der Nutztabelle.
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Head">
+            <summary>
+            Kopfdaten der Nutztabelle, u.a. mit "Code": "61111",
+            "Content": "Verbraucherpreisindex für Deutschland",	"Type": "Statistik".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Head.Code">
+            <summary>
+            Code der Nutztabelle: "61111".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Head.Content">
+            <summary>
+            Überschrift: "Verbraucherpreisindex für Deutschland".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Head.Type">
+            <summary>
+            Typ der Statistik: "Statistik".
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Column">
+            <summary>
+            Spalteninformationen der Nutztabelle.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Column.Code">
+            <summary>
+            Codename der Spalte.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Column.Content">
+            <summary>
+            Überschrift der Spalte.
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.Row">
+            <summary>
+            Zeileninformationen der Nutztabelle.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Row.Code">
+            <summary>
+            Codename der Zeile.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.Row.Content">
+            <summary>
+            Inhalt der Zeile.
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.LifeIndexChecker_ReturnObject">
+            <summary>
+            Enthält die Nutzdaten des Api-Calls auf die Webseite mit dem Lebenshaltungsindex
+            "https://www-genesis.destatis.de/genesisWS/rest/2020/data/table".
+            </summary>
+        </member>
+        <member name="T:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint">
+            <summary>
+            Ein Jahr mit dem zugehörigen Lebenshaltungsindex bezogen auf ReferenceYear
+            und einem Prozentsatz für die Veränderung zum Vorjahr.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.Year">
+            <summary>
+            Das Jahr, auf das sich die Daten beziehen.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.LifeIndex">
+            <summary>
+            Der Lebenshaltungsindex für das Jahr.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.Delta">
+            <summary>
+            Der Prozentsatz der Veränderung zum Vorjahr.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Objekt.</param>
+            <returns>True, wenn das übergebene Objekt inhaltlich gleich diesem ist.</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.DataPoint.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.Title">
+            <summary>
+            Überschrift: "Verbraucherpreisindex für Deutschland".
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.CountryCode">
+            <summary>
+            Länderkennung ("de-DE").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.TimePoint">
+            <summary>
+            Zeitpunkt der Abfrage ("2024-04-28T00:00").
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.ReferenceYear">
+            <summary>
+            Referenzjahr für die Lebenshaltungsindex-Daten (z.B. 2020).
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.Headers">
+            <summary>
+            Überschriften für die Datenpunkte.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.YearsIndices">
+            <summary>
+            Liste von Lebenshaltungsindex-Datenpunkten.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.RecordCount">
+            <summary>
+            Anzahl der Datensätze.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.Copyright">
+            <summary>
+            Unvermeidlicher Hinweis auf das Urheberrecht.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.FromCache">
+            <summary>
+            Gibt an, ob eine Ausnahme in einen Rückgabewert aus dem
+            zuletzt gecachten erfolgreichen Aufruf umgewandelt wurde.
+            </summary>
+        </member>
+        <member name="P:LifeIndexChecker.LifeIndexChecker_ReturnObject.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.GetLifeIndex(System.Int32)">
+            <summary>
+            Gibt den Lebenshaltungsindex für ein bestimmtes Jahr zurück.
+            </summary>
+            <param name="year">Das Jahr mit dem gesuchten Lebenshaltungsindex (Default: Vorjahr).</param>
+            <returns>Lebenshaltungsindex zum Suchjahr oder null (Default: Vorjahr)</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.GetRealAgeLifeIndex(System.Int32)">
+            <summary>
+            Gibt den Lebenshaltungsindex für das aktuellste Jahr (i.d.R. Vorjahr)
+            ausgehend von einem übergebenen Startjahr zurück.
+            </summary>
+            <param name="year">Das Jahr, in dem die Betrachtung starten soll.</param>
+            <returns>Kalkulierter Lebenshaltungsindex zum Betrachtungszeitraum
+            oder null (Default: Vorjahr)</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.#ctor">
+            <summary>
+            Standard Konstruktor.
+            </summary>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialisierungs-Konstruktor.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Übertragungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialisierungs-Hilfsroutine: holt die Objekt-Properties in den Property-Container.
+            </summary>
+            <param name="info">Property-Container.</param>
+            <param name="context">Serialisierungs-Kontext.</param>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            </summary>
+            <returns>Dieses Objekt.ToString().</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.Equals(System.Object)">
+            <summary>
+            Vergleicht dieses Objekt mit einem übergebenen Objekt nach Inhalt.
+            </summary>
+            <param name="obj">Das zu vergleichende Object.</param>
+            <returns>True, wenn das übergebene Object inhaltlich
+            gleich diesem Object ist.</returns>
+        </member>
+        <member name="M:LifeIndexChecker.LifeIndexChecker_ReturnObject.GetHashCode">
+            <summary>
+            Erzeugt einen eindeutigen Hashcode für dieses Objekt.
+            </summary>
+            <returns>Hashcode (int).</returns>
+        </member>
+    </members>
+</doc>

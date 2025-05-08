@@ -1,0 +1,32 @@
+{
+  "JobDescription": {
+    "LogicalName": "Show_GT_LT",
+    "LogicalExpression": "IS #Check_GT_LT",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Show_GT_LT"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#Check_GT_LT",
+          "PhysicalPath": "..\\Check_GT_LT\\JobSnapshot.xml",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll",
+            "Parameters": "..\\Check_GT_LT\\JobSnapshot.xml|InitialFire|%SnapshotDirectories%"
+          }
+        }
+      ]
+    }
+  }
+}

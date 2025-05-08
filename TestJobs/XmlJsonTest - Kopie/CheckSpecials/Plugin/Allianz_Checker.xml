@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Allianz_Checker</name>
+    </assembly>
+    <members>
+        <member name="T:Allianz_Checker.Allianz_Checker">
+             <summary>
+             Ermittelt aktuelle Werte für eine Aktie über das Auslesen einer Webseite.
+             Sub-Projekt eines Aktien-Checkers für Vishnu.
+             Die Allianz_Checker.dll wird von CheckShares.dll dynamisch geladen.
+             </summary>
+             <remarks>
+             Autor: Erik Nagel
+            
+             20.10.2021 Erik Nagel: in Sub-Projekt ausgelagert.
+             </remarks>
+        </member>
+        <member name="M:Allianz_Checker.Allianz_Checker.Work(Vishnu.Interchange.TreeEvent)">
+            <summary>
+            Die innere Arbeitsroutine zur Ermittlung des Returncodes
+            und zur Füllung von ShareChecker_ReturnObject.
+            </summary>
+            <param name="source">Das auslösende TreeEvent aus Vishnu.</param>
+            <returns>True, False oder null</returns>
+        </member>
+    </members>
+</doc>

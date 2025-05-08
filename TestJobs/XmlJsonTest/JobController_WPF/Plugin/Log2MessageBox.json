@@ -1,0 +1,52 @@
+{
+  "doc": {
+    "assembly": {
+      "name": "Log2MessageBox"
+    },
+    "members": {
+      "member": [
+        {
+          "@name": "T:Log2MessageBox.Log2MessageBox",
+          "summary": "\r\n             Loggt Vishnu-Ereignisse in eine MessageBox.\r\n             ",
+          "remarks": "\r\n             File: Log2MessageBox.cs\r\n             Autor: Erik Nagel\r\n            \r\n             26.05.2014 Erik Nagel: Erstellt.\r\n             03.07.2021 Erik Nagel: Überarbeitet.\r\n             10.08.2023 Erik Nagel: Auf VishnuMessageBox umgestellt.\r\n             "
+        },
+        {
+          "@name": "M:Log2MessageBox.Log2MessageBox.Log(System.Object,Vishnu.Interchange.TreeParameters,Vishnu.Interchange.TreeEvent,System.Object)",
+          "summary": "\r\n            Übernahme von diversen Logging-Informationen und Ausgabe in eine MessageBox.\r\n            ",
+          "param": [
+            {
+              "@name": "loggerParameters",
+              "#text": "Spezifische Aufrufparameter oder null."
+            },
+            {
+              "@name": "treeParameters",
+              "#text": "Für den gesamten Tree gültige Parameter oder null."
+            },
+            {
+              "@name": "treeEvent",
+              "#text": "Objekt mit Informationen über das Ereignis."
+            },
+            {
+              "@name": "additionalEventArgs",
+              "#text": "Enthält z.B. beim Event 'Exception' die zugehörige Exception."
+            }
+          ]
+        },
+        {
+          "@name": "M:Log2MessageBox.Log2MessageBox.WriteLog(System.String,Vishnu.Interchange.TreeEvent)",
+          "summary": "\r\n            Hier wird die MessageBox als eigene Exe geschleudert.\r\n            ",
+          "param": [
+            {
+              "@name": "message",
+              "#text": "Aus allen Parametern aufbereiteter string."
+            },
+            {
+              "@name": "treeEvent",
+              "#text": "Klasse mit Informationen über das Ereignis."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

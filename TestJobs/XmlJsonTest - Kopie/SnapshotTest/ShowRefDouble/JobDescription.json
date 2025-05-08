@@ -1,0 +1,39 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowRefDouble",
+    "LogicalExpression": "#Sub_1 & #Sub_2",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "ShowRefMulti"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#Sub_1",
+          "PhysicalPath": "Sub",
+          "StartCollapsed": false,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        },
+        {
+          "LogicalName": "#Sub_2",
+          "PhysicalPath": "Sub2",
+          "StartCollapsed": false,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowRefShowRefAll",
+    "LogicalExpression": "TrueChecker &  #ShowRefAll",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "ShowRefShowRefAll"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TrueChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#ShowRefAll",
+          "PhysicalPath": "ShowRefAll\\JobSnapshot.xml",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll",
+            "Parameters": "ShowRefAll\\JobSnapshot.xml|InitialFire|%SnapshotDirectories%"
+          }
+        }
+      ]
+    }
+  }
+}
