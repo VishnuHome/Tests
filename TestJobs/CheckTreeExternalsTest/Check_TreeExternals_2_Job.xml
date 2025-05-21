@@ -13,13 +13,13 @@
     <Checker>
       <LogicalName>Check_TreeExternals_2</LogicalName>
       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
-      <Parameters>False</Parameters>
+      <Parameters>False:Exception</Parameters>
       <Trigger>
         <Reference>FirstNamedTimerTrigger</Reference>
       </Trigger>
     </Checker>
   </Checkers>
-  <ValueModifiers>
+  <ValueModifiers type="array">
     <ValueModifier>
       <LogicalName>Tag</LogicalName>
       <Reference>Datum</Reference>

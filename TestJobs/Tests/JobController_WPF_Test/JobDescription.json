@@ -1,0 +1,19 @@
+{
+  "JobDescription": {
+    "LogicalName": "Root",
+    "IsControlled": True,
+    "LogicalExpression": "IS Gruppe_1",
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "AnyLogicalResultChanged|Exception"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Gruppe_1",
+          "PhysicalPath": "Gruppe_1.json"
+        }
+      ]
+    }
+  }
+}

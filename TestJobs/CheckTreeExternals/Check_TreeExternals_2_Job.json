@@ -1,0 +1,62 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_TreeExternals_2_Job",
+    "LogicalExpression": "Tag > @19 && Tag < @22 => Check_TreeExternals_2",
+    "BreakWithResult": false,
+    "StartCollapsed": false,
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Check_TreeExternals_2",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception|10|Checker_11-Result",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          }
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": [
+        {
+          "LogicalName": "Tag",
+          "Reference": "Datum",
+          "Type": "int",
+          "Format": "{0:dd}"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check_TreeExternals_2_Job:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_TreeExternals_2_Job %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Check_TreeExternals_2 Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_TreeExternals_1_Job:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp% False in Check_TreeExternals_2!\" -Caption=\"Check_TreeExternals_2 Information\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

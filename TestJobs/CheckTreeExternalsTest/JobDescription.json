@@ -1,0 +1,43 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Tree Externals",
+    "LogicalExpression": "IS Check_TreeExternals_2_Job",
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:5|S:15"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "CheckDate.dll"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Check_TreeExternals_2_Job",
+          "PhysicalPath": "Check_TreeExternals_2_Job.json"
+        }
+      ]
+    }
+  }
+}

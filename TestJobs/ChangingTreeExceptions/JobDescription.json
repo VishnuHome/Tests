@@ -1,0 +1,44 @@
+{
+  "JobDescription": {
+    "LogicalName": "Changing TreeExceptions",
+    "LogicalExpression": "TrueFalseExceptionChecker_1 & TrueFalseExceptionChecker_2",
+    "BreakWithResult": false,
+    "ThreadLocked": {
+      "@LockName": "MainTest-false",
+      "#text": false
+    },
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Changing TreeExceptions"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TrueFalseExceptionChecker_1",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception",
+          "ThreadLocked": {
+            "@LockName": "ConcurrentTest",
+            "#text": true
+          },
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "MS:1000|MS:5000"
+          }
+        },
+        {
+          "LogicalName": "TrueFalseExceptionChecker_2",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Exception:Null:False:True|7|Checker_12-Result",
+          "ThreadLocked": true,
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "MS:300|MS:2030"
+          }
+        }
+      ]
+    }
+  }
+}

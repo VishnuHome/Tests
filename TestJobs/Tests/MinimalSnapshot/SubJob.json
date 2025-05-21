@@ -1,0 +1,24 @@
+{
+  "JobDescription": {
+    "LogicalName": "SubJob",
+    "LogicalExpression": "SubJobUserChecker | SubJobTrueChecker",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "SubJob"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "SubJobUserChecker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "TrueCheckerSub-Result"
+        },
+        {
+          "LogicalName": "SubJobTrueChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        }
+      ]
+    }
+  }
+}

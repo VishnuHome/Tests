@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckTimerReference_2_Job",
+    "LogicalExpression": "IS CheckTimerReference_2",
+    "BreakWithResult": false,
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "CheckTimerReference_2",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    }
+  }
+}

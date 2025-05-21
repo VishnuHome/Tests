@@ -1,0 +1,24 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check CanRun",
+    "LogicalExpression": "IS CanRunChecker",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "CanRunChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False:True|7|Parameter-1 #%GesuchterParameter%# Parameter-2",
+          "CanRunDllPath": "DemoWPFCanRunDialog.dll",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:5|S:10"
+          }
+        }
+      ]
+    }
+  }
+}

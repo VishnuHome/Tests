@@ -1,0 +1,47 @@
+{
+  "JobDescription": {
+    "LogicalName": "False_Job",
+    "LogicalExpression": "IS FalseJob",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "FalseJob",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "False_Job:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: False_Job %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"False_Job Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "False_Job:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: False_Job hat korrekt False zurückgegeben\" -Caption=\"False_Job Info\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

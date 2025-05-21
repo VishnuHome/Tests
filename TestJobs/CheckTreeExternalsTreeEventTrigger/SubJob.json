@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "SubJob",
+    "LogicalExpression": "IS TreeEventTriggerFlipFlopAbhaengig",
+    "BreakWithResult": false,
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TreeEventTriggerFlipFlopAbhaengig",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception",
+          "Trigger": {
+            "Reference": "FirstNamedTreeEventTrigger"
+          }
+        }
+      ]
+    }
+  }
+}

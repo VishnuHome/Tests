@@ -1,0 +1,36 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Tree Externals",
+    "LogicalExpression": "FlipFlop & SubJob",
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTreeEventTrigger",
+          "Reference": "LogicalResultChanged|Exception|S:15",
+          "Parameters": "FlipFlop"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "FlipFlop",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob",
+          "PhysicalPath": "SubJob.json"
+        }
+      ]
+    }
+  }
+}

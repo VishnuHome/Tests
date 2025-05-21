@@ -1,0 +1,23 @@
+{
+  "JobDescription": {
+    "LogicalName": "Job_12",
+    "LogicalExpression": ":Checker_12",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": true,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker_12",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:False:Exception:True|10|Checker_12-Result",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:7"
+          },
+          "ThreadLocked": false
+        }
+      ]
+    }
+  }
+}

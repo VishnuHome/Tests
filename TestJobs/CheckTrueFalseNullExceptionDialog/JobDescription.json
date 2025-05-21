@@ -1,0 +1,24 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckTrueFalseNullExceptionDialog",
+    "LogicalExpression": "Checker1 & Checker2",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker1-Result"
+        },
+        {
+          "LogicalName": "Checker2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker2-Result"
+        }
+      ]
+    }
+  }
+}

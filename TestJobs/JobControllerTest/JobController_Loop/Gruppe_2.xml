@@ -36,8 +36,6 @@
           <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
           <Parameters>True||Knoten_2.1.1-Result</Parameters>
         </Checker>
-      </Checkers>
-      <Checkers type="array">
         <Checker>
           <LogicalName>Knoten_2.1.2</LogicalName>
           <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>

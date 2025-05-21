@@ -14,7 +14,7 @@
       <PhysicalPath>CheckDate.dll</PhysicalPath>
     </Checker>
   </Checkers>
-  <ValueModifiers>
+  <ValueModifiers type="array">
     <ValueModifier>
       <LogicalName>Tag</LogicalName>
       <Reference>Datum</Reference>

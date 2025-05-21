@@ -1,0 +1,6 @@
+{
+  "JobDescription": {
+    "LogicalName": "Single Constant Node Job",
+    "LogicalExpression": "@999"
+  }
+}

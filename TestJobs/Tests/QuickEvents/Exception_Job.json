@@ -1,0 +1,52 @@
+{
+  "JobDescription": {
+    "LogicalName": "Exception_Job",
+    "LogicalExpression": "IS ExceptionJob",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "ExceptionJob",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Exception",
+          "ThreadLocked": true,
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "MS:1000"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Exception_Job:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Exception_Job %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Exception_Job Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Exception_Job:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Exception_Job hat scheinbar False zurückgegeben!\" -Caption=\"Vishnu Fehler\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckSubJobDepth",
+    "LogicalExpression": "Checker >< SubJob1 >< Checker >< SubJob2",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckSubJobDepth:True",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "%Timestamp%: Der Worker hat fälschlicherweise ausgelöst\r\nweil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "SubJob1.1 AND SubJob1.2",
+          "SubJobs": {
+            "SubJob": [
+              {
+                "LogicalName": "SubJob1.1",
+                "LogicalExpression": "SubJob1.1.1 AND SubJob1.1.2",
+                "SubJobs": {
+                  "SubJob": [
+                    {
+                      "LogicalName": "SubJob1.1.1",
+                      "LogicalExpression": "TrueChecker AND CheckerMirror",
+                      "Checkers": {
+                        "Checker": [
+                          {
+                            "LogicalName": "TrueChecker",
+                            "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                            "Parameters": "True",
+                            "Trigger": {
+                              "PhysicalPath": "TimerTrigger.dll",
+                              "Parameters": "S:5"
+                            }
+                          },
+                          {
+                            "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                            "LogicalName": "CheckerMirror",
+                            "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                            "Parameters": "",
+                            "Trigger": {
+                              "LogicalName": "FirstNamedTreeEventTrigger",
+                              "Reference": "LogicalResultChanged|Exception",
+                              "Parameters": "Checker"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "LogicalName": "SubJob1.1.2",
+                      "LogicalExpression": "CheckerMirror2 & SubJob1.1.2.1",
+                      "Checkers": {
+                        "Checker": [
+                          {
+                            "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                            "LogicalName": "CheckerMirror2",
+                            "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                            "Parameters": "",
+                            "Trigger": {
+                              "LogicalName": "FirstNamedTreeEventTrigger",
+                              "Reference": "LogicalResultChanged|Exception",
+                              "Parameters": "Checker"
+                            }
+                          }
+                        ]
+                      },
+                      "SubJobs": {
+                        "SubJob": [
+                          {
+                            "LogicalName": "SubJob1.1.2.1",
+                            "LogicalExpression": "TrueChecker AND CheckerMirror3",
+                            "Checkers": {
+                              "Checker": [
+                                {
+                                  "LogicalName": "TrueChecker",
+                                  "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                                  "Parameters": "True",
+                                  "Trigger": {
+                                    "PhysicalPath": "TimerTrigger.dll",
+                                    "Parameters": "S:5"
+                                  }
+                                },
+                                {
+                                  "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                                  "LogicalName": "CheckerMirror3",
+                                  "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                                  "Parameters": "",
+                                  "Trigger": {
+                                    "LogicalName": "FirstNamedTreeEventTrigger",
+                                    "Reference": "LogicalResultChanged|Exception",
+                                    "Parameters": "Checker"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "LogicalName": "SubJob1.2",
+                "LogicalExpression": "CheckerMirror4 & SubJob1.2.1",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                      "LogicalName": "CheckerMirror4",
+                      "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                      "Parameters": "",
+                      "Trigger": {
+                        "LogicalName": "FirstNamedTreeEventTrigger",
+                        "Reference": "LogicalResultChanged|Exception",
+                        "Parameters": "Checker"
+                      }
+                    }
+                  ]
+                },
+                "SubJobs": {
+                  "SubJob": [
+                    {
+                      "LogicalName": "SubJob1.2.1",
+                      "LogicalExpression": "TrueChecker AND CheckerMirror5",
+                      "Checkers": {
+                        "Checker": [
+                          {
+                            "LogicalName": "TrueChecker",
+                            "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                            "Parameters": "True",
+                            "Trigger": {
+                              "PhysicalPath": "TimerTrigger.dll",
+                              "Parameters": "S:5"
+                            }
+                          },
+                          {
+                            "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                            "LogicalName": "CheckerMirror5",
+                            "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                            "Parameters": "",
+                            "Trigger": {
+                              "LogicalName": "FirstNamedTreeEventTrigger",
+                              "Reference": "LogicalResultChanged|Exception",
+                              "Parameters": "Checker"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob2",
+          "LogicalExpression": "SubJob2.1 & CheckerMirror6",
+          "Checkers": {
+            "Checker": [
+              {
+                "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                "LogicalName": "CheckerMirror6",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "",
+                "Trigger": {
+                  "LogicalName": "FirstNamedTreeEventTrigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "Checker"
+                }
+              }
+            ]
+          },
+          "SubJobs": {
+            "SubJob": [
+              {
+                "LogicalName": "SubJob2.1",
+                "LogicalExpression": "TrueChecker AND CheckerMirror7",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "TrueChecker",
+                      "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                      "Parameters": "True",
+                      "Trigger": {
+                        "PhysicalPath": "TimerTrigger.dll",
+                        "Parameters": "S:5"
+                      }
+                    },
+                    {
+                      "UserControlPath": "DefaultNodeControls\\SingleNodeUserControl.dll",
+                      "LogicalName": "CheckerMirror7",
+                      "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                      "Parameters": "",
+                      "Trigger": {
+                        "LogicalName": "FirstNamedTreeEventTrigger",
+                        "Reference": "LogicalResultChanged|Exception",
+                        "Parameters": "Checker"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

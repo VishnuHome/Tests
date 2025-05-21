@@ -1,0 +1,39 @@
+{
+  "JobDescription": {
+    "LogicalName": "TestMicroMailer",
+    "LogicalExpression": "(Node1) & (Node2)",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "TestMicroMailer:False|Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: TestMicroMailer %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Demo Fehler\" -MessageNewLine=#"
+              },
+              {
+                "PhysicalPath": "MicroMailer.exe",
+                "Parameters": "-Message=\"%Timestamp%: TestMicroMailer %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Demo Fehler\" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@reallyhuman.net\" -MailRecipients=\"e.nagel@neteti.de\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

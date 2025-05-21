@@ -12,7 +12,7 @@
     <PhysicalPath>TextFileLogger.dll</PhysicalPath>
     <Parameters>AnyLogicalResultChanged|Exception</Parameters>
   </JobLogger>
-  <SubJobs>
+  <SubJobs type="Array">
     <SubJob>
       <LogicalName>SubJob1</LogicalName>
       <LogicalExpression><![CDATA[IS Checker | Datum]]></LogicalExpression>

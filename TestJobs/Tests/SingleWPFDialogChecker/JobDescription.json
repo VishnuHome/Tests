@@ -1,0 +1,15 @@
+{
+  "JobDescription": {
+    "LogicalName": "Single WPFDialog Job",
+    "LogicalExpression": ":SingleNode",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "SingleNode",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        }
+      ]
+    }
+  }
+}

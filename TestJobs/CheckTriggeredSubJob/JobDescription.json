@@ -1,0 +1,42 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckTriggeredSubJob",
+    "LogicalExpression": "IS SubJob",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:1"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckTriggeredSubJob:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "%Timestamp%: CheckTriggeredSubJob|Vishnu Worker"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob",
+          "PhysicalPath": "SubJob.json"
+        }
+      ]
+    }
+  }
+}

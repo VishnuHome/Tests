@@ -1,0 +1,114 @@
+{
+  "JobDescription": {
+    "LogicalName": "TwoJobsOneCircle",
+    "LogicalExpression": "SubJob1 >< SubJob2",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "A >< B",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "A",
+                "PhysicalPath": "WPFDialogChecker.dll",
+                "Parameters": "A-Result"
+              },
+              {
+                "LogicalName": "B",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "IsMirror",
+                "Trigger": {
+                  "LogicalName": "B-Trigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "A"
+                }
+              }
+            ]
+          },
+          "Workers": {
+            "Worker": [
+              {
+                "LogicalExpression": "SubJob1:True",
+                "SubWorkers": {
+                  "SubWorker": [
+                    {
+                      "PhysicalPath": "VishnuMessageBox.exe",
+                      "Parameters": "%Timestamp%: SubJob1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob2",
+          "LogicalExpression": "C >< D",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "C",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "IsMirror",
+                "Trigger": {
+                  "LogicalName": "C-Trigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "B"
+                }
+              }
+            ]
+          },
+          "ValueModifiers": {
+            "ValueModifier": [
+              {
+                "LogicalName": "D",
+                "Reference": "A",
+                "Type": "string",
+                "Trigger": {
+                  "LogicalName": "D-Trigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "A"
+                }
+              }
+            ]
+          },
+          "Workers": {
+            "Worker": [
+              {
+                "LogicalExpression": "SubJob2:True",
+                "SubWorkers": {
+                  "SubWorker": [
+                    {
+                      "PhysicalPath": "VishnuMessageBox.exe",
+                      "Parameters": "%Timestamp%: SubJob2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.|Vishnu Fehler"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "TwoJobsOneCircle:True",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "%Timestamp%: TwoJobsOneCircle - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig SubJob1 und SubJob2 unterschiedlich waren.|Vishnu Fehler"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

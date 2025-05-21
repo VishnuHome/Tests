@@ -1,0 +1,37 @@
+{
+  "JobDescription": {
+    "LogicalName": "Root",
+    "LogicalExpression": "Gruppe_1 & Gruppe_2 | Knoten_X",
+    "InitNodes": true,
+    "TriggeredRunDelay": 2000,
+    "JobTrigger": {
+      "Reference": "True",
+      "Parameters": "Knoten_2.2"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Gruppe_1",
+          "PhysicalPath": "Gruppe_1.json"
+        },
+        {
+          "LogicalName": "Gruppe_2",
+          "PhysicalPath": "Gruppe_2.json"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Knoten_X",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False||Knoten_X-Result",
+          "Trigger": {
+            "Reference": "True",
+            "Parameters": "Knoten_2.2"
+          }
+        }
+      ]
+    }
+  }
+}

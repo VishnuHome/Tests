@@ -1,0 +1,114 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Disk Space",
+    "LogicalExpression": "Check_local_C & Check_D & Check_Sql_C",
+    "StartCollapsed": false,
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Check Disk Space"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged,%TempDirectory%\\FNL.log"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Check_local_C",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "Parameters": "Localhost\\c$|20000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:2|S:10"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        },
+        {
+          "LogicalName": "Check_D",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "Parameters": "D|10184|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:3|S:10"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        },
+        {
+          "LogicalName": "Check_Sql_C",
+          "PhysicalPath": "Plugin\\CheckDiskSpace.dll",
+          "Parameters": "\\\\localhost\\c|10000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:4|S:10"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check Disk Space:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check Disk Space %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_local_C:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_local_C %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_D:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_D %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Check_Sql_C:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Check_Sql_C %Event% von %Source% in %Sender%\" -Caption=\"Fehler\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

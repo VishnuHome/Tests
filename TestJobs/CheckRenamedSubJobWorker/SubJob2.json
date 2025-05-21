@@ -1,0 +1,35 @@
+{
+  "JobDescription": {
+    "LogicalName": "SubJob2",
+    "LogicalExpression": "IS Checker2",
+    "BreakWithResult": false,
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker2",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception|10|Checker2-Result",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "SubJob2:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: SubJob2 %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"SubJob2 Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

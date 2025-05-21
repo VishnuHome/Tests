@@ -1,0 +1,14 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckTwoJobConnectorsSub",
+    "LogicalExpression": "IS CheckTwoJobConnectors",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckTwoJobConnectors",
+          "PhysicalPath": "CheckTwoJobConnectors.json"
+        }
+      ]
+    }
+  }
+}

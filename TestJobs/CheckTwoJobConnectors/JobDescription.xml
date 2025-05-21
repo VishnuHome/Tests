@@ -15,7 +15,7 @@
       <Parameters>Exception</Parameters>
     </Logger>
   </Loggers>
-  <SubJobs>
+  <SubJobs type="Array">
     <SubJob>
       <LogicalName>SubJob1</LogicalName>
       <LogicalExpression><![CDATA[IS Checker]]></LogicalExpression>

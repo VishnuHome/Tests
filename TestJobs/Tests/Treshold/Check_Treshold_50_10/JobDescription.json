@@ -1,0 +1,60 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_Treshold",
+    "LogicalExpression": "Node0 TR50 Node1 TR50 Node2 TR50 Node3 TR50 Node4 TR50 Node5 TR50 Node6 TR50 Node7 TR50 Node8 TR50 Node9",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node0",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node3",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node4",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node5",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node6",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node7",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node8",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node9",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        }
+      ]
+    }
+  }
+}

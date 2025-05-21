@@ -5,7 +5,7 @@
     <![CDATA[TrueFalseExceptionChecker_1 & TrueFalseExceptionChecker_2]]>
   </LogicalExpression>
   <BreakWithResult>false</BreakWithResult>
-  <ThreadLocked>false</ThreadLocked>
+  <ThreadLocked LockName="MainTest-false">false</ThreadLocked>
   <StartCollapsed>false</StartCollapsed>
   <IsVolatile>false</IsVolatile>
   <JobSnapshotTrigger>
@@ -17,7 +17,7 @@
       <LogicalName>TrueFalseExceptionChecker_1</LogicalName>
       <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
       <Parameters>Null:True:False:Exception</Parameters>
-      <ThreadLocked>true</ThreadLocked>
+      <ThreadLocked LockName="ConcurrentTest">true</ThreadLocked>
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
         <Parameters>MS:1000|MS:5000</Parameters>

@@ -58,7 +58,7 @@
           </Trigger>
         </Checker>
       </Checkers>
-      <ValueModifiers>
+      <ValueModifiers type="array">
         <ValueModifier>
           <LogicalName>D</LogicalName>
           <Reference>A</Reference>

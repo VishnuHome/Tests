@@ -1,0 +1,34 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Worker Error to Ok",
+    "LogicalExpression": "IS DialogChecker",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "DialogChecker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "DialogChecker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check Worker Error to Ok:False|Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Fehler\" -MessageNewLine=#",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:10"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

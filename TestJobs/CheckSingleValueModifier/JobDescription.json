@@ -1,0 +1,28 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckSingleValueModifier",
+    "LogicalExpression": "\r\n    IS Tag\r\n  ",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "CheckSingleValueModifier"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "CheckDate.dll"
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": [
+        {
+          "LogicalName": "Tag",
+          "Reference": "Datum",
+          "Type": "int",
+          "Format": "{0:dd}"
+        }
+      ]
+    }
+  }
+}

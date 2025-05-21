@@ -1,0 +1,30 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckRenamedSubJobWorker",
+    "LogicalExpression": "SubJob1 & SubJob2_renamed",
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:5|S:15"
+        }
+      ]
+    },
+    "Loggers": {
+      "@type": "array"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "PhysicalPath": "SubJob1.json"
+        },
+        {
+          "LogicalName": "SubJob2_renamed",
+          "PhysicalPath": "SubJob2.json"
+        }
+      ]
+    }
+  }
+}

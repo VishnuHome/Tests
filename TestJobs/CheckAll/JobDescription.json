@@ -1,0 +1,26 @@
+{
+  "JobDescription": {
+    "LogicalName": "Show All",
+    "LogicalExpression": "CheckServers & CheckDiskSpace & CheckTreeEvents",
+    "StartCollapsed": false,
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckServers",
+          "PhysicalPath": "..\\CheckServers",
+          "StartCollapsed": true
+        },
+        {
+          "LogicalName": "CheckDiskSpace",
+          "PhysicalPath": "..\\UserControlsTest\\CheckDiskSpace",
+          "StartCollapsed": false
+        },
+        {
+          "LogicalName": "CheckTreeEvents",
+          "PhysicalPath": "..\\CheckTreeEventTrigger",
+          "StartCollapsed": true
+        }
+      ]
+    }
+  }
+}

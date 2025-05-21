@@ -1,0 +1,87 @@
+{
+  "JobDescription": {
+    "LogicalName": "JobConnectorTest",
+    "LogicalExpression": "SubJob1 AND SubJob2 AND SubJob3",
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged|Exception"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "SingleNode1 OR SingleNode2",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "SingleNode1",
+                "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                "Parameters": "Exception:True:Null:False|5|SingleNode1-Result",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:30"
+                }
+              },
+              {
+                "LogicalName": "SingleNode2",
+                "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                "Parameters": "False|5|SingleNode2-Result",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:17|S:3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob2",
+          "LogicalExpression": "SubJob1 & SubJob1Value1",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "SubJob1Value1",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "",
+                "Trigger": {
+                  "LogicalName": "FirstNamedTreeEventTrigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "SubJob1"
+                },
+                "Logger": {
+                  "Reference": "FirstNamedLogger"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob3",
+          "LogicalExpression": "SubJob1 & SubJob1Value2",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "SubJob1Value2",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "",
+                "Trigger": {
+                  "LogicalName": "FirstNamedTreeEventTrigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "SubJob1"
+                },
+                "Logger": {
+                  "Reference": "FirstNamedLogger"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "JobDescription": {
+    "LogicalName": "Sub_Job",
+    "LogicalExpression": "(Tag | Tag) & Tag",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "JobTrigger": {
+      "Reference": "FirstNamedTimerTrigger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "CheckDate.dll"
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": [
+        {
+          "LogicalName": "Tag",
+          "Reference": "Datum",
+          "Type": "int",
+          "Format": "{0:dd}"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Sub_Job:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "%Timestamp%: Sub_Job|Vishnu Worker"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

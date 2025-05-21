@@ -1,0 +1,32 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_TreeEventTrigger",
+    "LogicalExpression": "flipflop & TreeEventTriggerFlipFlopAbhaengig",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "JobSnapshotTrigger": {
+      "Reference": "|Exception|S:30",
+      "Parameters": "Check_TreeEventTrigger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "flipflop",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "FlipFlop-Result"
+        },
+        {
+          "LogicalName": "TreeEventTriggerFlipFlopAbhaengig",
+          "PhysicalPath": "TriggerEventMirrorChecker.dll",
+          "Trigger": {
+            "LogicalName": "FirstNamedTreeEventTrigger",
+            "Reference": "LogicalResultChanged|Exception",
+            "Parameters": "flipflop"
+          }
+        }
+      ]
+    }
+  }
+}
