@@ -1,0 +1,23 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check ParameterReader",
+    "LogicalExpression": "IS ParameterReaderChecker",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "ParameterReaderChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Exception:False:True|7|\\\\irgendein_Text_Pfad_oder Sonstiges\\%GesuchterParameter%\\Rest",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "JobDescription": {
+    "LogicalName": "Job_11",
+    "LogicalExpression": "(Tag > @26 || Tag > @11 & Tag < @15 => Checker_11 > Datum)\r\n              & (Tag >= @15 & Tag <= @26 || Tag <= @11 => Checker_11 >= Datum_01_15)",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": true,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker_11",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception|10|Checker_11-Result",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          },
+          "ThreadLocked": false
+        },
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "CheckDate.dll",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": [
+        {
+          "LogicalName": "Tag",
+          "Reference": "Datum",
+          "Type": "int",
+          "Format": "{0:dd}",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        },
+        {
+          "LogicalName": "Datum_01_15",
+          "Reference": "Datum",
+          "PhysicalPath": "Plugin\\DateTo_01_15.dll",
+          "Type": "DateTime",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Job_11:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Job_11 %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Test Fehler\" -MessageNewLine=#"
+              },
+              {
+                "PhysicalPath": "MicroMailer.exe",
+                "Parameters": "-Message=\"%Timestamp%: Job_11 %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Test Fehler\" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@any.id\" -MailRecipients=\"e.nagel@any-address.id\""
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Job_11:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Test-Job 'Job_11' ist auf 'false' gesprungen!\" -Caption=\"Test Fehler\""
+              },
+              {
+                "PhysicalPath": "MicroMailer.exe",
+                "Parameters": "-Message=\"%Timestamp%: Der Test-Job 'Job_11' ist auf 'false' gesprungen!\" -Caption=\"Test Fehler\" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@any.id\" -MailRecipients=\"e.nagel@any-address.id\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

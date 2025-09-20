@@ -1,0 +1,40 @@
+{
+  "JobDescription": {
+    "LogicalName": "Event Crossover",
+    "LogicalExpression": "(Exception_Job\r\n              & False_Job)",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:5"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Exception_Job",
+          "PhysicalPath": "Exception_Job.json"
+        },
+        {
+          "LogicalName": "False_Job",
+          "PhysicalPath": "False_Job.json"
+        }
+      ]
+    }
+  }
+}

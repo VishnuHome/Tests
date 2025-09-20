@@ -1,0 +1,54 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckDependentNodeLogic",
+    "LogicalExpression": "Checker >< Checker >< Checker >< Checker",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Checker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckDependentNodeLogic:True",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "Escalator.exe",
+                "Parameters": {
+                  "@Transport": "File",
+                  "SubWorkers": {
+                    "SubWorker": [
+                      {
+                        "@RunCounter": "1",
+                        "PhysicalPath": "#quiet#",
+                        "Parameters": "-Message=\"Stufe 1 (Run 1) %Timestamp%: %MachineName% %Event% von %Source% in %Sender%#Logical: %Logical% %Exception%\" -Caption=\"Info\" -MessageNewLine=#"
+                      },
+                      {
+                        "@RunCounter": "2",
+                        "PhysicalPath": "VishnuMessageBox.exe",
+                        "Parameters": "-Message=\"%Timestamp%: Der Worker hat fälschlicherweise ausgelöst\r\nweil kurzzeitig Originalknoten und NodeConnector unterschiedlich waren.\" -Caption=\"Vishnu Fehler\""
+                      }
+                    ]
+                  }
+                },
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "MS:1"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

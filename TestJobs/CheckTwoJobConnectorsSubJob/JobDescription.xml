@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckTwoJobConnectorsSub</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS CheckTwoJobConnectors]]>
+  </LogicalExpression>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>CheckTwoJobConnectors</LogicalName>
+      <PhysicalPath>CheckTwoJobConnectors.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

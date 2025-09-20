@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Quick Events and Results</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Job_1
+              & Job_2
+              & Job_3
+              & Job_4)
+             & (Job_5
+              & Job_6
+              & Job_7
+              & Job_8)
+             & (Job_9
+              & Job_10
+              & Job_11
+              & Job_12)]]>
+    <!-- ![CDATA[Job_1]] -->
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>MS:1000</Parameters>
+    </Trigger>
+  </Triggers>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception|H:5</Reference>
+    <Parameters>Quick Events and Results</Parameters>
+  </JobSnapshotTrigger>
+  <Loggers type="array">
+    <Logger>
+      <LogicalName>FirstNamedLogger</LogicalName>
+      <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+      <Parameters>LogicalResultChanged</Parameters>
+    </Logger>
+  </Loggers>
+  <!--JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>Exception|LogicalResultChanged</Parameters>
+  </JobLogger-->
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>Job_1</LogicalName>
+      <PhysicalPath>Job_1.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_2</LogicalName>
+      <PhysicalPath>Job_2.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_3</LogicalName>
+      <PhysicalPath>Job_3.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_4</LogicalName>
+      <PhysicalPath>Job_4.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_5</LogicalName>
+      <PhysicalPath>Job_5.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_6</LogicalName>
+      <PhysicalPath>Job_6.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_7</LogicalName>
+      <PhysicalPath>Job_7.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_8</LogicalName>
+      <PhysicalPath>Job_8.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_9</LogicalName>
+      <PhysicalPath>Job_9.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_10</LogicalName>
+      <PhysicalPath>Job_10.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_11</LogicalName>
+      <PhysicalPath>Job_11.xml</PhysicalPath>
+    </SubJob>
+    <SubJob>
+      <LogicalName>Job_12</LogicalName>
+      <PhysicalPath>Job_12.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

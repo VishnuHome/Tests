@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_GT_LT_Bool",
+    "LogicalExpression": "Node1 > Node2",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result2"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result1"
+        }
+      ]
+    }
+  }
+}

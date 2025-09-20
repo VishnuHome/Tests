@@ -1,0 +1,76 @@
+{
+  "JobDescription": {
+    "LogicalName": "SubJob",
+    "LogicalExpression": "TopTrue & (MiddleTrue &(BottomFlipFlop & @BOOL.True))",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": true,
+    "IsVolatile": false,
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:5|S:10"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|AnyLogicalResultChanged"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TopTrue",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        },
+        {
+          "LogicalName": "MiddleTrue",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        },
+        {
+          "LogicalName": "BottomFlipFlop",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:True:False:Exception",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          },
+          "Logger": {
+            "PhysicalPath": "TextFileLogger.dll",
+            "Parameters": "False"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Check TreeEvent Cascade:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Ereignisanzeige\" -MessageNewLine=#"
+              },
+              {
+                "PhysicalPath": "MicroMailer.exe",
+                "Parameters": "-Message=\"%Timestamp%: %MachineName% Check Tree Event Cascade#%Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Server Fehler\" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender=\"Vishnu@any.id\" -MailRecipients=\"e.nagel@any-address.id\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

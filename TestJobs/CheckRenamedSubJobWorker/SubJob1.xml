@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>SubJob1</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS Checker1]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <StartCollapsed>false</StartCollapsed>
+  <!--JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger-->
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Checker1</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker1-Result</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>SubJob1:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: SubJob1 %Event% von %Source% in %Sender%#%Exception%" -Caption="SubJob1 Fehler" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

@@ -1,0 +1,27 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check Timer Reference",
+    "LogicalExpression": "CheckTimerReference_1_Job & CheckTimerReference_2_Job",
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:10"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckTimerReference_1_Job",
+          "PhysicalPath": "CheckTimerReference_1_Job.json"
+        },
+        {
+          "LogicalName": "CheckTimerReference_2_Job",
+          "PhysicalPath": "CheckTimerReference_2_Job.json"
+        }
+      ]
+    }
+  }
+}

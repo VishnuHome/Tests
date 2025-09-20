@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Job_7</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Tag > @26 || Tag > @11 & Tag < @15 => Checker_7 > Datum)
+              & (Tag >= @15 & Tag <= @26 || Tag <= @11 => Checker_7 >= Datum_01_15)]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>true</StartCollapsed>
+  <!--JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger-->
+ <Checkers type="array">
+    <Checker>
+      <LogicalName>Checker_7</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker_7-Result</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+      <ThreadLocked>false</ThreadLocked>
+    </Checker>
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <ValueModifiers type="array">
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </ValueModifier>
+    <ValueModifier>
+      <LogicalName>Datum_01_15</LogicalName>
+      <Reference>Datum</Reference>
+      <PhysicalPath>Plugin\DateTo_01_15.dll</PhysicalPath>
+      <Type>DateTime</Type>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </ValueModifier>
+  </ValueModifiers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Job_7:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Job_7 %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=#</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters><![CDATA[-Message="%Timestamp%: Job_7 %Event% von %Source% in %Sender%#%Exception%" -Caption="Test Fehler" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@any.id" -MailRecipients="e.nagel@any-address.id"]]></Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Job_7:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Der Test-Job 'Job_7' ist auf 'false' gesprungen!" -Caption="Test Fehler"</Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters><![CDATA[-Message="%Timestamp%: Der Test-Job 'Job_7' ist auf 'false' gesprungen!" -Caption="Test Fehler" -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@any.id" -MailRecipients="e.nagel@any-address.id"]]></Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>S:8|S:1</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

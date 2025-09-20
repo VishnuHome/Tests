@@ -1,0 +1,193 @@
+{
+  "JobDescription": {
+    "LogicalName": "J0",
+    "LogicalExpression": "J5 >< J6",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "J5",
+          "LogicalExpression": "J1 >< J2 >< !J3",
+          "SubJobs": {
+            "SubJob": [
+              {
+                "LogicalName": "J1",
+                "LogicalExpression": "A >< B",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "A",
+                      "PhysicalPath": "WPFDialogChecker.dll",
+                      "Parameters": "A-Result"
+                    },
+                    {
+                      "LogicalName": "B",
+                      "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                      "Parameters": "IsMirror",
+                      "Trigger": {
+                        "LogicalName": "B-Trigger",
+                        "Reference": "LogicalResultChanged|Exception",
+                        "Parameters": "A"
+                      }
+                    }
+                  ]
+                },
+                "Workers": {
+                  "Worker": [
+                    {
+                      "LogicalExpression": "J1:True",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "%Timestamp%: J1 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig A und B unterschiedlich waren.|Vishnu Fehler"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "LogicalName": "J2",
+                "LogicalExpression": "B >< D >< !F",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "B",
+                      "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                      "Parameters": "IsMirror",
+                      "Trigger": {
+                        "LogicalName": "B-Trigger",
+                        "Reference": "LogicalResultChanged|Exception",
+                        "Parameters": "A"
+                      }
+                    },
+                    {
+                      "LogicalName": "F",
+                      "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                      "Parameters": "False"
+                    }
+                  ]
+                },
+                "ValueModifiers": {
+                  "ValueModifier": [
+                    {
+                      "LogicalName": "D",
+                      "IsGlobal": true,
+                      "Reference": "A",
+                      "Type": "string",
+                      "Format": "\"{0} (J2/D)\"",
+                      "Trigger": {
+                        "LogicalName": "D-Trigger",
+                        "Reference": "LogicalResultChanged|Exception"
+                      }
+                    }
+                  ]
+                },
+                "Workers": {
+                  "Worker": [
+                    {
+                      "LogicalExpression": "J2:False",
+                      "SubWorkers": {
+                        "SubWorker": [
+                          {
+                            "PhysicalPath": "VishnuMessageBox.exe",
+                            "Parameters": "%Timestamp%: J2 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig B und D (und !F) gleich waren.|Vishnu Fehler"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "LogicalName": "J3",
+                "LogicalExpression": "IS D",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "D",
+                      "IsGlobal": true,
+                      "PhysicalPath": "WPFDialogChecker.dll",
+                      "Parameters": "D-Result"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "J6",
+          "LogicalExpression": "!J5 >< J4 >< F",
+          "Checkers": {
+            "Checker": {
+              "LogicalName": "F",
+              "PhysicalPath": "TrueFalseExceptionChecker.dll",
+              "Parameters": "False"
+            }
+          },
+          "SubJobs": {
+            "SubJob": {
+              "LogicalName": "J4",
+              "LogicalExpression": "X >< Y",
+              "Checkers": {
+                "Checker": [
+                  {
+                    "LogicalName": "X",
+                    "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                    "Parameters": "IsMirror",
+                    "Trigger": {
+                      "LogicalName": "X-Trigger",
+                      "Reference": "LogicalResultChanged|Exception",
+                      "Parameters": "F"
+                    }
+                  },
+                  {
+                    "LogicalName": "Y",
+                    "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                    "Parameters": "False"
+                  }
+                ]
+              },
+              "Workers": {
+                "Worker": [
+                  {
+                    "LogicalExpression": "J4:True",
+                    "SubWorkers": {
+                      "SubWorker": [
+                        {
+                          "PhysicalPath": "VishnuMessageBox.exe",
+                          "Parameters": "%Timestamp%: J4 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig X und Y unterschiedlich waren.|Vishnu Fehler"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "J0:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "%Timestamp%: J0 - der Worker hat fälschlicherweise ausgelöst, weil kurzzeitig J5 und J6 gleich waren.|Vishnu Fehler"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

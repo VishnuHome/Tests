@@ -1,0 +1,48 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check TreeEventTrigger",
+    "LogicalExpression": "Datum & @Bool.true & flipflop",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "S:10|S:10"
+        }
+      ]
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|AnyLogicalResultChanged"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "CheckDate.dll",
+          "Trigger": {
+            "Reference": "LogicalResultChanged|Exception",
+            "Parameters": "Check TreeEventTrigger"
+          }
+        },
+        {
+          "LogicalName": "flipflop",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True:Null:False:Exception",
+          "Trigger": {
+            "Reference": "FirstNamedTimerTrigger"
+          }
+        }
+      ]
+    }
+  }
+}

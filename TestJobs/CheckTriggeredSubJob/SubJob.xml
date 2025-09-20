@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Sub_Job</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Tag | Tag) & Tag]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <JobTrigger>
+    <Reference>FirstNamedTimerTrigger</Reference>
+  </JobTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Datum</LogicalName>
+      <PhysicalPath>CheckDate.dll</PhysicalPath>
+      <!--Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger-->
+    </Checker>
+  </Checkers>
+  <ValueModifiers type="array">
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+      <!--Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger-->
+    </ValueModifier>
+  </ValueModifiers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Sub_Job:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[%Timestamp%: Sub_Job|Vishnu Worker]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

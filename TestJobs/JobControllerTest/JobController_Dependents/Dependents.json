@@ -1,0 +1,27 @@
+{
+  "JobDescription": {
+    "LogicalName": "Dependents",
+    "LogicalExpression": ":Knoten_X",
+    "JobTrigger": {
+      "Reference": "True",
+      "Parameters": "Prerequisites"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Knoten_X",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:False:Exception:True|10|Knoten_X-Result",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|S:5"
+          },
+          "Logger": {
+            "PhysicalPath": "Log2MessageBox.dll",
+            "Parameters": "True"
+          }
+        }
+      ]
+    }
+  }
+}

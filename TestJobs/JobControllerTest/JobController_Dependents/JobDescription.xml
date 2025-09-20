@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+	<LogicalName>Root</LogicalName>
+	<!--IsControlled>True</IsControlled-->
+	<LogicalExpression>
+		<![CDATA[Prerequisites & Dependents]]>
+	</LogicalExpression>
+	<JobLogger>
+		<PhysicalPath>TextFileLogger.dll</PhysicalPath>
+		<Parameters>AnyLogicalResultChanged|Exception</Parameters>
+	</JobLogger>
+	<SubJobs type="array">
+		<SubJob>
+			<LogicalName>Prerequisites</LogicalName>
+			<PhysicalPath>Prerequisites.xml</PhysicalPath>
+		</SubJob>
+		<SubJob>
+			<LogicalName>Dependents</LogicalName>
+			<PhysicalPath>Dependents.xml</PhysicalPath>
+		</SubJob>
+	</SubJobs>
+</JobDescription>

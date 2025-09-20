@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckTriggeredSubJob</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS SubJob]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTimerTrigger</LogicalName>
+      <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+      <Parameters>S:1</Parameters>
+    </Trigger>
+  </Triggers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>CheckTriggeredSubJob:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>
+            <![CDATA[%Timestamp%: CheckTriggeredSubJob|Vishnu Worker]]>
+          </Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>SubJob</LogicalName>
+      <PhysicalPath>SubJob.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

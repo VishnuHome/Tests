@@ -1,0 +1,25 @@
+{
+  "JobDescription": {
+    "LogicalName": "MinimalSubJob",
+    "StartCollapsed": false,
+    "LogicalExpression": "TrueChecker AND SubJob",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TrueChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob",
+          "PhysicalPath": "SubJob.json",
+          "StartCollapsed": false
+        }
+      ]
+    }
+  }
+}

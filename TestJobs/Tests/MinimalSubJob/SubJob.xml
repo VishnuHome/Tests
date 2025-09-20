@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>SubJob</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression><![CDATA[:TrueCheckerSub]]></LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueCheckerSub</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
+    </Checker>
+  </Checkers>
+</JobDescription>

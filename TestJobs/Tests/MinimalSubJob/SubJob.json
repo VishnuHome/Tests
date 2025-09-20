@@ -1,0 +1,16 @@
+{
+  "JobDescription": {
+    "LogicalName": "SubJob",
+    "StartCollapsed": false,
+    "LogicalExpression": ":TrueCheckerSub",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TrueCheckerSub",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        }
+      ]
+    }
+  }
+}

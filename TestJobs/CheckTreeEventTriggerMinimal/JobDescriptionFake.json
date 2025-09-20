@@ -1,0 +1,19 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check TreeEventTrigger",
+    "LogicalExpression": "flipflop & flipflop",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "flipflop",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "FlipFlop-Result"
+        }
+      ]
+    }
+  }
+}

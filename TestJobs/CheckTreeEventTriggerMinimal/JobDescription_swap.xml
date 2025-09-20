@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check TreeEventTrigger</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TreeEventTriggerFlipFlopAbhaengig & flipflop]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <!--JobLogger>
+    <PhysicalPath>TextFileLogger.dll</PhysicalPath>
+    <Parameters>AnyLogicalResultChanged|Exception</Parameters>
+  </JobLogger-->
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>flipflop</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>FlipFlop-Result</Parameters>
+    </Checker>
+    <!--Checker>
+      <LogicalName>flipflop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker-->
+    <Checker>
+      <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
+      <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+      <Parameters>IsMirror</Parameters>
+      <Trigger>
+        <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
+        <Reference>LogicalResultChanged|Exception</Reference>
+        <Parameters>flipflop</Parameters>
+      </Trigger>
+    </Checker>
+    <!--Checker>
+      <LogicalName>TreeEventTriggerFlipFlopAbhaengig</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <Trigger>
+        <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
+        <Reference>LogicalResultChanged|Exception|S:15</Reference>
+        <Parameters>flipflop</Parameters>
+      </Trigger>
+    </Checker-->
+  </Checkers>
+</JobDescription>

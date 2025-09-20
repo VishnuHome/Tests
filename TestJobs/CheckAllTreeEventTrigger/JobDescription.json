@@ -1,0 +1,15 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckAllTreeEventTrigger",
+    "LogicalExpression": "IS CheckTreeEvents",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "CheckTreeEvents",
+          "PhysicalPath": "..\\CheckTreeEventTriggerWorkers",
+          "StartCollapsed": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "Gruppe_1",
+    "LogicalExpression": "Knoten_1.1 & Knoten_1.2",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Knoten_1.1",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True||Knoten_1.1-Result|500"
+        },
+        {
+          "LogicalName": "Knoten_1.2",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True||Knoten_1.2-Result"
+        }
+      ]
+    }
+  }
+}

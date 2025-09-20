@@ -1,0 +1,54 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckWorkers",
+    "LogicalExpression": ":DialogChecker",
+    "StartCollapsed": false,
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Excexxxption|LogicalxxxResultxxxChanged"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "DialogChecker",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckWorkers:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: CheckWorkers %Event% von %Source% in %Sender%:#%Exception%\" -Caption=\"Exception\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "DialogChecker:false",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: DialogChecker %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"DialogChecker Event\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    }
+  }
+}

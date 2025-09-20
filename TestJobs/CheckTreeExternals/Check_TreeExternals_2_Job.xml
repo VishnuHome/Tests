@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check_TreeExternals_2_Job</LogicalName>
+  <LogicalExpression>
+    <![CDATA[Tag > @19 && Tag < @22 => Check_TreeExternals_2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <StartCollapsed>false</StartCollapsed>
+  <JobLogger>
+    <Reference>FirstNamedLogger</Reference>
+  </JobLogger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Check_TreeExternals_2</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception|10|Checker_11-Result</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+		  <Logger>
+    		<Reference>FirstNamedLogger</Reference>
+  		</Logger>
+    </Checker>
+  </Checkers>
+  <ValueModifiers type="array">
+    <ValueModifier>
+      <LogicalName>Tag</LogicalName>
+      <Reference>Datum</Reference>
+      <Type>int</Type>
+      <Format>{0:dd}</Format>
+      <!--Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger-->
+    </ValueModifier>
+  </ValueModifiers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>Check_TreeExternals_2_Job:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Check_TreeExternals_2_Job %Event% von %Source% in %Sender%#%Exception%" -Caption="Check_TreeExternals_2 Fehler" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Check_TreeExternals_1_Job:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp% False in Check_TreeExternals_2!" -Caption="Check_TreeExternals_2 Information"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

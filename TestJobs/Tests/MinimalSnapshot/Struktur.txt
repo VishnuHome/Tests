@@ -1,0 +1,6 @@
+AND(MinimalSubJob): TrueChecker AND SubJob
+	TrueChecker
+	SubJob(Snapshot-Zwischenknoten)
+		IS(SubJob): IS TrueCheckerSub
+			TrueCheckerSub
+	

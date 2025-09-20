@@ -1,0 +1,46 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckDiskSpaceTrueFalseFlip",
+    "LogicalExpression": ":Check_C",
+    "BreakWithResult": false,
+    "ThreadLocked": {
+      "@LockName": "ConcurrentSQL",
+      "#text": false
+    },
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "JobSnapshotTrigger": {
+      "Reference": "LogicalResultChanged|Exception|S:1",
+      "Parameters": "Check Disk Space"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "JobLogger": {
+      "Reference": "FirstNamedLogger"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Check_C",
+          "PhysicalPath": "Plugin\\CheckDiskSpaceTrueFalseFlip.dll",
+          "Parameters": "c:|20000|100|3",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "MS:100"
+          },
+          "Logger": {
+            "Reference": "FirstNamedLogger"
+          },
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckDiskSpace.dll"
+        }
+      ]
+    }
+  }
+}

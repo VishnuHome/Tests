@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+	<LogicalName>Dependents</LogicalName>
+	<LogicalExpression>
+		<![CDATA[:Knoten_X]]>
+	</LogicalExpression>
+	<JobTrigger>
+		<Reference>True</Reference>
+		<Parameters>Prerequisites</Parameters>
+	</JobTrigger>
+	<Checkers type="array">
+		<Checker>
+			<LogicalName>Knoten_X</LogicalName>
+			<PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:False:Exception:True|10|Knoten_X-Result</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:1|S:5</Parameters>
+      </Trigger>
+			<Logger>
+				<PhysicalPath>Log2MessageBox.dll</PhysicalPath>
+				<Parameters>True</Parameters>
+			</Logger>
+		</Checker>
+	</Checkers>
+</JobDescription>

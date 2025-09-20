@@ -1,0 +1,22 @@
+{
+  "JobDescription": {
+    "LogicalName": "EqualGroups",
+    "LogicalExpression": "SubJob1 & SubJob2",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "PhysicalPath": "SubJob1.json"
+        },
+        {
+          "LogicalName": "SubJob2",
+          "PhysicalPath": "SubJob2.json"
+        }
+      ]
+    }
+  }
+}

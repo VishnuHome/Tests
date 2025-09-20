@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_Treshold",
+    "LogicalExpression": "Node0 TR50 Node1",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node0",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        }
+      ]
+    }
+  }
+}

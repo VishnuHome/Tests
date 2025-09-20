@@ -1,0 +1,69 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckAnyTreeEvent",
+    "LogicalExpression": "IS SubJob1 | @true",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "CheckAnyTreeEvent"
+    },
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "AnyLogicalResultChanged|Exception"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "IS Checker | Datum",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Checker",
+                "PhysicalPath": "WPFDialogChecker.dll",
+                "Parameters": "Checker-Result",
+                "Logger": {
+                  "PhysicalPath": "TextFileLogger.dll",
+                  "Parameters": "LogicalResultChanged|Exception"
+                }
+              },
+              {
+                "LogicalName": "Datum",
+                "PhysicalPath": "CheckDate.dll",
+                "Trigger": {
+                  "Reference": "True|AnyLogicalResultChanged|Exception",
+                  "Parameters": "CheckAnyTreeEvent"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "CheckAnyTreeEvent:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"CheckAnyTreeEvent-Ereignisanzeige\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "SubJob1:AnyLogicalResultChanged",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"SubJob1-Ereignisanzeige\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

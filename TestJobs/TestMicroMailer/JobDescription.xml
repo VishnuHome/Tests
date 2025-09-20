@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>TestMicroMailer</LogicalName>
+  <LogicalExpression>
+    <![CDATA[(Node1) & (Node2)]]>
+  </LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>Node1</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result</Parameters>
+    </Checker>
+    <Checker>
+      <LogicalName>Node2</LogicalName>
+      <PhysicalPath>WPFDialogChecker.dll</PhysicalPath>
+      <Parameters>Checker-Result</Parameters>
+    </Checker>
+  </Checkers>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>TestMicroMailer:False|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: TestMicroMailer %Event% von %Source% in %Sender%#%Exception%" -Caption="Demo Fehler" -MessageNewLine=#</Parameters>
+        </SubWorker>
+        <SubWorker>
+          <PhysicalPath>MicroMailer.exe</PhysicalPath>
+          <Parameters><![CDATA[-Message="%Timestamp%: TestMicroMailer %Event% von %Source% in %Sender%#%Exception%" -Caption="Demo Fehler" -MessageNewLine=# -MailHostPort=%MailHostPort% -MailPassword=%MailPassword% -MailSender="Vishnu@reallyhuman.net" -MailRecipients="e.nagel@neteti.de"]]></Parameters>
+          <!-- Trigger>
+            <LogicalName></LogicalName>
+            <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+            <Parameters>M:10</Parameters>
+          </Trigger -->
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

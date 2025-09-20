@@ -1,0 +1,31 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_GT_LT",
+    "LogicalExpression": "Tag < @15 => @15.03.2016 > Datum",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception|S:30",
+      "Parameters": "Check_GT_LT"
+    },
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Datum",
+          "PhysicalPath": "WPFDateDialog.dll"
+        }
+      ]
+    },
+    "ValueModifiers": {
+      "ValueModifier": [
+        {
+          "LogicalName": "Tag",
+          "Reference": "Datum",
+          "Type": "int",
+          "Format": "{0:dd}"
+        }
+      ]
+    }
+  }
+}

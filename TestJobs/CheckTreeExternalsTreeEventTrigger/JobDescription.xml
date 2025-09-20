@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check Tree Externals</LogicalName>
+  <LogicalExpression>
+    <![CDATA[FlipFlop & SubJob]]>
+  </LogicalExpression>
+  <Triggers type="array">
+    <Trigger>
+      <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
+      <Reference>LogicalResultChanged|Exception|S:15</Reference>
+      <Parameters>FlipFlop</Parameters>
+    </Trigger>
+  </Triggers>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>FlipFlop</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>SubJob</LogicalName>
+      <PhysicalPath>SubJob.xml</PhysicalPath>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

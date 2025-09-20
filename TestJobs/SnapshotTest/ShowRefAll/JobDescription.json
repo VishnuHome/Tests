@@ -1,0 +1,79 @@
+{
+  "JobDescription": {
+    "LogicalName": "Show_Ref_All",
+    "LogicalExpression": "TrueChecker & #ShowRefRefRefCheckTreeEventTriggerSnapshot & (#ShowRefRefCheckTreeEventTriggerSnapshot) & (#ShowRefCheckTreeEventTriggerSnapshot & #CheckTreeEventTriggerSnapshot)",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "Show_Ref_All"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "TrueChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#ShowRefRefRefCheckTreeEventTriggerSnapshot",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        },
+        {
+          "LogicalName": "#ShowRefRefCheckTreeEventTriggerSnapshot",
+          "PhysicalPath": "ShowRefRefCheckTreeEventTriggerSnapshot\\JobSnapshot.xml",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll",
+            "Parameters": "ShowRefRefCheckTreeEventTriggerSnapshot\\JobSnapshot.xml|InitialFire|%SnapshotDirectories%"
+          }
+        },
+        {
+          "LogicalName": "#ShowRefCheckTreeEventTriggerSnapshot",
+          "PhysicalPath": "ShowRefCheckTreeEventTriggerSnapshot\\JobSnapshot.xml",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll",
+            "Parameters": "JobSnapshot.xml|InitialFire|%SnapshotDirectories%"
+          }
+        },
+        {
+          "LogicalName": "#CheckTreeEventTriggerSnapshot",
+          "StartCollapsed": true,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Show_Ref_All:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Show_Ref_All %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Test Fehler\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

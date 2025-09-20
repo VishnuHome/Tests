@@ -1,0 +1,84 @@
+{
+  "JobDescription": {
+    "LogicalName": "Quick Events and Results",
+    "LogicalExpression": "(Job_1\r\n              & Job_2\r\n              & Job_3\r\n              & Job_4)\r\n             & (Job_5\r\n              & Job_6\r\n              & Job_7\r\n              & Job_8)\r\n             & (Job_9\r\n              & Job_10\r\n              & Job_11\r\n              & Job_12)",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Triggers": {
+      "Trigger": [
+        {
+          "LogicalName": "FirstNamedTimerTrigger",
+          "PhysicalPath": "TimerTrigger.dll",
+          "Parameters": "MS:1000"
+        }
+      ]
+    },
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception|H:5",
+      "Parameters": "Quick Events and Results"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "LogicalResultChanged"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Job_1",
+          "PhysicalPath": "Job_1.json"
+        },
+        {
+          "LogicalName": "Job_2",
+          "PhysicalPath": "Job_2.json"
+        },
+        {
+          "LogicalName": "Job_3",
+          "PhysicalPath": "Job_3.json"
+        },
+        {
+          "LogicalName": "Job_4",
+          "PhysicalPath": "Job_4.json"
+        },
+        {
+          "LogicalName": "Job_5",
+          "PhysicalPath": "Job_5.json"
+        },
+        {
+          "LogicalName": "Job_6",
+          "PhysicalPath": "Job_6.json"
+        },
+        {
+          "LogicalName": "Job_7",
+          "PhysicalPath": "Job_7.json"
+        },
+        {
+          "LogicalName": "Job_8",
+          "PhysicalPath": "Job_8.json"
+        },
+        {
+          "LogicalName": "Job_9",
+          "PhysicalPath": "Job_9.json"
+        },
+        {
+          "LogicalName": "Job_10",
+          "PhysicalPath": "Job_10.json"
+        },
+        {
+          "LogicalName": "Job_11",
+          "PhysicalPath": "Job_11.json"
+        },
+        {
+          "LogicalName": "Job_12",
+          "PhysicalPath": "Job_12.json"
+        }
+      ]
+    }
+  }
+}

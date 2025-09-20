@@ -1,0 +1,31 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowQuickEventsResults",
+    "LogicalExpression": "IS #QuickEventsResults",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception|S:15",
+      "Parameters": "ShowAll"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#QuickEventsResults",
+          "PhysicalPath": "QuickEventsResults\\JobSnapshot.xml",
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll",
+            "Parameters": "QuickEventsResults\\JobSnapshot.xml|InitialFire|%SnapshotDirectories%"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Check ParameterReader</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS ParameterReaderChecker]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>ParameterReaderChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Exception:False:True|7|\\irgendein_Text_Pfad_oder Sonstiges\%GesuchterParameter%\Rest</Parameters>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>S:10</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

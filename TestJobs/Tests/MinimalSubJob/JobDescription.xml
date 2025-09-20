@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>MinimalSubJob</LogicalName>
+  <StartCollapsed>false</StartCollapsed>
+  <LogicalExpression>TrueChecker AND SubJob</LogicalExpression>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueChecker</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>True</Parameters>
+    </Checker>
+  </Checkers>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>SubJob</LogicalName>
+      <PhysicalPath>SubJob.xml</PhysicalPath>
+      <StartCollapsed>false</StartCollapsed>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

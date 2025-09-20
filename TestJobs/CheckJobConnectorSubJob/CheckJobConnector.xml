@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckJobConnector</LogicalName>
+  <LogicalExpression>
+    <![CDATA[SubJob1 AND SubJob2]]>
+  </LogicalExpression>
+  <SubJobs>
+    <SubJob>
+      <LogicalName>SubJob1</LogicalName>
+      <LogicalExpression><![CDATA[IS Checker]]></LogicalExpression>
+      <Checkers type="Array">
+		    <Checker>
+		      <LogicalName>Checker</LogicalName>
+		      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+		      <Parameters>True:False:Exception|2</Parameters>
+		      <Trigger>
+		        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+		        <Parameters>S:2</Parameters>
+		      </Trigger>
+		    </Checker>
+      </Checkers>
+    </SubJob>
+    <SubJob>
+      <LogicalName>SubJob2</LogicalName>
+      <LogicalExpression><![CDATA[:SubJob1Value]]></LogicalExpression>
+      <Checkers type="Array">
+        <Checker>
+          <LogicalName>SubJob1Value</LogicalName>
+          <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+          <Parameters>IsMirror</Parameters>
+          <Trigger>
+            <LogicalName>FirstNamedTreeEventTrigger</LogicalName>
+            <Reference>LogicalResultChanged|Exception</Reference>
+            <Parameters>SubJob1</Parameters>
+          </Trigger>
+        </Checker>
+      </Checkers>
+    </SubJob>
+  </SubJobs>
+  <Workers type="array">
+    <Worker>
+      <LogicalExpression>SubJob1:LogicalResultChanged|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Event" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>CheckJobConnector:LogicalResultChanged|Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: %Event% von %Source% in %Sender%#%Exception%" -Caption="Server Event" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers>
+</JobDescription>

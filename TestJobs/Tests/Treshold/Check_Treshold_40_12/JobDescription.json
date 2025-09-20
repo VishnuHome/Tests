@@ -1,0 +1,70 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_Treshold",
+    "LogicalExpression": "Node0 TR40 Node1 TR40 Node2 TR40 Node3 TR40 Node4 TR40 Node5 TR40 Node6 TR40 Node7 TR40 Node8 TR40 Node9 TR40 Node10 TR40 Node11",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node0",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node3",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node4",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node5",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node6",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node7",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node8",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node9",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node10",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        },
+        {
+          "LogicalName": "Node11",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Node-Result"
+        }
+      ]
+    }
+  }
+}

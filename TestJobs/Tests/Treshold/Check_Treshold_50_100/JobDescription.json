@@ -1,0 +1,510 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_Treshold",
+    "LogicalExpression": "\r\n    \tNode0 TR50 Node1 TR50 Node2 TR50 Node3 TR50 Node4 TR50 Node5 TR50 Node6 TR50 Node7 TR50 Node8 TR50 Node9\r\n    \tNode10 TR50 Node11 TR50 Node12 TR50 Node13 TR50 Node14 TR50 Node15 TR50 Node16 TR50 Node17 TR50 Node18 TR50 Node19\r\n    \tNode20 TR50 Node21 TR50 Node22 TR50 Node23 TR50 Node24 TR50 Node25 TR50 Node26 TR50 Node27 TR50 Node28 TR50 Node29\r\n    \tNode30 TR50 Node31 TR50 Node32 TR50 Node33 TR50 Node34 TR50 Node35 TR50 Node36 TR50 Node37 TR50 Node38 TR50 Node39\r\n    \tNode40 TR50 Node41 TR50 Node42 TR50 Node43 TR50 Node44 TR50 Node45 TR50 Node46 TR50 Node47 TR50 Node48 TR50 Node49\r\n    \tNode50 TR50 Node51 TR50 Node52 TR50 Node53 TR50 Node54 TR50 Node55 TR50 Node56 TR50 Node57 TR50 Node58 TR50 Node59\r\n    \tNode60 TR50 Node61 TR50 Node62 TR50 Node63 TR50 Node64 TR50 Node65 TR50 Node66 TR50 Node67 TR50 Node68 TR50 Node69\r\n    \tNode70 TR50 Node71 TR50 Node72 TR50 Node73 TR50 Node74 TR50 Node75 TR50 Node76 TR50 Node77 TR50 Node78 TR50 Node79\r\n    \tNode80 TR50 Node81 TR50 Node82 TR50 Node83 TR50 Node84 TR50 Node85 TR50 Node86 TR50 Node87 TR50 Node88 TR50 Node89\r\n    \tNode90 TR50 Node91 TR50 Node92 TR50 Node93 TR50 Node94 TR50 Node95 TR50 Node96 TR50 Node97 TR50 Node98 TR50 Node99\r\n    ",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node0",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node3",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node4",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node5",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node6",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node7",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node8",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node9",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node10",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node11",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node12",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node13",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node14",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node15",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node16",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node17",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node18",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node19",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node20",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node21",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node22",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node23",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node24",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node25",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node26",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node27",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node28",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node29",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node30",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node31",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node32",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node33",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node34",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node35",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node36",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node37",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node38",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node39",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node40",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node41",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node42",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node43",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node44",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node45",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node46",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node47",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node48",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node49",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "true"
+        },
+        {
+          "LogicalName": "Node50",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node51",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node52",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node53",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node54",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node55",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node56",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node57",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node58",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node59",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node60",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node61",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node62",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node63",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node64",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node65",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node66",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node67",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node68",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node69",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node70",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node71",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node72",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node73",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node74",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node75",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node76",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node77",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node78",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node79",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node80",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node81",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node82",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node83",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node84",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node85",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node86",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node87",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node88",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node89",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node90",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node91",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node92",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node93",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node94",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node95",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node96",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node97",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node98",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        },
+        {
+          "LogicalName": "Node99",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "false"
+        }
+      ]
+    }
+  }
+}

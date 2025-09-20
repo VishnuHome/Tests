@@ -1,0 +1,60 @@
+{
+  "JobDescription": {
+    "LogicalName": "Wrong False Exception",
+    "LogicalExpression": "geplanteException & FalseChecker",
+    "BreakWithResult": false,
+    "ThreadLocked": false,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "geplanteException",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Exception",
+          "ThreadLocked": true,
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:1|S:5"
+          }
+        },
+        {
+          "LogicalName": "FalseChecker",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "False",
+          "ThreadLocked": true,
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:13|S:5"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "Wrong False Exception:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Wrong False Exception %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"geplante Exception\" -MessageNewLine=#"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalExpression": "Wrong False Exception:False",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: Diese Meldung darf gar nicht auftreten!\" -Caption=\"Echter Fehler\""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

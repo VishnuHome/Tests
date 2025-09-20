@@ -1,0 +1,31 @@
+{
+  "JobDescription": {
+    "LogicalName": "ShowRefCheckSingleValueModifier",
+    "LogicalExpression": ":#ShowRefCheckSingleValueModifier",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "ShowRefCheckSingleValueModifier"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception|LogicalResultChanged"
+        }
+      ]
+    },
+    "Snapshots": {
+      "Snapshot": [
+        {
+          "LogicalName": "#ShowRefCheckSingleValueModifier",
+          "PhysicalPath": "CheckSingleValueModifier",
+          "StartCollapsed": false,
+          "Trigger": {
+            "PhysicalPath": "FileWatcherTrigger.dll"
+          }
+        }
+      ]
+    }
+  }
+}

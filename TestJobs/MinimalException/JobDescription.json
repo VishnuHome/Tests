@@ -1,0 +1,38 @@
+{
+  "JobDescription": {
+    "LogicalName": "Minimal Exception",
+    "LogicalExpression": "IS MinimalException",
+    "JobSnapshotTrigger": {
+      "Reference": "Exception",
+      "Parameters": "Minimal Exception"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "MinimalException",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "Null:Exception",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    },
+    "Workers": {
+      "Worker": [
+        {
+          "LogicalExpression": "MinimalException:Exception",
+          "SubWorkers": {
+            "SubWorker": [
+              {
+                "PhysicalPath": "VishnuMessageBox.exe",
+                "Parameters": "-Message=\"%Timestamp%: MinimalException %Event% von %Source% in %Sender%#%Exception%\" -Caption=\"Fehlermeldung\" -MessageNewLine=#"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

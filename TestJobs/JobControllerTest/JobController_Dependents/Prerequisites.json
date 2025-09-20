@@ -1,0 +1,24 @@
+{
+  "JobDescription": {
+    "LogicalName": "Prerequisites",
+    "LogicalExpression": "Knoten_1 & Knoten_2",
+    "JobLogger": {
+      "PhysicalPath": "Log2MessageBox.dll",
+      "Parameters": "True"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Knoten_1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Knoten_1-Result"
+        },
+        {
+          "LogicalName": "Knoten_2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Knoten_2-Result"
+        }
+      ]
+    }
+  }
+}

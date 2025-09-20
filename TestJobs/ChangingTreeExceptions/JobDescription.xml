@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>Changing TreeExceptions</LogicalName>
+  <LogicalExpression>
+    <![CDATA[TrueFalseExceptionChecker_1 & TrueFalseExceptionChecker_2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked LockName="MainTest-false">false</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Changing TreeExceptions</Parameters>
+  </JobSnapshotTrigger>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>TrueFalseExceptionChecker_1</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>Null:True:False:Exception</Parameters>
+      <ThreadLocked LockName="ConcurrentTest">true</ThreadLocked>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>MS:1000|MS:5000</Parameters>
+      </Trigger>
+    </Checker>
+    <Checker>
+      <LogicalName>TrueFalseExceptionChecker_2</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <!--Parameters>Null:True:False:Exception</Parameters-->
+      <Parameters>Exception:Null:False:True|7|Checker_12-Result</Parameters>
+      <ThreadLocked>true</ThreadLocked>
+      <Trigger>
+        <PhysicalPath>TimerTrigger.dll</PhysicalPath>
+        <Parameters>MS:300|MS:2030</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <!--Workers type="array">
+    <Worker>
+      <LogicalExpression>Changing TreeExceptions:Exception</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Changing TreeExceptions %Event% von %Source% in %Sender%#%Exception%" -Caption="Changing TreeExceptions" -MessageNewLine=#</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+    <Worker>
+      <LogicalExpression>Changing TreeExceptions:False</LogicalExpression>
+      <SubWorkers type="array">
+        <SubWorker>
+          <PhysicalPath>VishnuMessageBox.exe</PhysicalPath>
+          <Parameters>-Message="%Timestamp%: Changing TreeExceptions: False" -Caption="Changing TreeExceptions"</Parameters>
+        </SubWorker>
+      </SubWorkers>
+    </Worker>
+  </Workers-->
+</JobDescription>

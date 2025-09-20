@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>CheckTimerReference_2_Job</LogicalName>
+  <LogicalExpression>
+    <![CDATA[IS CheckTimerReference_2]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <StartCollapsed>false</StartCollapsed>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>CheckTimerReference_2</LogicalName>
+      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+      <Parameters>False</Parameters>
+      <Trigger>
+        <Reference>FirstNamedTimerTrigger</Reference>
+      </Trigger>
+    </Checker>
+  </Checkers>
+</JobDescription>

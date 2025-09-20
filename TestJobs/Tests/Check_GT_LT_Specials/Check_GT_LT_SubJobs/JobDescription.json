@@ -1,0 +1,38 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_GT_LT_SubJobs",
+    "LogicalExpression": "SubJob1 > SubJob2",
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "IS Node1",
+          "StartCollapsed": false,
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Node1",
+                "PhysicalPath": "WPFDialogChecker.dll",
+                "Parameters": "Checker-Result"
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob2",
+          "LogicalExpression": "IS Node2",
+          "StartCollapsed": false,
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Node2",
+                "PhysicalPath": "WPFDialogChecker.dll",
+                "Parameters": "Checker-Result"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

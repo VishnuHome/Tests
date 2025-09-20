@@ -1,0 +1,33 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckAnyTreeEventSimple",
+    "LogicalExpression": "IS SubJob1",
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "CheckAnyTreeEvent"
+    },
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "AnyLogicalResultChanged|Exception"
+    },
+    "SubJobs": {
+      "SubJob": {
+        "LogicalName": "SubJob1",
+        "LogicalExpression": "IS Checker",
+        "Checkers": {
+          "Checker": [
+            {
+              "LogicalName": "Checker",
+              "PhysicalPath": "WPFDialogChecker.dll",
+              "Parameters": "Checker-Result",
+              "Logger": {
+                "PhysicalPath": "TextFileLogger.dll",
+                "Parameters": "AnyLogicalResultChanged|LogicalResultChanged|Exception"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

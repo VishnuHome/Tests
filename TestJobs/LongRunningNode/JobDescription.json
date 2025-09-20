@@ -1,0 +1,15 @@
+{
+  "JobDescription": {
+    "LogicalName": "Long Running Node",
+    "LogicalExpression": "IS LongRunningNode",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "LongRunningNode",
+          "PhysicalPath": "TrueFalseExceptionChecker.dll",
+          "Parameters": "True|13|LongRunningNode-Result|1503"
+        }
+      ]
+    }
+  }
+}

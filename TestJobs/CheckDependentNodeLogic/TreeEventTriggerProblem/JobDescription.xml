@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JobDescription>
+  <LogicalName>J0</LogicalName>
+  <LogicalExpression>
+    <![CDATA[J5 >< X]]>
+  </LogicalExpression>
+  <BreakWithResult>false</BreakWithResult>
+  <ThreadLocked>true</ThreadLocked>
+  <StartCollapsed>false</StartCollapsed>
+  <IsVolatile>false</IsVolatile>
+  <Checkers type="array">
+    <Checker>
+      <LogicalName>X</LogicalName>
+      <PhysicalPath>TriggerEventMirrorChecker.dll</PhysicalPath>
+      <Parameters>IsMirror</Parameters>
+      <Trigger>
+        <LogicalName>X-Trigger</LogicalName>
+        <Reference>LogicalResultChanged|Exception</Reference>
+        <Parameters>F</Parameters>
+      </Trigger>
+    </Checker>
+  </Checkers>
+  <SubJobs type="array">
+    <SubJob>
+      <LogicalName>J5</LogicalName>
+      <LogicalExpression><![CDATA[IS J2]]></LogicalExpression>
+      <SubJobs type="array">
+        <SubJob>
+          <LogicalName>J2</LogicalName>
+          <LogicalExpression><![CDATA[!F]]></LogicalExpression>
+          <Checkers type="array">
+            <Checker>
+              <LogicalName>F</LogicalName>
+				      <PhysicalPath>TrueFalseExceptionChecker.dll</PhysicalPath>
+				      <Parameters>False</Parameters>
+            </Checker>
+          </Checkers>
+        </SubJob>
+      </SubJobs>
+    </SubJob>
+  </SubJobs>
+</JobDescription>

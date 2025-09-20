@@ -1,0 +1,35 @@
+{
+  "JobDescription": {
+    "LogicalName": "CheckFilesSingle",
+    "LogicalExpression": "Test_Checker AND Test_Checker2",
+    "SingleNodeUserControlPath": "Plugin\\SingleNodeUserControl_CheckFiles.dll",
+    "StartCollapsed": false,
+    "JobSnapshotTrigger": {
+      "Reference": "AnyLogicalResultChanged|Exception",
+      "Parameters": "CheckFilesSingle"
+    },
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Test_Checker",
+          "PhysicalPath": "FileChecker.dll",
+          "UserControlPath": "Plugin\\SingleNodeUserControl_CheckFiles.dll",
+          "Parameters": "COUNT|%JobDirectory%\\TestFiles\\.*\\..+|<|4|Prüft, ob mehr als drei Testfiles vorhanden sind.",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:5"
+          }
+        },
+        {
+          "LogicalName": "Test_Checker2",
+          "PhysicalPath": "FileChecker.dll",
+          "Parameters": "TRACE|%JobDirectory%\\TestFiles\\.*\\..+|<|S:20|Prüft, dass Testfiles nicht älter als 20 Sekunden werden.",
+          "Trigger": {
+            "PhysicalPath": "TimerTrigger.dll",
+            "Parameters": "S:10"
+          }
+        }
+      ]
+    }
+  }
+}

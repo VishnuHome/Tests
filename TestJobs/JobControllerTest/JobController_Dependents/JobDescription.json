@@ -1,0 +1,22 @@
+{
+  "JobDescription": {
+    "LogicalName": "Root",
+    "LogicalExpression": "Prerequisites & Dependents",
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "AnyLogicalResultChanged|Exception"
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "Prerequisites",
+          "PhysicalPath": "Prerequisites.json"
+        },
+        {
+          "LogicalName": "Dependents",
+          "PhysicalPath": "Dependents.json"
+        }
+      ]
+    }
+  }
+}

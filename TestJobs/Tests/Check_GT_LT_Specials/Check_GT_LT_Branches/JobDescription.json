@@ -1,0 +1,20 @@
+{
+  "JobDescription": {
+    "LogicalName": "Check_GT_LT_Branches",
+    "LogicalExpression": "(Node1) > (Node2)",
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "Node1",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        },
+        {
+          "LogicalName": "Node2",
+          "PhysicalPath": "WPFDialogChecker.dll",
+          "Parameters": "Checker-Result"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "JobDescription": {
+    "LogicalName": "J0",
+    "LogicalExpression": "J5 >< X",
+    "BreakWithResult": false,
+    "ThreadLocked": true,
+    "StartCollapsed": false,
+    "IsVolatile": false,
+    "Checkers": {
+      "Checker": [
+        {
+          "LogicalName": "X",
+          "PhysicalPath": "TriggerEventMirrorChecker.dll",
+          "Parameters": "IsMirror",
+          "Trigger": {
+            "LogicalName": "X-Trigger",
+            "Reference": "LogicalResultChanged|Exception",
+            "Parameters": "F"
+          }
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "J5",
+          "LogicalExpression": "IS J2",
+          "SubJobs": {
+            "SubJob": [
+              {
+                "LogicalName": "J2",
+                "LogicalExpression": "!F",
+                "Checkers": {
+                  "Checker": [
+                    {
+                      "LogicalName": "F",
+                      "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                      "Parameters": "False"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

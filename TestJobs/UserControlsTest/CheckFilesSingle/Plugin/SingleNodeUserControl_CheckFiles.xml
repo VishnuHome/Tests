@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SingleNodeUserControl_CheckFiles</name>
+    </assembly>
+    <members>
+        <member name="T:UserNodeControls.ResultViewModel">
+             <summary>
+             Funktion: ViewModel für das Result eines bestimmten Checkers,
+             hier: FileChecker.Result.
+             </summary>
+             <remarks>
+             File: ResultViewModel
+             Autor: Erik Nagel
+            
+             04.06.2015 Erik Nagel: erstellt
+             21.07.2016 Erik Nagel: In foreach-Schleifen wegen thread-safety linq.ToList implementiert.
+             </remarks>
+        </member>
+        <member name="T:UserNodeControls.ResultViewModel.SubResultViewModel">
+            <summary>
+            ViewModel für ein Teilergebnis.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.LogicalResult">
+            <summary>
+            Das logische Einzelergebnis eines Unterergebnisses.
+            true, false oder null.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.FileName">
+            <summary>
+            Der Name einer gelisteten Datei.
+            (i.d.R "Anzahl").
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.FileSize">
+            <summary>
+            Die Größe einer Datei.
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResultViewModel.FileAge">
+            <summary>
+            Die Zeitspanne seit der letzten Änderung einer Datei oder
+            die Dauer der Überwachung dieser Datei (Trace = true).
+             </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.SubResultViewModel.ToString">
+            <summary>
+            Überschriebene ToString()-Methode.
+            Liefert die Properties als String aufbereitet. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.LogicalResult">
+            <summary>
+            Das logische Gesamtergebnis eines Prüfprozesses:
+            true, false oder null.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Mode">
+            <summary>
+            Arbeits-Modus:
+            SIZE=Dateigröße, COUNT=Datei-Anzahl, AGE=Zeit seit letzter Änderung, TRACE=Zeit der Überwachung.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CountFiles">
+            <summary>
+            Die Anzahl der Dateien, die das
+            Prüfkriterium erfüllen.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SearchDir">
+            <summary>
+            Das Verzeichnis aus dem übergebenen Suchpfad. 
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.FileMask">
+            <summary>
+            Der Dateiname aus dem übergebenen Suchpfad. 
+            Der Dateiname kann ein regulärer Ausdruck sein.
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Comparer">
+            <summary>
+            Übergebener Vergleichsoperator (&lt; oder &gt;).
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CriticalFileSizeOrCount">
+            <summary>
+            Größe einer Datei oder Anzahl Dateien, bei deren Überschreitung
+            oder Unterschreitung (je nach Comparer) das Ergebnis der Routine
+            auf false geht.
+            </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.CriticalFileAge">
+            <summary>
+            Maximales oder minimales Alter der gefundenen Dateien
+            (je nach Comparer) bei dem das Ergebnis der Routine auf false geht.
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.Comment">
+            <summary>
+            Klartext-Informationen zur Prüfroutine
+            (was die Routine prüft).
+             </summary>
+        </member>
+        <member name="P:UserNodeControls.ResultViewModel.SubResults">
+            <summary>
+            Bis zu drei KeyValue-Paare mit jeweils DetailName (i.d.R "Anzahl"),
+            und einem KeyValue-Paar bestehend aus DetailValue (i.d.R eine int-Anzahl)
+            und einem Detail-Ergebnis (bool?).
+            </summary>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.#ctor(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konstruktor - übernimmt den DataContext des zugehörigen Vishnu-Knotens.
+            </summary>
+            <param name="parentViewModel">DataContext des zugehörigen Vishnu-Knotens.</param>
+        </member>
+        <member name="M:UserNodeControls.ResultViewModel.HandleResultPropertyChanged">
+            <summary>
+            Wird ausgeführt, wenn sich die Result-Property des ViewModels
+            des zugehörigen Vishnu-Knotens geändert hat.
+            </summary>
+        </member>
+        <member name="T:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles">
+            <summary>
+            Interaktionslogik für SingleNodeUserControl_CheckServer.xaml
+            </summary>
+            <summary>
+            SingleNodeUserControl_CheckFiles
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.#ctor">
+            <summary>
+            Konstruktor - hängt einen EventHandler in ContentRendered.
+            </summary>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.GetUserResultViewModel(Vishnu.Interchange.IVishnuViewModel)">
+            <summary>
+            Konkrete Überschreibung von GetUserResultViewModel, returnt ein spezifisches ResultViewModel.
+            </summary>
+            <param name="vishnuViewModel">Ein spezifisches ResultViewModel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SingleNodeUserControl_CheckFiles.SingleNodeUserControl_CheckFiles.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
