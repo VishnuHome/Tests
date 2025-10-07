@@ -4,6 +4,10 @@
   <LogicalExpression>
     <![CDATA[:SingleNode]]>
   </LogicalExpression>
+  <JobSnapshotTrigger>
+    <Reference>AnyLogicalResultChanged|Exception</Reference>
+    <Parameters>Single Node Job</Parameters>
+  </JobSnapshotTrigger>
   <Checkers type="array">
     <Checker>
       <LogicalName>SingleNode</LogicalName>

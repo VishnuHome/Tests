@@ -14,6 +14,7 @@ _Archiv/
 _Develop/
 _Mock/
 **/Snapshots/
+**/Plugin/
 Snapshots/
 ..bfg-report/
 
