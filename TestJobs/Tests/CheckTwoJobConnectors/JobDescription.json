@@ -1,0 +1,74 @@
+{
+  "JobDescription": {
+    "LogicalName": "JobConnectorTest",
+    "LogicalExpression": "SubJob1 AND SubJob2",
+    "JobLogger": {
+      "PhysicalPath": "TextFileLogger.dll",
+      "Parameters": "AnyLogicalResultChanged|Exception"
+    },
+    "Loggers": {
+      "Logger": [
+        {
+          "LogicalName": "FirstNamedLogger",
+          "PhysicalPath": "TextFileLogger.dll",
+          "Parameters": "Exception"
+        }
+      ]
+    },
+    "SubJobs": {
+      "SubJob": [
+        {
+          "LogicalName": "SubJob1",
+          "LogicalExpression": "IS Checker",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "Checker",
+                "PhysicalPath": "TrueFalseExceptionChecker.dll",
+                "Parameters": "False:Exception:True|2",
+                "Trigger": {
+                  "PhysicalPath": "TimerTrigger.dll",
+                  "Parameters": "S:2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "LogicalName": "SubJob2",
+          "LogicalExpression": "SubJob1 & SubJob1Value1 & SubJob1Value2",
+          "Checkers": {
+            "Checker": [
+              {
+                "LogicalName": "SubJob1Value1",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "IsMirror",
+                "Trigger": {
+                  "LogicalName": "FirstNamedTreeEventTrigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "SubJob1"
+                },
+                "Logger": {
+                  "Reference": "FirstNamedLogger"
+                }
+              },
+              {
+                "LogicalName": "SubJob1Value2",
+                "PhysicalPath": "TriggerEventMirrorChecker.dll",
+                "Parameters": "IsMirror",
+                "Trigger": {
+                  "LogicalName": "FirstNamedTreeEventTrigger",
+                  "Reference": "LogicalResultChanged|Exception",
+                  "Parameters": "SubJob1"
+                },
+                "Logger": {
+                  "Reference": "FirstNamedLogger"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
