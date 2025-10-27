@@ -46,7 +46,6 @@
       <StartCollapsed>true</StartCollapsed>
       <Trigger>
         <PhysicalPath>FileWatcherTrigger.dll</PhysicalPath>
-        <Parameters>JobSnapshot.xml|InitialFire|%SnapshotDirectories%</Parameters>
       </Trigger>
     </Snapshot>
     <Snapshot>

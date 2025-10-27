@@ -14,7 +14,7 @@
           "LogicalName": "Test_Checker",
           "PhysicalPath": "FileChecker.dll",
           "UserControlPath": "Plugin\\SingleNodeUserControl_CheckFiles.dll",
-          "Parameters": "COUNT|%JobDirectory%\\TestFiles\\.*\\..+|<|4|Prüft, ob mehr als drei Testfiles vorhanden sind.",
+          "Parameters": "COUNT|%JobDirectory%\\TestFiles\\.*\\..+|<|4|Prüft, ob weniger als vier Testfiles vorhanden sind.",
           "Trigger": {
             "PhysicalPath": "TimerTrigger.dll",
             "Parameters": "S:5"

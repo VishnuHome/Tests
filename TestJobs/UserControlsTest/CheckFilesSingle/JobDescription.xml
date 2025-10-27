@@ -14,7 +14,7 @@
       <PhysicalPath>FileChecker.dll</PhysicalPath>
       <UserControlPath>Plugin\SingleNodeUserControl_CheckFiles.dll</UserControlPath>
       <Parameters>
-      	<![CDATA[COUNT|%JobDirectory%\TestFiles\.*\..+|<|4|Prüft, ob mehr als drei Testfiles vorhanden sind.]]>
+      	<![CDATA[COUNT|%JobDirectory%\TestFiles\.*\..+|<|4|Prüft, ob weniger als vier Testfiles vorhanden sind.]]>
       </Parameters>
       <Trigger>
         <PhysicalPath>TimerTrigger.dll</PhysicalPath>
